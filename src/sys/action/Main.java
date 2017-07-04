@@ -1,5 +1,6 @@
 package sys.action;
 
+
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
@@ -33,7 +34,7 @@ public class Main {
 		frame.getContentPane().add(new EntranceJpanel());
 		frame.getContentPane().add(new AnnouncementPanel());
 		//测试数据库
-				new Test().test();
+		new Test().test();
 		frame.setVisible(true);
 		System.out.println("用户区宽："+frame.getContentPane().getWidth()+",高："+frame.getContentPane().getHeight());
 		
