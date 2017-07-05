@@ -29,33 +29,37 @@ public class FinMgtDaoImpl implements FinMgtDao {
 	public String query(Object[] objects) {
 		// TODO Auto-generated method stub
 		String sql = "select * from financialManager";
+		String name = null;
 				try{
 					pstmt = conn.prepareStatement(sql);
 					rs = pstmt.executeQuery();
-					while(rs.next())
+					if(rs.next())
 					{
-						String account = rs.getString("account");
-					    String name = rs.getString("name");
+						//String account = rs.getString("account");
+					     name = rs.getString("name");
 					}
 				}catch (SQLException e) {
 					e.printStackTrace();
 				}
-		return null;
+		return name;
 	}
 
 	@Override
 	public boolean updatePassword(Object[] objects) {
 		// TODO Auto-generated method stub
-		String sql = "update financialManager set password=?";
+		String sql = "update financialManager set password = ?";
+		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 			pstmt.setString(1, (String)objects[0]);
-			pstmt.executeUpdate();
+			i = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		if(i == 0)
+		    return false;
+		else
+			return true;
 	}
 
 }
