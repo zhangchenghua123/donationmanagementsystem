@@ -9,12 +9,14 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
+import sys.view.GetResourceClass;
+
 public class AnnounceItem extends JLabel{
 
 	public AnnounceItem(String content){
 		super(content);
-		setPreferredSize(new Dimension(290,30));
-		setFont(new Font("宋体",Font.PLAIN,20));
+		setPreferredSize(new Dimension(GetResourceClass.getRealSize(290),GetResourceClass.getRealSize(30)));
+		setFont(new Font("宋体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addMouseListener(new MouseListener() {
 			

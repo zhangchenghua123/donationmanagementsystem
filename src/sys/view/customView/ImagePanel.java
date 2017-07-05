@@ -8,6 +8,8 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import sys.view.GetResourceClass;
+
 
 /**
  * 图标类的按钮
@@ -34,7 +36,7 @@ public class ImagePanel extends JPanel {
 		int x = 0, y = 0;
 		ImageIcon icon;
 		icon=new ImageIcon(imageUrl);
-		((Graphics2D)g).drawImage(icon.getImage(), x, y, getSize().width,getSize().height, this);// 图片会自动缩�?
+		((Graphics2D)g).drawImage(icon.getImage(), x, y, GetResourceClass.getRealSize(getSize().width),GetResourceClass.getRealSize(getSize().height), this);// 图片会自动缩�?
 	}
 
 }

@@ -19,10 +19,10 @@ import sys.model.objects.Announcement;
  */
 public class AnnValues {
 
-	public ArrayList<Ann> allAnnouncements;
-	public int currentPage=0;
-	public int maxPage;
-	public AnnValues(){
+	public static ArrayList<Ann> allAnnouncements=null;
+	public static int currentPage=0;
+	public static int maxPage;
+	static{
 		allAnnouncements=new ArrayList<Ann>();
 		for(int i=0;i<8;i++){
 			Ann announcement=new Ann();
@@ -38,20 +38,17 @@ public class AnnValues {
 		}
 		maxPage=allAnnouncements.size();
 	}
-	public int getColumnCount() {
-		return 1;
-	}
 
-	public int getRowCountOfCurrentPage() {
+	public static int getRowCountOfCurrentPage() {
 		return (allAnnouncements.size()-currentPage*5)>=5?5:(allAnnouncements.size()-currentPage*5);
 	}
 
-	public String getValueAt(int rowIndex) {
+	public static String getValueAt(int rowIndex) {
 		
 		return 	allAnnouncements.get(currentPage*5+rowIndex).getTitle();
 		
 	}
-	public void nextPage(){
+	public static void nextPage(){
 		currentPage++;
 	}
 

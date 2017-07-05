@@ -4,11 +4,13 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -26,8 +28,10 @@ import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
 
-import sys.GetResourceClass;
-import sys.action.Main;
+import sys.GlobalVariables;
+import sys.model.AnnValues;
+import sys.presenter.LoginPresenter;
+import sys.presenter.Main;
 import sys.view.customView.ImagePanel;
 import sys.view.customView.TextInput;
 
@@ -36,54 +40,132 @@ public class EntranceJpanel extends JPanel{
 	private ImagePanel joinInDonorPanel;
 	private JLabel loginJLabel;
 	private JLabel passwordJLabel;
-	private JLabel donorLoginJLabel;
 	private JLabel loginTypeJLabel;
-	private JTextField accountField;
-	private JTextField passwordField;
+	private JTextField accountField;//输入的账户
+	private JTextField passwordField;//输入的密码
 	private JComboBox type;
 	private ImagePanel loginPanel;
-	Font font1=new Font("宋体", Font.PLAIN, 30);
-	Font font2=new Font("宋体", Font.PLAIN, 25);
+	Font font1=new Font("宋体", Font.PLAIN, GetResourceClass.getRealSize(30));
+	Font font2=new Font("宋体", Font.PLAIN, GetResourceClass.getRealSize(25));
 	
 	String[] types=new String[]{"系统管理员","事例管理员","财务人员","伟大的捐助者"};
 	
 	public EntranceJpanel() {
-		setBounds(0, 85, 300, 300);
+		setBounds(0, GetResourceClass.getRealSize(85), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(300));//不可修改
 		
 //		setBackground(new Color(32,137,202));
 		setLayout(null);
 		
 		joinInDonorPanel=new ImagePanel(GetResourceClass.class.getResource("image/donor_register.png"));
-		joinInDonorPanel.setBounds(0, 0, 300, 80);
+		joinInDonorPanel.setBounds(0, 0, GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(80));
 		joinInDonorPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		loginJLabel=new JLabel("账号:");
-		loginJLabel.setBounds(5, 80, 80, 50);
+		loginJLabel.setBounds( GetResourceClass.getRealSize(5),  GetResourceClass.getRealSize(80),  GetResourceClass.getRealSize(80),  GetResourceClass.getRealSize(50));
 		loginJLabel.setFont(font1);
 		
 		accountField=new TextInput();
-		accountField.setBounds(100, 85, 200, 40);
+		accountField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(85),  GetResourceClass.getRealSize(200),  GetResourceClass.getRealSize(40));
 		accountField.setFont(font2);
 		
 		passwordJLabel=new JLabel("密码:");
-		passwordJLabel.setBounds(5, 130, 80, 50);
+		passwordJLabel.setBounds( GetResourceClass.getRealSize(5),  GetResourceClass.getRealSize(130),  GetResourceClass.getRealSize(80),  GetResourceClass.getRealSize(50));
 		passwordJLabel.setFont(font1);
 		
 		passwordField=new TextInput();
-		passwordField.setBounds(100, 135, 200, 40);
+		passwordField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(135),  GetResourceClass.getRealSize(200),  GetResourceClass.getRealSize(40));
 		passwordField.setFont(font2);
 		
 		loginTypeJLabel=new JLabel("您是:");
-		loginTypeJLabel.setBounds(5, 185, 80, 50);
+		loginTypeJLabel.setBounds( GetResourceClass.getRealSize(5),  GetResourceClass.getRealSize(185),  GetResourceClass.getRealSize(80),  GetResourceClass.getRealSize(50));
 		loginTypeJLabel.setFont(font1);
 		
 		type=new JComboBox<>(types);
-		type.setBounds(100, 185, 195, 50);
+		type.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(185),  GetResourceClass.getRealSize(195),  GetResourceClass.getRealSize(50));
 		type.setUI((ComboBoxUI) MyComboBoxUI.createUI(type));
 		type.setFont(font2);
 		
 		loginPanel=new ImagePanel(GetResourceClass.class.getResource("image/login.png"));
-		loginPanel.setBounds(0, 240, 300, 50);
+		loginPanel.setBounds(5,  GetResourceClass.getRealSize(240),  GetResourceClass.getRealSize(290),  GetResourceClass.getRealSize(50));
+		loginPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		joinInDonorPanel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+				
+				
+			}
+		});
+		
+		loginPanel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				//ignore
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				//ignore
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				//ignore	
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				//ignore				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String userType=type.getSelectedItem().toString();
+				String userAccount=accountField.getText();
+				String password=passwordField.getText();
+				System.out.println(userType+userAccount+password);
+				/**
+				 * 判断用户名和密码是否为空，为空以对话框形式提示用户，都不为空将执行权交给LoginPresenter,
+				 * LoginPresenter验证失败后提示用户，成功调用LoginPresenter的切换页面。
+				 */
+				
+				if(LoginPresenter.login(userType, userAccount, password)){
+					
+				}
+					
+				
+				//根据选择的类型和账户密码验证，验证成功的话，保存信息到全局静态变量。
+				
+			}
+		});
 		add(joinInDonorPanel);
 		add(loginJLabel);
 		add(accountField);
