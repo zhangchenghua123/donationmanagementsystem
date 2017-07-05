@@ -50,7 +50,7 @@ public class FinMgtDaoImpl implements FinMgtDao {
 		try{
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			pstmt.setString(3, (String)objects[2]);
+			pstmt.setString(1, (String)objects[2]);
 			pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();

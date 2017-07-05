@@ -51,7 +51,7 @@ public class NationDaoImpl implements NationDao {
 		int ID = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(2, (int) objects[1]);
+			pstmt.setInt(1, (int) objects[1]);
 			rs = pstmt.executeQuery();
 			ID = rs.getInt(1);
 		}catch (SQLException e) {
