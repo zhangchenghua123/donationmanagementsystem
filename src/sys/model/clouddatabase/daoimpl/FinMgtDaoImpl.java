@@ -18,6 +18,13 @@ public class FinMgtDaoImpl implements FinMgtDao {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
+	
+	public FinMgtDaoImpl()
+	{
+		databaseConnection = new DatabaseConnection();
+		conn = databaseConnection.getConnection();
+	}
+	
 	@Override
 	public String query(Object[] objects) {
 		// TODO Auto-generated method stub
