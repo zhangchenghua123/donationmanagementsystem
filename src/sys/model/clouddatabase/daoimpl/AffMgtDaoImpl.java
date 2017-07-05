@@ -58,6 +58,8 @@ public class AffMgtDaoImpl implements AffMgtDao {
 	@Override
 	public boolean insert(Object[] objects) {
 		// TODO Auto-generated method stub
+		
+		
 		return false;
 	}
 
