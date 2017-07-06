@@ -51,7 +51,7 @@ public class Donor {
 	private String mailbox;
 	private float tolMoney;
 	public Donor(int nationID, String account, String password, String name, String mailbox, float tolMoney) {
-		super();
+		//super();
 		this.nationID = nationID;
 		this.account = account;
 		this.password = password;
