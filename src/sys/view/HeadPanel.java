@@ -1,6 +1,7 @@
 package sys.view;
 
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Label;
 import java.net.URL;
 
@@ -16,6 +17,7 @@ public class HeadPanel extends ImagePanel{
 		
 		super(imageUrl);
 		setBounds(0,0, GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(80));
+		setPreferredSize(new Dimension(GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(80)));
 		setLayout(null);
 		
 		

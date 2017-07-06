@@ -1,5 +1,6 @@
 package sys.presenter;
 
+import sys.model.clouddatabase.daoimpl.DonorDaoImpl;
 import sys.model.objects.Donor;
 /**
  * 
@@ -28,9 +29,10 @@ public class DonorPresenter {
 		
 		return false;
 	}
+	
 	public static boolean accountExisted(String account){
-		
-		return false;
+		Object[] objects=new Object[]{account};
+		return new DonorDaoImpl().accountExisted(objects);
 	}
 	
 	public static boolean emailRepeated(String email){
