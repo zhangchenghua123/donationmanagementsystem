@@ -19,6 +19,12 @@ public class Nationality {
 		this.nation = nation;
 	}
 	private int nationID;
-	private String nation; 
+	private String nation;
+	public Nationality(int nationID, String nation) {
+		//super();
+		this.nationID = nationID;
+		this.nation = nation;
+	} 
+	
 
 }
