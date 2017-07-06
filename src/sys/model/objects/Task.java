@@ -7,14 +7,7 @@ package sys.model.objects;
  */
 public class Task {
 
-	private int taskId;
 	private String task;
-	public int getTaskId() {
-		return taskId;
-	}
-	public void setTaskId(int taskId) {
-		this.taskId = taskId;
-	}
 	public String getTask() {
 		return task;
 	}

@@ -85,7 +85,6 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 			e.printStackTrace();
 		}		
 		return 0;
-
 		
 	}
 

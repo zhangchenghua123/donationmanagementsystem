@@ -12,13 +12,14 @@ public class AffairManager {
 	private String name;
 	private String password;
 	private int taskID;
-	private String task;
-	
-	public String getTask() {
-		return task;
+	public AffairManager(String account,String name,String password,int taskID){
+		this.account=account;
+		this.name=name;
+		this.password=password;
+		this.taskID=taskID;
 	}
-	public void setTask(String task) {
-		this.task = task;
+	public AffairManager() {
+		// TODO 自动生成的构造函数存根
 	}
 	public String getAccount() {
 		return account;
