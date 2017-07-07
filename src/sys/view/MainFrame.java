@@ -18,7 +18,7 @@ public class MainFrame extends JFrame{
 		getContentPane().add(new EntranceJpanel());
 		getContentPane().add(new AnnouncementPanel());
 		getContentPane().add(new LogoJpanel());
-		getContentPane().add(new DoneeInfoJpanel());
+//		getContentPane().add(new DoneeInfoJpanel());
 		getContentPane().add(new DonationJpanel());
 		addWindowListener(new WindowListener() {
 			
@@ -43,14 +43,14 @@ public class MainFrame extends JFrame{
 			@Override
 			public void windowDeactivated(WindowEvent e) {
 				// TODO Auto-generated method stub
-				//做关闭前工作
-				System.exit(0);
+				
 			}
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
 				// TODO Auto-generated method stub
-				
+				//做关闭前工作
+				System.exit(0);
 			}
 			
 			@Override

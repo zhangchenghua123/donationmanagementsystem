@@ -1,4 +1,7 @@
 package sys.presenter;
+
+import sys.model.objects.AffairManager;
+
 /**
  * 
  * @author 邓
@@ -6,6 +9,18 @@ package sys.presenter;
  */
 public class AffairManagerPresenter {
 
+	/**
+	 * 
+	 */
+	public boolean accountAlreadyExisted(String account){
+		return false;
+	}
+	/**
+	 * 
+	 */
+	public boolean register(AffairManager affairManager){
+		return false;
+	}
 	/**
 	 * 判断是否登录成功，成功后将类型，系统管理员对象保存到GlobalVariables静态变量里边
 	 * @param account

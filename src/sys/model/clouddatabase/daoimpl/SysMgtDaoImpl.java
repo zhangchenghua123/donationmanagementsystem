@@ -29,7 +29,9 @@ public class SysMgtDaoImpl implements SysMgtDao {
 		
 		String name=null;
 		try {
-			pstmt=conn.prepareStatement("select * from systemmanager");
+			pstmt=conn.prepareStatement("select * from systemmanager where account=? and password=?");
+			pstmt.setString(1, (String) objects[0]);
+			pstmt.setString(2, (String) objects[1]);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 				name=rs.getString(3);
@@ -45,7 +47,7 @@ public class SysMgtDaoImpl implements SysMgtDao {
 	public boolean updatePassword(Object[] objects) {
 		int row=0;
 		try {
-			pstmt=conn.prepareStatement("update systemmanager set name=?");
+			pstmt=conn.prepareStatement("update systemmanager set password=?");
 			pstmt.setString(1, (String) objects[0]);
 			row=pstmt.executeUpdate();
 		} catch (SQLException e) {

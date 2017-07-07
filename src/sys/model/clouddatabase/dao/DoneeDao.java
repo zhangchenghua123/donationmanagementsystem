@@ -35,7 +35,7 @@ public interface DoneeDao {
 	public boolean insert(Object[] objects);
 	
 	/**
-	 * 获取一个受助者的所有信息，多变查询获取任务名称
+	 * 获取一个受助者的所有信息，多表查询获取任务名称
 	 * @param objects:受助者身份证号
 	 * @return Donee:受助者对象
 	 */

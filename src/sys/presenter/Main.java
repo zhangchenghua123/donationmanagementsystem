@@ -38,7 +38,6 @@ public class Main {
 		//测试数据库
 		System.out.println(Toolkit.getDefaultToolkit().getScreenResolution());
 		System.out.println(Toolkit.getDefaultToolkit().getScreenSize());
-		new Test().test();
 		GlobalVariables.frame.setVisible(true);
 		System.out.println("用户区宽："+GlobalVariables.frame.getContentPane().getWidth()+",高："+GlobalVariables.frame.getContentPane().getHeight());
 		

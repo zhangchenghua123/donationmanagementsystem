@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -33,6 +34,7 @@ import sys.model.AnnValues;
 import sys.presenter.LoginPresenter;
 import sys.presenter.Main;
 import sys.view.customView.ImagePanel;
+import sys.view.customView.MyComboBoxUI;
 import sys.view.customView.TextInput;
 
 public class EntranceJpanel extends JPanel{
@@ -45,8 +47,8 @@ public class EntranceJpanel extends JPanel{
 	private JTextField passwordField;//输入的密码
 	private JComboBox type;
 	private ImagePanel loginPanel;
-	Font font1=new Font("宋体", Font.PLAIN, GetResourceClass.getRealSize(30));
-	Font font2=new Font("宋体", Font.PLAIN, GetResourceClass.getRealSize(25));
+	Font font1=new Font("隶书", Font.PLAIN, GetResourceClass.getRealSize(30));
+	Font font2=new Font("隶书", Font.PLAIN, GetResourceClass.getRealSize(25));
 	
 	String[] types=new String[]{"系统管理员","事例管理员","财务人员","伟大的捐助者"};
 	
@@ -65,7 +67,7 @@ public class EntranceJpanel extends JPanel{
 		loginJLabel.setFont(font1);
 		
 		accountField=new TextInput();
-		accountField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(85),  GetResourceClass.getRealSize(200),  GetResourceClass.getRealSize(40));
+		accountField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(85),  GetResourceClass.getRealSize(190),  GetResourceClass.getRealSize(40));
 		accountField.setFont(font2);
 		
 		passwordJLabel=new JLabel("密码:");
@@ -73,7 +75,7 @@ public class EntranceJpanel extends JPanel{
 		passwordJLabel.setFont(font1);
 		
 		passwordField=new TextInput();
-		passwordField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(135),  GetResourceClass.getRealSize(200),  GetResourceClass.getRealSize(40));
+		passwordField.setBounds( GetResourceClass.getRealSize(100),  GetResourceClass.getRealSize(135),  GetResourceClass.getRealSize(190),  GetResourceClass.getRealSize(40));
 		passwordField.setFont(font2);
 		
 		loginTypeJLabel=new JLabel("您是:");
@@ -118,7 +120,8 @@ public class EntranceJpanel extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
+				DonorRegisterDialog dialog=new DonorRegisterDialog(GlobalVariables.frame);
+				dialog.setVisible(true);
 				
 				
 			}
@@ -158,7 +161,13 @@ public class EntranceJpanel extends JPanel{
 				 */
 				
 				if(LoginPresenter.login(userType, userAccount, password)){
+					System.out.println(userType+"登录成功！账号是:"+userAccount+",密码是:"+password);
 					
+				}
+				else{
+					GlobalVariables.frame.getContentPane().remove(1);
+					GlobalVariables.frame.getContentPane().add(new OperationJpanel(), 1);
+					GlobalVariables.frame.getContentPane().repaint();
 				}
 					
 				
@@ -176,14 +185,4 @@ public class EntranceJpanel extends JPanel{
 		add(loginPanel);
 		
 	}
-	static class MyComboBoxUI extends BasicComboBoxUI {
-	    public static ComponentUI createUI(JComponent c) {
-	      return new MyComboBoxUI();
-	    }
-
-	    protected JButton createArrowButton() {
-	      JButton button = new BasicArrowButton(BasicArrowButton.SOUTH);
-	      return button;
-	    }
-	  }
 }
