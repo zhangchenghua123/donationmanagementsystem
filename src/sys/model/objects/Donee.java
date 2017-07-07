@@ -9,8 +9,8 @@ import java.sql.Date;
  */
 public class Donee {
 
-	private static String identity;
-	private static String name;
+	private  String identity;
+	private  String name;
 	private String gender;
 	private byte[] bytes;
 	private String phone;
@@ -22,8 +22,8 @@ public class Donee {
 	private String experience;
 	private float donatedamount;
 	private float receivedamount;
-	private static int isContinue;
-	private static int finish;
+	private  int isContinue;
+	private  int finish;
 	
 	
 	public Donee(String identity, String name, String gender, byte[] bytes, String phone, String address, String bank,
@@ -45,7 +45,7 @@ public class Donee {
 		this.isContinue = isContinue;
 		this.finish = finish;
 	}
-	public static String getIdentity() {
+	public  String getIdentity() {
 		return identity;
 	}
 	public void setIdentity(String identity) {
@@ -123,13 +123,13 @@ public class Donee {
 	public void setReceivedamount(float receivedamount) {
 		this.receivedamount = receivedamount;
 	}
-	public static int getIsContinue() {
+	public  int getIsContinue() {
 		return isContinue;
 	}
 	public void setIsContinue(int isContinue) {
 		this.isContinue = isContinue;
 	}
-	public static int getFinish() {
+	public int getFinish() {
 		return finish;
 	}
 	public void setFinish(int finish) {
