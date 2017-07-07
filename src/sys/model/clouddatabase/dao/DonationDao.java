@@ -39,4 +39,8 @@ public interface DonationDao {
 	 * @return list：捐助历史集合
 	 */
 	public ArrayList<Donation> getAll();
+	/**
+	 * 获取捐助总人次
+	 */
+	public int getCount();
 }

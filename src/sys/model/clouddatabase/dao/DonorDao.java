@@ -44,5 +44,8 @@ public interface DonorDao {
 	 * @return donor:捐助者对象
 	 */
 	public Donor query(Object[] objects);
-	
+	/**
+	 * 获取捐助者的数量
+	 */
+	public int getCount();
 }

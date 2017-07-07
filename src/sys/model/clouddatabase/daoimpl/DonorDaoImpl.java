@@ -92,4 +92,10 @@ public class DonorDaoImpl implements DonorDao {
 		return null;
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

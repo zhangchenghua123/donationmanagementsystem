@@ -85,4 +85,11 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 		return null;
 	}
 
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
