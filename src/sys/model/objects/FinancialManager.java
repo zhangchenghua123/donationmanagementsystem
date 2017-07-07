@@ -13,12 +13,7 @@ public class FinancialManager {
 	
 	
 	
-	public FinancialManager(String account, String name, String password) {
-		//super();
-		this.account = account;
-		this.name = name;
-		this.password = password;
-	}
+	
 	
 	public String getAccount() {
 		return account;

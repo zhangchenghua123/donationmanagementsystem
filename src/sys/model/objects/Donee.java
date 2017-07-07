@@ -2,9 +2,12 @@ package sys.model.objects;
 
 import java.sql.Date;
 
+import javax.swing.Icon;
+
 /**
  * 受捐者类
- * 属性：身份证号，姓名，性别，图片，电话，地址，银行卡号，任务名称，发布时间，期望金额，经历，已募捐金额，已收到金额，是否继续，是否已结束
+ * 属性：身份证号，姓名，性别，年龄，图片路径（添加受助者时从文件中选择）图片icon（获取受助者时从数据库二进制形成imageicon）
+ * ，电话，地址，银行卡号，任务id，发布时间，期望金额，经历，已募捐金额，已收到金额，是否继续，是否已结束
  * @author 凯
  */
 public class Donee {
@@ -12,7 +15,9 @@ public class Donee {
 	private  String identity;
 	private  String name;
 	private String gender;
-	private byte[] bytes;
+	private int age;
+	private String filePath;
+	private Icon pic;
 	private String phone;
 	private String address;
 	private String bank;
@@ -26,25 +31,7 @@ public class Donee {
 	private  int finish;
 	
 	
-	public Donee(String identity, String name, String gender, byte[] bytes, String phone, String address, String bank,
-			int taskID, Date releaseTime, float expectedamount, String experience, float donatedamount,
-			float receivedamount, int isContinue, int finish) {
-		this.identity = identity;
-		this.name = name;
-		this.gender = gender;
-		this.bytes = bytes;
-		this.phone = phone;
-		this.address = address;
-		this.bank = bank;
-		this.taskID = taskID;
-		this.releaseTime = releaseTime;
-		this.expectedamount = expectedamount;
-		this.experience = experience;
-		this.donatedamount = donatedamount;
-		this.receivedamount = receivedamount;
-		this.isContinue = isContinue;
-		this.finish = finish;
-	}
+	
 	public  String getIdentity() {
 		return identity;
 	}
@@ -63,11 +50,24 @@ public class Donee {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public byte[] getBytes() {
-		return bytes;
+	
+	public int getAge() {
+		return age;
 	}
-	public void setBytes(byte[] bytes) {
-		this.bytes = bytes;
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public Icon getPic() {
+		return pic;
+	}
+	public void setPic(Icon pic) {
+		this.pic = pic;
 	}
 	public String getPhone() {
 		return phone;

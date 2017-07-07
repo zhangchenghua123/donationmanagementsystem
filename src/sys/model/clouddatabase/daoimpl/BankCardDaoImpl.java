@@ -70,7 +70,7 @@ public class BankCardDaoImpl implements BankCardDao {
 		conn=databaseConnection.getConnection();
 		int row=0;
 		try {
-			pstmt=conn.prepareStatement("update platformbankcard set toldonation=?");
+			pstmt=conn.prepareStatement("update platformbankcard set toldonation= toldonation + ?");
 			pstmt.setFloat(1, (float) objects[0]);
 			row=pstmt.executeUpdate();
 		} catch (SQLException e) {

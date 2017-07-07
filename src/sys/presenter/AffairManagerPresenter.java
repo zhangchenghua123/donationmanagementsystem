@@ -1,5 +1,7 @@
 package sys.presenter;
 
+import java.util.ArrayList;
+
 import sys.model.objects.AffairManager;
 
 /**
@@ -16,7 +18,7 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
-	 * 
+	 * affairManager封装着账号，姓名，密码，任务ID
 	 */
 	public boolean register(AffairManager affairManager){
 		return false;
@@ -42,10 +44,10 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
-	 * 获取所有事例管理员
-	 * @return 多行三列数组，每一行有事例管理员账号，姓名，任务名
+	 * 获取所有事例管理员,账号，姓名，任务名称。
+	 * @return 
 	 */
-	public static String[][] getAllAffManagers(){
+	public static ArrayList<AffairManager> getAllAffManagers(){
 		
 		return null;
 	}

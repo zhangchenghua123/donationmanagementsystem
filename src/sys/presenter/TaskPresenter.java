@@ -4,7 +4,7 @@ import sys.view.GetResourceClass;
 
 /**
  * 
- * @author 凯
+ * @author 邓
  *
  */
 public class TaskPresenter {

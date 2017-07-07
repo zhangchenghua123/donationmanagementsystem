@@ -32,11 +32,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 		return false;
 	}
 
-	@Override
-	public boolean updateState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	@Override
 	public ArrayList<Donation> getDonationsByDonor(Object[] objects) {
@@ -77,9 +73,16 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 
 
 	@Override
-	public float getAllAmount() {
+	public boolean updateState(Object[] objects) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
+	}
+
+
+	@Override
+	public ArrayList<Donation> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

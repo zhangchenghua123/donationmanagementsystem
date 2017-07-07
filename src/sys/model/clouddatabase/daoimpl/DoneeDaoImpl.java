@@ -4,7 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.swing.ImageIcon;
 
 import sys.model.clouddatabase.DatabaseConnection;
 import sys.model.clouddatabase.dao.DoneeDao;
@@ -35,7 +43,7 @@ public class DoneeDaoImpl implements DoneeDao {
 		try {
 			
 			//预编译SQL语句
-			pstmt=conn.prepareStatement("select * from donee where identity=?");
+			pstmt=conn.prepareStatement("select identity from donee where identity=?");
 			//给问号赋值
 			for(int i=0;i<objects.length;i++)
 				pstmt.setString(i+1, (String) objects[i]);
@@ -95,6 +103,7 @@ public class DoneeDaoImpl implements DoneeDao {
 	
 	
 	
+
 	@Override
 	public ArrayList<Donee> getAll() {
 		// TODO Auto-generated method stub
@@ -105,8 +114,41 @@ public class DoneeDaoImpl implements DoneeDao {
 			ArrayList<Donee> list = new ArrayList<Donee>();
 			while(rs.next())
 			{
-				list.add(new Donee(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getDate(9), rs.getFloat(10),rs.getString(11), rs.getFloat(12), rs.getFloat(13), rs.getInt(14), rs.getInt(15)));
+				Donee donee=new Donee();
+				donee.setIdentity(rs.getString(1));
+				donee.setName(rs.getString(2));
+				donee.setGender(rs.getString(3));
+				donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.getInteger(donee.getIdentity().substring(6, 10)));
+				
+				ByteArrayOutputStream outputStream=null;
+				InputStream is = rs.getBinaryStream(4);
+				outputStream = new ByteArrayOutputStream();
+				int b = 0;
+				try {
+					while ((b = is.read()) != -1) {
+						outputStream.write(b);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				donee.setPic(new ImageIcon(outputStream.toByteArray()));
+				donee.setPhone(rs.getString(5));
+				donee.setAddress(rs.getString(6));
+				donee.setBank(rs.getString(7));
+				donee.setTaskID(rs.getInt(8));
+				donee.setReleaseTime(rs.getDate(9));
+				donee.setExpectedamount(rs.getFloat(10));
+				donee.setExperience(rs.getString(11));
+				donee.setDonatedamount(rs.getFloat(12));
+				donee.setReceivedamount(rs.getFloat(13));
+				donee.setIsContinue(rs.getInt(14));
+				donee.setFinish(rs.getInt(15));
+				
+				list.add(donee);
+				
 			}
+			
 			return list;
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -174,7 +216,7 @@ public class DoneeDaoImpl implements DoneeDao {
 	@Override
 	public boolean updateFinish(Object[] objects) {
 		// TODO Auto-generated method stub
-		String sql = "update donee set finish = ? where identity = ?";
+		String sql = "update donee set finish = 1 where identity = ?";
 		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);

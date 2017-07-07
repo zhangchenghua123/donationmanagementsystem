@@ -8,6 +8,13 @@ import java.util.Date;
  */
 public class Donor {
 
+	private int nationID;
+	private String nation;
+	private String account;
+	private String password;
+	private String name;
+	private String mailbox;
+	private float tolMoney;
 	public int getNationID() {
 		return nationID;
 	}
@@ -44,19 +51,14 @@ public class Donor {
 	public void setTolMoney(float tolMoney) {
 		this.tolMoney = tolMoney;
 	}
-	private int nationID;
-	private String account;
-	private String password;
-	private String name;
-	private String mailbox;
-	private float tolMoney;
-	public Donor(int nationID, String account, String password, String name, String mailbox, float tolMoney) {
-		//super();
-		this.nationID = nationID;
-		this.account = account;
-		this.password = password;
-		this.name = name;
-		this.mailbox = mailbox;
-		this.tolMoney = tolMoney;
+	
+	public String getNation() {
+		return nation;
 	}
+	public void setNation(String nation) {
+		this.nation = nation;
+	}
+
+	
+	
 }

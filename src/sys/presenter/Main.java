@@ -5,12 +5,17 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.font.TextAttribute;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import sys.GlobalVariables;
 import sys.model.clouddatabase.DatabaseConnection;
@@ -40,8 +45,11 @@ public class Main {
 		System.out.println(Toolkit.getDefaultToolkit().getScreenSize());
 		GlobalVariables.frame.setVisible(true);
 		System.out.println("用户区宽："+GlobalVariables.frame.getContentPane().getWidth()+",高："+GlobalVariables.frame.getContentPane().getHeight());
-		
-		
+		//java.util.Date和java.sql.Date互转
+		Date date=new Date(new java.util.Date().getTime());
+		DateFormat df2 = DateFormat.getDateTimeInstance();//可以精确到时分秒
+		System.out.println(df2.format(date));
+		System.out.println();
 	}
 }
 	

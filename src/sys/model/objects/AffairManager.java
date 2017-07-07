@@ -2,7 +2,7 @@ package sys.model.objects;
 
 /**
  * 事例管理员类
- * 属性：账号，姓名，密码，任务名称
+ * 属性：账号，姓名，密码，任务名称,任务ID
  * @author 邓
  *
  */
@@ -12,13 +12,16 @@ public class AffairManager {
 	private String name;
 	private String password;
 	private String task;
-	public AffairManager(String account,String name,String password, String task){
-		this.account=account;
-		this.name=name;
-		this.password=password;
-		this.task = task;
+	private int taskId;
+
+	public int getTaskId() {
+		return taskId;
 	}
-	
+
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
+
 	public String getTask() {
 		return task;
 	}

@@ -29,20 +29,20 @@ public interface DoneeDao {
 	
 	/**
 	 * 插入一个受助者信息
-	 * @param objects:受助者所有信息
+	 * @param objects:受助者表中所有信息
 	 * @return boolean true:成功 false：失败
 	 */
 	public boolean insert(Object[] objects);
 	
 	/**
-	 * 获取一个受助者的所有信息，多表查询获取任务名称
+	 * 获取一个受助者的所有信息
 	 * @param objects:受助者身份证号
 	 * @return Donee:受助者对象
 	 */
 	public Donee query(Object[] objects);
 	
 	/**
-	 * 获取所有受助者简要信息，包括姓名，性别，图片，地址，期望金额，经历，已募捐金额
+	 * 获取所有受助者信息
 	 * @return list:受助者对象集合
 	 */
 	public ArrayList<Donee> getAll();

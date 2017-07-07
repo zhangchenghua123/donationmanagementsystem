@@ -14,10 +14,11 @@ public interface DonationDao {
 	public boolean insert(Object[] objects);
 	
 	/**
-	 * 修改打款状态
+	 * 修改打款状态为已打款
+	 * @param objects: 时间，捐助者账号，受捐者身份证号
 	 * @return boolean true 成功 false 失败
 	 */
-	public boolean updateState();
+	public boolean updateState(Object[] objects);
 	
 	/**
 	 * 根据捐助者账户查找，多表查询 捐助表，受捐者表
@@ -33,11 +34,9 @@ public interface DonationDao {
 	 * @return list:捐助历史集合
 	 */
 	public ArrayList<Donation> getDonationByDonee(Object[] objects);
-	
 	/**
-	 * 获取总的捐助额
-	 * @return :float
+	 * 获取所有捐助历史记录,按时间排序，最新的在最前边
+	 * @return list：捐助历史集合
 	 */
-	public float getAllAmount();
-	
+	public ArrayList<Donation> getAll();
 }

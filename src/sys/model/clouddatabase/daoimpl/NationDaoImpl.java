@@ -36,7 +36,10 @@ public class NationDaoImpl implements NationDao {
 			ArrayList<Nationality> list = new ArrayList<Nationality>();
 			while(rs.next())
 			{
-				list.add(new Nationality(rs.getInt(1), rs.getString(2)));
+				Nationality nationality=new Nationality();
+				nationality.setNationID(rs.getInt(1));
+				nationality.setNation(rs.getString(2));
+				list.add(nationality);
 			}
 			return list;
 		}catch (SQLException e) {

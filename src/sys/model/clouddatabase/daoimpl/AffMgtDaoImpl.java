@@ -62,8 +62,9 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		try {
 			pstmt=conn.prepareStatement("insert into affairManager values(?,?,?,?)");
 			//给？赋值
-			for(int i=0;i<objects.length;i++)
+			for(int i=0;i<objects.length-1;i++)
 				pstmt.setString(i+1, (String) objects[i]);
+			pstmt.setInt(4, (int) objects[3]);
 			//执行SQL语句
 			int i=pstmt.executeUpdate();
 			if(i>0){
@@ -93,13 +94,16 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			rs=pstmt.executeQuery();
 	        int col = rs.getMetaData().getColumnCount();
 			if(rs.next()){
-				if(rs.getString(3).equals(objects[1])){
-					AffairManager affMg=new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(5));
+					AffairManager affMg=new AffairManager();
+					affMg.setAccount(rs.getString(1));
+					affMg.setName(rs.getString(2));
+					affMg.setPassword(rs.getString(3));
+					affMg.setTaskId(rs.getInt(4));
+					affMg.setTask(rs.getString(5));
 					rs.close();
 					pstmt.close();
 					databaseConnection.closeConnection();
 					return affMg;
-				}
 	        }
 			//return ;
 		}catch (SQLException e) {
@@ -139,7 +143,11 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			rs=pstmt.executeQuery();
 	        //int col = rs.getMetaData().getColumnCount();
 			while(rs.next()){
-	           list.add(new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(5)));
+				AffairManager affMg=new AffairManager();
+				affMg.setAccount(rs.getString(1));
+				affMg.setName(rs.getString(2));
+				affMg.setTask(rs.getString(5));
+	           list.add(affMg);
 	        }
 			rs.close();
 			pstmt.close();
