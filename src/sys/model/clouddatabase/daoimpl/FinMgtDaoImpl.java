@@ -27,10 +27,12 @@ public class FinMgtDaoImpl implements FinMgtDao {
 	@Override
 	public String query(Object[] objects) {
 		// TODO Auto-generated method stub
-		String sql = "select * from financialManager";
+		String sql = "select * from financialManager where account=? and password=?";
 		String name = null;
 				try{
 					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, (String) objects[0]);
+					pstmt.setString(2, (String) objects[1]);
 					rs = pstmt.executeQuery();
 					if(rs.next())
 					{

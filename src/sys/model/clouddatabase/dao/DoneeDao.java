@@ -70,7 +70,7 @@ public interface DoneeDao {
 	 * @param objects:身份证
 	 * @return true 更新成功；false 更新失败
 	 */
-	public boolean updateContinue();
+	public boolean updateContinue(Object[] objects);
 	
 	
 	/**
@@ -78,5 +78,5 @@ public interface DoneeDao {
 	 * @param objects:身份证
 	 * @return boolean true:修改成功 false 修改失败
 	 */
-	public boolean updateFinish();
+	public boolean updateFinish(Object[] objects);
 }

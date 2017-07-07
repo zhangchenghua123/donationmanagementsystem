@@ -117,12 +117,12 @@ public class DoneeDaoImpl implements DoneeDao {
 	@Override
 	public boolean updateDonateAmount(Object[] objects) {
 		// TODO Auto-generated method stub
-		String sql = "update donee set donatedamount = ? where identity = ?";
+		String sql = "update donee set donatedamount = donatedamount + ? where identity = ?";
 		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setFloat(1, (float) objects[0]);
-			pstmt.setString(2, Donee.getIdentity());
+			pstmt.setFloat(1, (float) objects[1]);
+			pstmt.setString(2, (String) objects[0]);
 			i = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -140,8 +140,8 @@ public class DoneeDaoImpl implements DoneeDao {
 		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setFloat(1, (float) objects[0]);
-			pstmt.setString(2, Donee.getIdentity());
+			pstmt.setFloat(1, (float) objects[1]);
+			pstmt.setString(2, (String) objects[0]);
 			i = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -153,14 +153,13 @@ public class DoneeDaoImpl implements DoneeDao {
 	}
 
 	@Override
-	public boolean updateContinue() {
+	public boolean updateContinue(Object[] objects) {
 		// TODO Auto-generated method stub
-		String sql = "update donee set continue = ? where identity = ?";
+		String sql = "update donee set continue = 0 where identity = ?";
 		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Donee.getIsContinue());
-			pstmt.setString(2, Donee.getIdentity());
+			pstmt.setString(1, (String) objects[0]);
 			i = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -173,14 +172,13 @@ public class DoneeDaoImpl implements DoneeDao {
 
 	
 	@Override
-	public boolean updateFinish() {
+	public boolean updateFinish(Object[] objects) {
 		// TODO Auto-generated method stub
 		String sql = "update donee set finish = ? where identity = ?";
 		int i = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Donee.getFinish());
-			pstmt.setString(2, Donee.getIdentity());
+			pstmt.setString(1,(String) objects[0]);
 			i = pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();

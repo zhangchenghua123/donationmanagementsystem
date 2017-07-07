@@ -33,7 +33,7 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		boolean b=false;
 		try {
 			//预编译SQL语句
-			pstmt=conn.prepareStatement("select * from donee where account=?");
+			pstmt=conn.prepareStatement("select * from affairManager where account=?");
 			//给？赋值
 			pstmt.setString(1, (String) objects[0]);
 			//执行SQL语句
@@ -86,13 +86,15 @@ public class AffMgtDaoImpl implements AffMgtDao {
 	public AffairManager query(Object[] objects) {
 		// 登陆时验证事例管理员
 		try{
-			pstmt=conn.prepareStatement("select * from affairManager where account =?");
+			pstmt=conn.prepareStatement("select * "
+										+ "from affairManager natural join task"
+										+ "where account =?");
 			pstmt.setString(1, (String) objects[0]);
 			rs=pstmt.executeQuery();
 	        int col = rs.getMetaData().getColumnCount();
 			if(rs.next()){
 				if(rs.getString(3).equals(objects[1])){
-					AffairManager affMg=new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),Integer.parseInt(rs.getString(4)));
+					AffairManager affMg=new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(5));
 					rs.close();
 					pstmt.close();
 					databaseConnection.closeConnection();
@@ -132,11 +134,12 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		// 列出所有事例管理员
 		ArrayList<AffairManager> list=new ArrayList<AffairManager>();
 		try{
-			pstmt=conn.prepareStatement("select * from affairManager ");
+			pstmt=conn.prepareStatement("select * "
+										+ "from affairManager natural join task");
 			rs=pstmt.executeQuery();
 	        //int col = rs.getMetaData().getColumnCount();
 			while(rs.next()){
-	           list.add(new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),Integer.parseInt(rs.getString(4))));
+	           list.add(new AffairManager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(5)));
 	        }
 			rs.close();
 			pstmt.close();
