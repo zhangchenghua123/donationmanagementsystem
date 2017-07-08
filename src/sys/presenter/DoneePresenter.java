@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 import sys.model.objects.Donee;
-
+/**
+ * 
+ * @author 顾
+ *
+ */
 public class DoneePresenter {
 
 	public static int IDENTITY_EXISTED = 0;
@@ -41,6 +45,7 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static Donee getDonee(String identity) {
+		//暂时不写
 		return null;
 	}
 
@@ -51,12 +56,12 @@ public class DoneePresenter {
 	public static boolean updateReceivedAmount(String identity, float increase) {
 		return false;
 	}
-
-	public static boolean updateContinue() {
+	
+	public static boolean updateContinue(String identity) {
 		return false;
 	}
 
-	public static boolean updateFinish() {
+	public static boolean updateFinish(String identity) {
 		return false;
 	}
 }

@@ -2,6 +2,8 @@ package sys.view;
 
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
+
 public class GetResourceClass {
 
 	/**
@@ -13,4 +15,5 @@ public class GetResourceClass {
 		int pxPerLength=Toolkit.getDefaultToolkit().getScreenResolution();
 		return (int)(px/120.0*pxPerLength);
 	}
+	public static ImageIcon icon;
 }

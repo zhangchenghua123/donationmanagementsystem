@@ -15,7 +15,11 @@ import javax.swing.text.html.ImageView;
 import sys.model.AnnValues;
 import sys.view.customView.ImagePanel;
 import sys.view.tableitem.AnnounceItemLabel;
-
+/**
+ * 主页公告面板
+ * @author Berry
+ *
+ */
 public class AnnouncementPanel extends ImagePanel {
 
 	private JLabel refeshLabel;//刷新按钮
@@ -24,11 +28,10 @@ public class AnnouncementPanel extends ImagePanel {
 	private ArrayList<AnnounceItemLabel> items;
 	private JPanel annspJPanel;
 	public AnnouncementPanel(){
-		super(GetResourceClass.class.getResource("image/announcement_background.png"));
+		super(new ImageIcon(GetResourceClass.class.getResource("image/announcement_background.png")));
 		setName("AnnouncementPanel");
 		setBounds(0, GetResourceClass.getRealSize(400), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(400));
 		setLayout(null);
-		
 		System.out.println("gouzaokaishi");
 		
 		refeshLabel=new JLabel();

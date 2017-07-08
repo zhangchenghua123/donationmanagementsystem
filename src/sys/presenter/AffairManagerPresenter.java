@@ -18,7 +18,7 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
-	 * affairManager封装着账号，姓名，密码，任务ID
+	 * 事例管理员注册，affairManager封装着账号，姓名，密码，任务ID
 	 */
 	public boolean register(AffairManager affairManager){
 		return false;
@@ -34,7 +34,7 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
-	 * 此时登录着的事例管理员信息存在全局变量GlobalVariables静态变量里边
+	 * 此时登录着的事例管理员信息存在全局变量GlobalVariables静态变量里边，从中获取account
 	 * 同时修改全局变量里保存的对象的密码
 	 * @param newPassword
 	 * @return

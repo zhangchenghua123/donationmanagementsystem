@@ -79,4 +79,9 @@ public interface DoneeDao {
 	 * @return boolean true:修改成功 false 修改失败
 	 */
 	public boolean updateFinish(Object[] objects);
+	
+	/**
+	 * 获取总受捐者人数
+	 */
+	public int getCount();
 }

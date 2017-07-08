@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,6 +19,7 @@ import javax.swing.ImageIcon;
 import sys.model.clouddatabase.DatabaseConnection;
 import sys.model.clouddatabase.dao.DoneeDao;
 import sys.model.objects.Donee;
+import sys.view.GetResourceClass;
 
 public class DoneeDaoImpl implements DoneeDao {
 
@@ -71,18 +74,101 @@ public class DoneeDaoImpl implements DoneeDao {
 	@Override
 	public boolean phoneExisted(Object[] objects) {
 		// TODO Auto-generated method stub
-		return false;
+				boolean b=false;
+				try {
+					
+					//预编译SQL语句
+					pstmt=conn.prepareStatement("select phone from donee where phone=?");
+					//给问号赋值
+					for(int i=0;i<objects.length;i++)
+						pstmt.setString(i+1, (String) objects[i]);
+					//执行SQL语句，返回查询结果给rs
+					rs=pstmt.executeQuery();
+					//判断rs是否有数据
+					
+					if(rs.next())
+						b=true;
+					else
+						b=false;
+					
+					//逆序关闭连接和释放空间
+					rs.close();
+					pstmt.close();
+					databaseConnection.closeConnection();
+					return b;
+				}catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				return false;
 	}
 
 	@Override
 	public boolean cardExisted(Object[] objects) {
 		// TODO Auto-generated method stub
-		return false;
+				boolean b=false;
+				try {
+					
+					//预编译SQL语句
+					pstmt=conn.prepareStatement("select bank from donee where bank=?");
+					//给问号赋值
+					for(int i=0;i<objects.length;i++)
+						pstmt.setString(i+1, (String) objects[i]);
+					//执行SQL语句，返回查询结果给rs
+					rs=pstmt.executeQuery();
+					//判断rs是否有数据
+					
+					if(rs.next())
+						b=true;
+					else
+						b=false;
+					
+					//逆序关闭连接和释放空间
+					rs.close();
+					pstmt.close();
+					databaseConnection.closeConnection();
+					return b;
+				}catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				return false;
 	}
 
 	@Override
 	public boolean insert(Object[] objects) {
-		// TODO Auto-generated method stub
+		FileInputStream str=null;
+		try {
+			
+			String sql = "insert into donee values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, (String) objects[0]); // 身份证号号
+			pstmt.setString(2, (String) objects[1]);
+			pstmt.setString(3, (String) objects[2]);
+			
+			str = new FileInputStream((String) objects[3]);
+			pstmt.setBinaryStream(4, str, str.available()); // 图片数据
+			
+			pstmt.setString(5, (String) objects[4]);
+			pstmt.setString(6, (String) objects[5]);
+			pstmt.setString(7, (String) objects[6]);
+			pstmt.setInt(8, (int) objects[7]);
+			pstmt.setDate(9, (java.sql.Date) objects[8]);
+			
+			pstmt.setFloat(10, (float) objects[9]);
+			pstmt.setString(11, (String) objects[10]);
+			pstmt.setFloat(12, 0);
+			pstmt.setFloat(13,0);
+			pstmt.setInt(14, 1);
+			pstmt.setInt(15, 0);
+			
+			System.out.println(pstmt.executeUpdate());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //filename 图片文件路径
+		
+		// 将数据存入数据库
 		return false;
 	}
 
@@ -91,10 +177,17 @@ public class DoneeDaoImpl implements DoneeDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	
+
 	/**
 	 *@author  顾伟宏
 	 * 
@@ -116,9 +209,15 @@ public class DoneeDaoImpl implements DoneeDao {
 			{
 				Donee donee=new Donee();
 				donee.setIdentity(rs.getString(1));
+				System.out.println(donee.getIdentity());
 				donee.setName(rs.getString(2));
+				System.out.println(donee.getName());
 				donee.setGender(rs.getString(3));
-				donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.getInteger(donee.getIdentity().substring(6, 10)));
+				System.out.println(donee.getGender());
+				System.out.println(donee.getIdentity().substring(6, 10));
+				System.out.println(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
+				donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
+				System.out.println(donee.getAge());
 				
 				ByteArrayOutputStream outputStream=null;
 				InputStream is = rs.getBinaryStream(4);
@@ -133,17 +232,30 @@ public class DoneeDaoImpl implements DoneeDao {
 					e.printStackTrace();
 				}
 				donee.setPic(new ImageIcon(outputStream.toByteArray()));
+				GetResourceClass.icon= donee.getPic();
 				donee.setPhone(rs.getString(5));
+				System.out.println(donee.getPhone());
 				donee.setAddress(rs.getString(6));
+				System.out.println(donee.getAddress());
 				donee.setBank(rs.getString(7));
+				System.out.println(donee.getBank());
 				donee.setTaskID(rs.getInt(8));
+				System.out.println(donee.getTaskID());
 				donee.setReleaseTime(rs.getDate(9));
+				DateFormat df2 = DateFormat.getDateTimeInstance();//可以精确到时分秒
+				System.out.println(df2.format(donee.getReleaseTime()));
 				donee.setExpectedamount(rs.getFloat(10));
+				System.out.println(donee.getExpectedamount());
 				donee.setExperience(rs.getString(11));
+				System.out.println(donee.getExperience());
 				donee.setDonatedamount(rs.getFloat(12));
+				System.out.println(donee.getDonatedamount());
 				donee.setReceivedamount(rs.getFloat(13));
+				System.out.println(donee.getReceivedamount());
 				donee.setIsContinue(rs.getInt(14));
+				System.out.println(donee.getIsContinue());
 				donee.setFinish(rs.getInt(15));
+				System.out.println(donee.getFinish());
 				
 				list.add(donee);
 				

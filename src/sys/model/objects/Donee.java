@@ -3,6 +3,7 @@ package sys.model.objects;
 import java.sql.Date;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  * 受捐者类
@@ -17,7 +18,7 @@ public class Donee {
 	private String gender;
 	private int age;
 	private String filePath;
-	private Icon pic;
+	private ImageIcon pic;
 	private String phone;
 	private String address;
 	private String bank;
@@ -63,10 +64,10 @@ public class Donee {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	public Icon getPic() {
+	public ImageIcon getPic() {
 		return pic;
 	}
-	public void setPic(Icon pic) {
+	public void setPic(ImageIcon pic) {
 		this.pic = pic;
 	}
 	public String getPhone() {

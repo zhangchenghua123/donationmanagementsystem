@@ -15,7 +15,7 @@ public class HeadPanel extends ImagePanel{
 
 	public HeadPanel(URL imageUrl) {
 		
-		super(imageUrl);
+		super(new ImageIcon(imageUrl));
 		setBounds(0,0, GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(80));
 		setPreferredSize(new Dimension(GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(80)));
 		setLayout(null);

@@ -2,7 +2,7 @@ package sys.presenter;
 
 /**
  * 
- * @author 顾
+ * @author 邓
  *
  */
 public class SystemManagerPresenter {

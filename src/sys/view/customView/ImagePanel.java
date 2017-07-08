@@ -21,9 +21,12 @@ import sys.view.ModuleJPanel;
 public class ImagePanel extends ModuleJPanel {
 	
 
-	private URL imageUrl;
-	public ImagePanel(URL imageUrl) {
-		this.imageUrl=imageUrl;
+	private ImageIcon icon;
+	public ImagePanel(ImageIcon icon) {
+		this.icon=icon;
+	}
+	public void setImageIcon(ImageIcon icon){
+		this.icon=icon;
 	}
 
 	
@@ -35,8 +38,6 @@ public class ImagePanel extends ModuleJPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		int x = 0, y = 0;
-		ImageIcon icon;
-		icon=new ImageIcon(imageUrl);
 		System.out.println(GetResourceClass.getRealSize(getSize().width));
 		((Graphics2D)g).drawImage(icon.getImage(), x, y, getSize().width,getSize().height, this);// 图片会自动缩�?
 	}

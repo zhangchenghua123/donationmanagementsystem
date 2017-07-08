@@ -2,11 +2,15 @@ package sys.view;
 
 import java.awt.Frame;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.text.html.ImageView;
 
+import sys.GlobalVariables;
+import sys.view.customView.ImagePanel;
 import sys.view.customView.MyComboBoxUI;
 /**
  * 用户点击确认按钮时，先验证要填的信息有没有空的，再验证两次密码一致否，再验证账号是否重复，再验证邮箱是否重复，如有错误，用infoLabel高亮提示，
@@ -50,6 +54,10 @@ public class DonorRegisterDialog extends JDialog {
 		setModal(true);
 		setTitle("捐助者注册页面");
 		setBounds(300, 300, 600, 400);
-		
+		setLayout(null);
+		JButton button=new JButton();
+		button.setIcon(GetResourceClass.icon);
+		button.setBounds(20, 20, 100, 200);
+		add(button);
 	}
 }

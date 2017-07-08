@@ -1,5 +1,6 @@
 package sys.view;
 
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -13,12 +14,13 @@ public class MainFrame extends JFrame{
 		setTitle("欢迎使用慈善捐助管理系统");
 		setSize( GetResourceClass.getRealSize(1218), GetResourceClass.getRealSize(847));
 		setLayout(null);
+		setBackground(Color.white);
 		HeadPanel headPanel=new HeadPanel(GetResourceClass.class.getResource("image/head_bg.png"));
 		getContentPane().add(headPanel);
 		getContentPane().add(new EntranceJpanel());
 		getContentPane().add(new AnnouncementPanel());
 		getContentPane().add(new LogoJpanel());
-//		getContentPane().add(new DoneeInfoJpanel());
+		getContentPane().add(new DoneeInfoJpanel());
 		getContentPane().add(new DonationJpanel());
 		addWindowListener(new WindowListener() {
 			

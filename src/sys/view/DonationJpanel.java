@@ -3,7 +3,11 @@ package sys.view;
 import java.awt.Color;
 
 import javax.swing.JPanel;
-
+/**
+ * 系统捐助
+ * @author Berry
+ *
+ */
 public class DonationJpanel extends JPanel {
 
 	public DonationJpanel(){
