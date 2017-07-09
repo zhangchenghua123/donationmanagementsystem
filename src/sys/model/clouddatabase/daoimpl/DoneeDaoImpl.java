@@ -389,4 +389,62 @@ public class DoneeDaoImpl implements DoneeDao {
 			return true;
 	}
 
+	@Override
+	public ArrayList<Donee> getDoneeByTaskId(Object[] objects) {
+		// TODO Auto-generated method stub
+				String sql = "select * from donee where taskid=?";
+				try{
+					
+					pstmt = conn.prepareStatement( sql );
+					pstmt.setInt(1, (int) objects[0]);
+					rs = pstmt.executeQuery();
+					ArrayList<Donee> list = new ArrayList<Donee>();
+					while(rs.next())
+					{
+						Donee donee=new Donee();
+						donee.setIdentity(rs.getString(1));
+						donee.setName(rs.getString(2));
+						donee.setGender(rs.getString(3));
+						donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
+						
+						ByteArrayOutputStream outputStream=null;
+						InputStream is = rs.getBinaryStream(4);
+						outputStream = new ByteArrayOutputStream();
+						int b = 0;
+						try {
+							while ((b = is.read()) != -1) {
+								outputStream.write(b);
+							}
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						donee.setPic(new ImageIcon(outputStream.toByteArray()));
+						GetResourceClass.icon= donee.getPic();
+						donee.setPhone(rs.getString(5));
+						donee.setAddress(rs.getString(6));
+						donee.setBank(rs.getString(7));
+						donee.setTaskID(rs.getInt(8));
+						donee.setReleaseTime(rs.getDate(9));
+						DateFormat df2 = DateFormat.getDateTimeInstance();//可以精确到时分秒
+						donee.setExpectedamount(rs.getFloat(10));
+						donee.setExperience(rs.getString(11));
+						donee.setDonatedamount(rs.getFloat(12));
+						donee.setReceivedamount(rs.getFloat(13));
+						donee.setIsContinue(rs.getInt(14));
+						donee.setFinish(rs.getInt(15));
+						
+						list.add(donee);
+						
+					}
+					
+					return list;
+				}catch (SQLException e) {
+					e.printStackTrace();
+			}
+				return null;
+	}
+
+	
+	
 }

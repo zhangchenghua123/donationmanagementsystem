@@ -85,4 +85,13 @@ public class DoneePresenter {
 	public static boolean updateFinish(String identity) {
 		return false;
 	}
+	/**
+	 * 2
+	 * @param id
+	 * @return
+	 */
+	public static ArrayList<Donee> getDoneeByTaskId(int id){
+		
+		return null;
+	}
 }

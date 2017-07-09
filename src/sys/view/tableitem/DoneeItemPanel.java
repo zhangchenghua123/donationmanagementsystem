@@ -28,7 +28,11 @@ public class DoneeItemPanel extends JPanel{
 	private JPanel jindutiaoPanel;
 	private JLabel baifenbiLabel;
 	private JLabel haixujuanzhuLabel;
+	
+	private Donee donee;
+	
 	public DoneeItemPanel(Donee donee){
+		this.donee=donee;
 		setLayout(null);
 		setOpaque(true);
 //		setBackground(Color.gray);

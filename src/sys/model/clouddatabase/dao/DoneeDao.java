@@ -84,4 +84,8 @@ public interface DoneeDao {
 	 * 获取总受捐者人数
 	 */
 	public int getCount();
+	/**
+	 * 根据taskid获取受助者
+	 */
+	public ArrayList<Donee> getDoneeByTaskId(Object[] objects);
 }

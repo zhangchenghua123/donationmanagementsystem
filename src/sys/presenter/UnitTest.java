@@ -1,5 +1,10 @@
 package sys.presenter;
 
+import java.sql.Date;
+
+import sys.model.clouddatabase.daoimpl.DoneeDaoImpl;
+import sys.model.objects.Donee;
+
 
 public class UnitTest {
 
@@ -13,7 +18,7 @@ public class UnitTest {
 //		donee.setIdentity("130622199404176215");
 //		donee.setName("张成华");
 //		donee.setGender("男");
-//		donee.setFilePath("c:\\student.png");
+//		donee.setFilePath("c:\\2.jpg");
 //		donee.setPhone("18340861885");
 //		donee.setAddress("大工");
 //		donee.setBank("6217000780014840830");
