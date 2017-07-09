@@ -17,7 +17,7 @@ public class AffairManagerPresenter {
 	 */
 	public static boolean accountAlreadyExisted(String account){
 		AffMgtDaoImpl aff=new AffMgtDaoImpl();
-		Object []object=new Object[2];
+		Object []object=new Object[1];
 		object[0]=account;
 		boolean b=aff.accountAlreadyExisted(object);
 		if(b){
@@ -56,6 +56,7 @@ public class AffairManagerPresenter {
 		AffMgtDaoImpl aff=new AffMgtDaoImpl();
 		AffairManager affair=aff.query(object);
 		if(affair!=null){
+			//将affair存储至GlobalVariables静态变量中
 			return true;
 		}
 		else{

@@ -1,6 +1,7 @@
 package sys.presenter;
 
 import sys.model.clouddatabase.daoimpl.SysMgtDaoImpl;
+import sys.model.objects.SystemManager;
 
 /**
  * 
@@ -17,6 +18,16 @@ public class SystemManagerPresenter {
 	 * @return
 	 */
 	public static boolean login(String account,String password){
+		Object[] object=new Object[2];
+		object[0]=account;
+		object[1]=password;
+		//SystemManager sys=new SystemManager();
+		SysMgtDaoImpl sys=new SysMgtDaoImpl();
+		String s=sys.query(object);
+		if(s!=null){
+			//将对象保存到GlobalVariables静态变量里边
+			return true;
+		}
 		return false;
 	}
 	/**
@@ -26,7 +37,13 @@ public class SystemManagerPresenter {
 	 * @return
 	 */
 	public static boolean updatePassword(String newPassword){
-		
+		Object[] object=new Object[2];
+		object[0]=newPassword;
+		SysMgtDaoImpl sys=new SysMgtDaoImpl();
+		boolean b=sys.updatePassword(object);
+		if(b){
+			return true;
+		}
 		return false;
 	}
 }
