@@ -8,7 +8,8 @@ package sys.presenter;
 public class FinManagerPresenter {
 
 	/**
-	 * 判断是否登录成功，成功后要将类型，财务人员对象保存到GlobalVariables静态变量里边
+	 * 1
+	 * 判断是否登录成功，成功后要将类型"财务人员"，财务人员对象保存到GlobalVariables静态变量里边
 	 * @param account
 	 * @param password
 	 * @return
@@ -18,6 +19,7 @@ public class FinManagerPresenter {
 		return false;
 	}
 	/**
+	 * 2
 	 * 同时修改全局变量里保存的对象的密码
 	 * @param newPassword
 	 * @return

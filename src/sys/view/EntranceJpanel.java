@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,7 +55,7 @@ public class EntranceJpanel extends JPanel {
 	Font font1 = new Font("隶书", Font.PLAIN, GetResourceClass.getRealSize(30));
 	Font font2 = new Font("隶书", Font.PLAIN, GetResourceClass.getRealSize(25));
 
-	String[] types = new String[] { "系统管理员", "事例管理员", "财务人员", "伟大的捐助者" };
+	String[] types = new String[] { "系统管理员", "事例管理员", "财务人员", "捐助者" };
 
 	public EntranceJpanel() {
 		setBounds(0, GetResourceClass.getRealSize(85),
@@ -191,50 +192,49 @@ public class EntranceJpanel extends JPanel {
 				String userType = type.getSelectedItem().toString();
 				String userAccount = accountField.getText();
 				String password = passwordField.getText();
-				System.out.println(userType + userAccount + password);
+				System.out.println("输入的账户和密码分别是："+userAccount +","+ password + ",类型是"+userType);
+				GlobalVariables.userInfo=new HashMap<String, Object>();
+				GlobalVariables.userInfo.put("type", userType);
 				/**
 				 * 判断用户名和密码是否为空，为空以对话框形式提示用户，都不为空将执行权交给LoginPresenter,
 				 * LoginPresenter验证失败后提示用户，成功调用LoginPresenter的切换页面。
 				 */
-//				if (userAccount.equals("")) {
-//					JOptionPane.showMessageDialog(
-//							GlobalVariables.frame.getContentPane(), "账户不能为空!",
-//							"系统信息", JOptionPane.INFORMATION_MESSAGE);
-//					return;
-//				}
-//				else if(password.equals("")){
-//					JOptionPane.showMessageDialog(
-//							GlobalVariables.frame.getContentPane(), "密码不能为空!",
-//							"系统信息", JOptionPane.INFORMATION_MESSAGE);
-//					return;
-//				}
-//				
-//				loginButton.setText("正在登录");
-//				new Timer().schedule(new TimerTask() {
-//
-//					@Override
-//					public void run() {
-//						// TODO Auto-generated method stub
-//						if(!loginstate){
+				if (userAccount.equals("")) {
+					JOptionPane.showMessageDialog(
+							GlobalVariables.frame.getContentPane(), "账户不能为空!",
+							"系统信息", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+				else if(password.equals("")){
+					JOptionPane.showMessageDialog(
+							GlobalVariables.frame.getContentPane(), "密码不能为空!",
+							"系统信息", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+				
+				loginButton.setText("正在登录");
+				if(LoginPresenter.login(userType, userAccount, password)){
+					loginstate=true;
+				}
+				new Timer().schedule(new TimerTask() {
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						if(loginstate){
 							GlobalVariables.frame.getContentPane().remove(1);
 							GlobalVariables.frame.getContentPane().add(
 								new OperationJpanel(), 1);
 							GlobalVariables.frame.getContentPane().repaint();
-//						}
-//					}
-//				}, 2000);
-//				if (LoginPresenter.login(userType, userAccount, password)) {
-//					System.out.println(userType + "登录成功！账号是:" + userAccount
-//							+ ",密码是:" + password);
-//					loginstate=true;
-//				} else {
-//					JOptionPane.showMessageDialog(
-//							GlobalVariables.frame.getContentPane(), "账号或密码错误!",
-//							"系统信息", JOptionPane.INFORMATION_MESSAGE);
-//					loginButton.setText("重新登录");
-//					return;
-//				}
-//
+						}
+						else {
+							JOptionPane.showMessageDialog(
+									GlobalVariables.frame.getContentPane(), "登录失败!",
+									"系统信息", JOptionPane.INFORMATION_MESSAGE);
+							loginButton.setText("登录");
+						}
+					}
+				}, 1000);
 			}
 		});
 		add(joinInDonorPanel);

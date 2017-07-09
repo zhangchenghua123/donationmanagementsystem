@@ -174,13 +174,76 @@ public class DoneeDaoImpl implements DoneeDao {
 
 	@Override
 	public Donee query(Object[] objects) {
-		// TODO Auto-generated method stub
+		Donee donee=null;
+		try {
+			//预编译SQL语句
+			pstmt=conn.prepareStatement("select * from donee where account=?");
+			//给问号赋值
+			pstmt.setString(1, (String) objects[0]);
+			//执行SQL语句，返回查询结果给rs
+			rs=pstmt.executeQuery();
+			//判断rs是否有数据
+			
+			if(rs.next()){
+				donee=new Donee();
+				donee.setIdentity(rs.getString(1));
+				donee.setName(rs.getString(2));
+				donee.setGender(rs.getString(3));
+				donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
+				
+				ByteArrayOutputStream outputStream=null;
+				InputStream is = rs.getBinaryStream(4);
+				outputStream = new ByteArrayOutputStream();
+				int b = 0;
+				try {
+					while ((b = is.read()) != -1) {
+						outputStream.write(b);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				donee.setPic(new ImageIcon(outputStream.toByteArray()));
+				GetResourceClass.icon= donee.getPic();
+				donee.setPhone(rs.getString(5));
+				donee.setAddress(rs.getString(6));
+				donee.setBank(rs.getString(7));
+				donee.setTaskID(rs.getInt(8));
+				donee.setReleaseTime(rs.getDate(9));
+				DateFormat df2 = DateFormat.getDateTimeInstance();//可以精确到时分秒
+				donee.setExpectedamount(rs.getFloat(10));
+				donee.setExperience(rs.getString(11));
+				donee.setDonatedamount(rs.getFloat(12));
+				donee.setReceivedamount(rs.getFloat(13));
+				donee.setIsContinue(rs.getInt(14));
+				donee.setFinish(rs.getInt(15));
+			}
+			//逆序关闭连接和释放空间
+			rs.close();
+			pstmt.close();
+			databaseConnection.closeConnection();
+			return donee;
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return null;
 	}
 	
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+		
+		String sql = "select count(*) from donee";
+		try{
+			pstmt = conn.prepareStatement( sql );
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				return rs.getInt(1);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		return 0;
 	}
 	
@@ -209,15 +272,9 @@ public class DoneeDaoImpl implements DoneeDao {
 			{
 				Donee donee=new Donee();
 				donee.setIdentity(rs.getString(1));
-				System.out.println(donee.getIdentity());
 				donee.setName(rs.getString(2));
-				System.out.println(donee.getName());
 				donee.setGender(rs.getString(3));
-				System.out.println(donee.getGender());
-				System.out.println(donee.getIdentity().substring(6, 10));
-				System.out.println(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
 				donee.setAge(Calendar.getInstance().get(Calendar.YEAR)-Integer.parseInt(donee.getIdentity().substring(6, 10)));
-				System.out.println(donee.getAge());
 				
 				ByteArrayOutputStream outputStream=null;
 				InputStream is = rs.getBinaryStream(4);
@@ -234,28 +291,17 @@ public class DoneeDaoImpl implements DoneeDao {
 				donee.setPic(new ImageIcon(outputStream.toByteArray()));
 				GetResourceClass.icon= donee.getPic();
 				donee.setPhone(rs.getString(5));
-				System.out.println(donee.getPhone());
 				donee.setAddress(rs.getString(6));
-				System.out.println(donee.getAddress());
 				donee.setBank(rs.getString(7));
-				System.out.println(donee.getBank());
 				donee.setTaskID(rs.getInt(8));
-				System.out.println(donee.getTaskID());
 				donee.setReleaseTime(rs.getDate(9));
 				DateFormat df2 = DateFormat.getDateTimeInstance();//可以精确到时分秒
-				System.out.println(df2.format(donee.getReleaseTime()));
 				donee.setExpectedamount(rs.getFloat(10));
-				System.out.println(donee.getExpectedamount());
 				donee.setExperience(rs.getString(11));
-				System.out.println(donee.getExperience());
 				donee.setDonatedamount(rs.getFloat(12));
-				System.out.println(donee.getDonatedamount());
 				donee.setReceivedamount(rs.getFloat(13));
-				System.out.println(donee.getReceivedamount());
 				donee.setIsContinue(rs.getInt(14));
-				System.out.println(donee.getIsContinue());
 				donee.setFinish(rs.getInt(15));
-				System.out.println(donee.getFinish());
 				
 				list.add(donee);
 				

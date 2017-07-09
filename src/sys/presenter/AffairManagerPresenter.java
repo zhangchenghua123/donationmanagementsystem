@@ -12,19 +12,21 @@ import sys.model.objects.AffairManager;
 public class AffairManagerPresenter {
 
 	/**
-	 * 
+	 * 1
 	 */
-	public boolean accountAlreadyExisted(String account){
+	public static boolean accountAlreadyExisted(String account){
 		return false;
 	}
 	/**
+	 * 1
 	 * 事例管理员注册，affairManager封装着账号，姓名，密码，任务ID
 	 */
-	public boolean register(AffairManager affairManager){
+	public static boolean register(AffairManager affairManager){
 		return false;
 	}
 	/**
-	 * 判断是否登录成功，成功后将类型，系统管理员对象保存到GlobalVariables静态变量里边
+	 * 1
+	 * 判断是否登录成功，成功后将类型"事例管理员"，系统管理员对象保存到GlobalVariables静态变量里边
 	 * @param account
 	 * @param password
 	 * @return
@@ -34,6 +36,7 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
+	 * 2
 	 * 此时登录着的事例管理员信息存在全局变量GlobalVariables静态变量里边，从中获取account
 	 * 同时修改全局变量里保存的对象的密码
 	 * @param newPassword
@@ -44,6 +47,7 @@ public class AffairManagerPresenter {
 		return false;
 	}
 	/**
+	 * 1
 	 * 获取所有事例管理员,账号，姓名，任务名称。
 	 * @return 
 	 */

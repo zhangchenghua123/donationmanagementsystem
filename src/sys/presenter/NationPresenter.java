@@ -10,7 +10,11 @@ import sys.model.objects.Nationality;
  */
 public class NationPresenter {
 
-	public ArrayList<Nationality> getAll(){
+	/**
+	 * 1
+	 * @return
+	 */
+	public static ArrayList<Nationality> getAll(){
 		return null;
 	}
 }

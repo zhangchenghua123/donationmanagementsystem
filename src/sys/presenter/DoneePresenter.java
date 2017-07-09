@@ -17,6 +17,7 @@ public class DoneePresenter {
 	public static int CARD_EXISTED = 2;
 
 	/**
+	 * 1
 	 * 验证身份证是否存在，存在返回IDENTITY_EXISTED 否则验证手机号是否存在，存在返回PHONE_EXISTED
 	 * 否则验证银行卡是否存在，存在返回CARD_EXISTED
 	 * 
@@ -30,7 +31,8 @@ public class DoneePresenter {
 	}
 
 	/**
-	 * 获取所有受助者简要信息，包括姓名，性别，图片，地址，期望金额，经历，已募捐金额
+	 * 1
+	 * 获取所有受助者信息
 	 * 
 	 * @return
 	 */
@@ -39,7 +41,8 @@ public class DoneePresenter {
 	}
 
 	/**
-	 * 根据身份证获取详细信息
+	 * 2
+	 * 根据身份证获取某一个受捐者信息
 	 * 
 	 * @param identity
 	 * @return
@@ -48,19 +51,37 @@ public class DoneePresenter {
 		//暂时不写
 		return null;
 	}
-
+	/**
+	 * 2
+	 * @param identity
+	 * @param increase
+	 * @return
+	 */
 	public static boolean updateDonateAmount(String identity, float increase) {
 		return false;
 	}
-
+	/**
+	 * 2
+	 * @param identity
+	 * @param increase
+	 * @return
+	 */
 	public static boolean updateReceivedAmount(String identity, float increase) {
 		return false;
 	}
-	
+	/**
+	 * 2
+	 * @param identity
+	 * @return
+	 */
 	public static boolean updateContinue(String identity) {
 		return false;
 	}
-
+	/**
+	 * 2
+	 * @param identity
+	 * @return
+	 */
 	public static boolean updateFinish(String identity) {
 		return false;
 	}
