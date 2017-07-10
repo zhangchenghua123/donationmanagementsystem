@@ -1,5 +1,6 @@
 package sys.presenter;
 
+import sys.model.clouddatabase.daoimpl.TaskDaoImpl;
 import sys.view.GetResourceClass;
 
 /**
@@ -14,7 +15,13 @@ public class TaskPresenter {
 	 * @return
 	 */
 	public static boolean insertNewTask(String newTask){
-		
+		Object[] objects=new Object[1];
+		objects[0]=newTask;
+		TaskDaoImpl tdi=new TaskDaoImpl();
+		boolean b=tdi.insert(objects);
+		if(b){
+			return true;
+		}
 		return false;
 	}
 	/**
@@ -23,7 +30,13 @@ public class TaskPresenter {
 	 * @return
 	 */
 	public static int getTaskIdByName(String task){
-		
+		Object[] objects=new Object[1];
+		objects[0]=task;
+		TaskDaoImpl tdi=new TaskDaoImpl();
+		int id=tdi.getId(objects);
+		if(id!=0){
+			return id;
+		}
 		return -1;
 	}
 	
