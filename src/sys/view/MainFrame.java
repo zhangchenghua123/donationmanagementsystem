@@ -19,9 +19,10 @@ public class MainFrame extends JFrame{
 		getContentPane().add(headPanel);
 		getContentPane().add(new EntranceJpanel());
 		getContentPane().add(new AnnouncementPanel());
-		getContentPane().add(new LogoJpanel());
-		getContentPane().add(new DoneeInfoJpanel());
-		getContentPane().add(new DonationJpanel());
+//		getContentPane().add(new LogoJpanel());
+//		getContentPane().add(new DoneeInfoJpanel());
+//		getContentPane().add(new DonationJpanel());
+		getContentPane().add(new DoneePulishJPanel());
 		addWindowListener(new WindowListener() {
 			
 			@Override
