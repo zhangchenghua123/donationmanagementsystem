@@ -12,6 +12,7 @@ public class DonationJpanel extends JPanel {
 
 	public DonationJpanel(){
 		setBounds(GetResourceClass.getRealSize(955),GetResourceClass.getRealSize(155),GetResourceClass.getRealSize(240),GetResourceClass.getRealSize(640));//不可修改
-		setBackground(Color.gray);
+//		setBackground(Color.gray);
+		setOpaque(false);
 	}
 }

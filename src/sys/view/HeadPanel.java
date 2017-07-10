@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import sys.GlobalVariables;
 import sys.view.customView.ImagePanel;
 
 public class HeadPanel extends ImagePanel{
@@ -101,7 +102,7 @@ public class HeadPanel extends ImagePanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				new DonorRegisterDialog(GlobalVariables.frame).setVisible(true);
 			}
 		});
 	}

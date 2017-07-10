@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.BevelBorder;
 
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
@@ -34,9 +35,10 @@ public class DoneeItemPanel extends JPanel{
 	public DoneeItemPanel(Donee donee){
 		this.donee=donee;
 		setLayout(null);
-		setOpaque(true);
+		setOpaque(false);
 //		setBackground(Color.gray);
 		setPreferredSize(new Dimension(GetResourceClass.getRealSize(650), GetResourceClass.getRealSize(140)));
+		setBorder(new BevelBorder(BevelBorder.RAISED, new Color(238,238,238), new Color(238,238,238)));
 		picturePanel=new ImagePanel((ImageIcon) donee.getPic());
 		picturePanel.setBounds(GetResourceClass.getRealSize(10), GetResourceClass.getRealSize(10), GetResourceClass.getRealSize(90),GetResourceClass.getRealSize(120));
 		add(picturePanel);
@@ -86,6 +88,7 @@ public class DoneeItemPanel extends JPanel{
 		add(jinduLabel);
 		
 		jindutiaoPanel=new JPanel();
+		jindutiaoPanel.setOpaque(false);
 		jindutiaoPanel.setBounds(GetResourceClass.getRealSize(170), GetResourceClass.getRealSize(112), GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(15));
 		int jindu=(int) (donee.getDonatedamount()/donee.getExpectedamount())*112;
 		jindutiaoPanel.setBorder(BorderFactory.createMatteBorder(1, GetResourceClass.getRealSize(jindu+1), 1, 1, Color.green));

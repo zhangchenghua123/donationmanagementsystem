@@ -30,12 +30,11 @@ public class DoneeInfoJpanel extends JPanel {
 		DoneeItemPanel doneeItemPanel1=new DoneeItemPanel(list.get(0));
 		DoneeItemPanel doneeItemPanel2=new DoneeItemPanel(list.get(0));
 		DoneeItemPanel doneeItemPanel3=new DoneeItemPanel(list.get(0));
-		DoneeItemPanel doneeItemPanel4=new DoneeItemPanel(list.get(0));
 		add(doneeItemPanel);
 		add(doneeItemPanel1);
 		add(doneeItemPanel2);
 		add(doneeItemPanel3);
-		add(doneeItemPanel4);
-		System.out.println(getComponentCount()+"aa");
+		
+		
 	}
 }
