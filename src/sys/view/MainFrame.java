@@ -14,14 +14,15 @@ public class MainFrame extends JFrame{
 		setTitle("欢迎使用慈善捐助管理系统");
 		setSize( GetResourceClass.getRealSize(1218), GetResourceClass.getRealSize(847));
 		setLayout(null);
-		setBackground(Color.white);
+		getContentPane().setBackground(Color.white);
+		getContentPane().setForeground(Color.white);
 		HeadPanel headPanel=new HeadPanel(GetResourceClass.class.getResource("image/head_bg.png"));
 		getContentPane().add(headPanel);
-		getContentPane().add(new EntranceJpanel());
 		getContentPane().add(new AnnouncementPanel());
-		getContentPane().add(new LogoJpanel());
+//		getContentPane().add(new LogoJpanel());
 		getContentPane().add(new DoneeInfoJpanel());
 		getContentPane().add(new DonationJpanel());
+//		getContentPane().add(new DoneePulishJPanel());
 		addWindowListener(new WindowListener() {
 			
 			@Override

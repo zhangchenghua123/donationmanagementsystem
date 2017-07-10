@@ -40,7 +40,7 @@ public interface DonorDao {
 	
 	/**
 	 * 根据账号获得整条记录,多表查询，连接上国籍名称
-	 * @param objects:账号
+	 * @param objects:账号,密码
 	 * @return donor:捐助者对象
 	 */
 	public Donor query(Object[] objects);
