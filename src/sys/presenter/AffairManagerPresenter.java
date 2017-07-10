@@ -75,17 +75,15 @@ public class AffairManagerPresenter {
 	 */
 	public static boolean updatePassword(String newPassword){
 		Object []object=new Object[2];
-		object[0]=newPassword;
+		object[1]=newPassword;
 		AffairManager affMan=new AffairManager();
 		affMan=(AffairManager) GlobalVariables.userInfo.get("user");
-		object[1]=affMan.getAccount();
+		object[0]=affMan.getAccount();
 		AffMgtDaoImpl aff=new AffMgtDaoImpl();
 		boolean i=aff.updatePassword(object);
 		if(i){
 			//修改全局变量里保存的对象的密码
 			affMan.setPassword(newPassword);
-			GlobalVariables.userInfo.put("type", "事例管理员");
-			GlobalVariables.userInfo.put("user",affMan);
 			return true;
 		}
 		else{
