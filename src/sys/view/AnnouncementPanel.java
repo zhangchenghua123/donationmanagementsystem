@@ -22,7 +22,6 @@ import sys.view.tableitem.AnnounceItemLabel;
  */
 public class AnnouncementPanel extends ImagePanel {
 
-	private JLabel refeshLabel;//刷新按钮
 	private JLabel lastPageJLabel;//上一页
 	private JLabel nextPageJLabel;//下一页
 	private ArrayList<AnnounceItemLabel> items;
@@ -30,17 +29,13 @@ public class AnnouncementPanel extends ImagePanel {
 	public AnnouncementPanel(){
 		super(new ImageIcon(GetResourceClass.class.getResource("image/announcement_background.png")));
 		setName("AnnouncementPanel");
-		setBounds(0, GetResourceClass.getRealSize(400), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(400));
+		setBounds(0, GetResourceClass.getRealSize(155), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(645));
 		setLayout(null);
+		setOpaque(false);
 		System.out.println("gouzaokaishi");
 		
-		refeshLabel=new JLabel();
 		ImageIcon icon=new ImageIcon(GetResourceClass.class.getResource("image/refresh.png"));
 		icon.setImage(icon.getImage().getScaledInstance(GetResourceClass.getRealSize(30),GetResourceClass.getRealSize(30),Image.SCALE_DEFAULT));
-		refeshLabel.setIcon(icon);
-		refeshLabel.setBounds(GetResourceClass.getRealSize(250), GetResourceClass.getRealSize(10), GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(30));
-		refeshLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
 		
 		annspJPanel=new JPanel();
 		annspJPanel.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(290), GetResourceClass.getRealSize(300));
@@ -50,7 +45,6 @@ public class AnnouncementPanel extends ImagePanel {
 		achieveData();
 		
 		
-		add(refeshLabel);
 		add(annspJPanel);
 		System.out.println("构造完");
 	}

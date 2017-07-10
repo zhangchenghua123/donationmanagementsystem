@@ -15,7 +15,12 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
+	public TaskDaoImpl(){
+		databaseConnection=new DatabaseConnection();
+		conn=databaseConnection.getConnection();
+	}
 	@Override
+
 	public boolean nameExisted(Object[] objects) {
 		// 检查任务名是否重复
 		try {

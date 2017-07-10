@@ -128,10 +128,10 @@ public class OperationJpanel extends ModuleJPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				GlobalVariables.frame.getContentPane().remove(1);
-				GlobalVariables.frame.getContentPane().add(
-					new EntranceJpanel(), 1);
-				GlobalVariables.frame.getContentPane().repaint();
+//				GlobalVariables.frame.getContentPane().remove(1);
+//				GlobalVariables.frame.getContentPane().add(
+//					new EntranceJpanel(), 1);
+//				GlobalVariables.frame.getContentPane().repaint();
 			}
 		});
 	}

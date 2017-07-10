@@ -32,8 +32,8 @@ public class DoneePresenter {
 		Object[] objects2 = new Object[1];
 		Object[] objects3 = new Object[1];
 		objects1[0] = identity;
-		objects2[1] = phone;
-		objects3[2] = card;
+		objects2[0] = phone;
+		objects3[0] = card;
 		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
 		if(doneeDaoImpl.identityExisted(objects1))
 			return IDENTITY_EXISTED;

@@ -1,7 +1,9 @@
 package sys.presenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import sys.GlobalVariables;
 import sys.model.clouddatabase.daoimpl.AffMgtDaoImpl;
 import sys.model.objects.AffairManager;
 
@@ -57,6 +59,9 @@ public class AffairManagerPresenter {
 		AffairManager affair=aff.query(object);
 		if(affair!=null){
 			//将affair存储至GlobalVariables静态变量中
+			GlobalVariables.userInfo = new HashMap<String, Object>();
+			GlobalVariables.userInfo.put("type", "事例管理员");
+			GlobalVariables.userInfo.put("user", affair);
 			return true;
 		}
 		else{
@@ -72,12 +77,15 @@ public class AffairManagerPresenter {
 	 */
 	public static boolean updatePassword(String newPassword){
 		Object []object=new Object[2];
-		object[0]=newPassword;
-		
-		object[1]="从GlobalVariables.java中获取当前用户的account";
+		object[1]=newPassword;
+		AffairManager affMan=new AffairManager();
+		affMan=(AffairManager) GlobalVariables.userInfo.get("user");
+		object[0]=affMan.getAccount();
 		AffMgtDaoImpl aff=new AffMgtDaoImpl();
 		boolean i=aff.updatePassword(object);
 		if(i){
+			//修改全局变量里保存的对象的密码
+			affMan.setPassword(newPassword);
 			return true;
 		}
 		else{

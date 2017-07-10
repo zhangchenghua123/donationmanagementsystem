@@ -62,8 +62,10 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		try {
 			pstmt=conn.prepareStatement("insert into affairManager values(?,?,?,?)");
 			//给？赋值
-			for(int i=0;i<objects.length;i++)
-				pstmt.setString(i+1, (String) objects[i]);
+			pstmt.setString(1, (String) objects[0]);
+			pstmt.setString(2, (String) objects[1]);	
+			pstmt.setString(3, (String) objects[2]);
+			pstmt.setInt(4, (int) objects[3]);
 			//执行SQL语句
 			int i=pstmt.executeUpdate();
 			if(i>0){
