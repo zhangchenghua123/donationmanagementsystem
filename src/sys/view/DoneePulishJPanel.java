@@ -25,6 +25,6 @@ public class DoneePulishJPanel extends JPanel {
 	private TextInput addressInput;
 	private JLabel bankLabel;
 	private TextInput bankInput;
-	private 
+	//private 
 	
 }

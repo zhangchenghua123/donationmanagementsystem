@@ -2,6 +2,7 @@ package sys.presenter;
 
 import java.util.ArrayList;
 
+import sys.model.clouddatabase.daoimpl.NationDaoImpl;
 import sys.model.objects.Nationality;
 /**
  * 
@@ -15,6 +16,12 @@ public class NationPresenter {
 	 * @return
 	 */
 	public static ArrayList<Nationality> getAll(){
-		return null;
+		ArrayList<Nationality> list = new ArrayList<Nationality>();
+		NationDaoImpl nationDaoImpl = new NationDaoImpl();
+		list = nationDaoImpl.getAll();
+		if(list.size() != 0)
+			return list;
+		else
+			return null;
 	}
 }
