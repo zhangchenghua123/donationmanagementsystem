@@ -1,5 +1,7 @@
 package sys.presenter;
 
+import java.util.HashMap;
+
 import sys.GlobalVariables;
 import sys.model.clouddatabase.daoimpl.SysMgtDaoImpl;
 import sys.model.objects.SystemManager;
@@ -31,7 +33,7 @@ public class SystemManagerPresenter {
 			sysMan.setName(name);
 			sysMan.setPassword(password);
 			//将对象保存到GlobalVariables静态变量里边
-			//GlobalVariables glovar=new GlobalVariables();
+			GlobalVariables.userInfo = new HashMap<String, Object>();
 			GlobalVariables.userInfo.put("type","系统管理员");
 			GlobalVariables.userInfo.put("user",sysMan);
 			return true;

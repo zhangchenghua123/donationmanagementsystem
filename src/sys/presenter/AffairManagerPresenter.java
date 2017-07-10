@@ -1,6 +1,7 @@
 package sys.presenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import sys.GlobalVariables;
 import sys.model.clouddatabase.daoimpl.AffMgtDaoImpl;
@@ -58,6 +59,7 @@ public class AffairManagerPresenter {
 		AffairManager affair=aff.query(object);
 		if(affair!=null){
 			//将affair存储至GlobalVariables静态变量中
+			GlobalVariables.userInfo = new HashMap<String, Object>();
 			GlobalVariables.userInfo.put("type", "事例管理员");
 			GlobalVariables.userInfo.put("user", affair);
 			return true;
