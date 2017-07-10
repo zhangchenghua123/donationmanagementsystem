@@ -54,8 +54,6 @@ public class SystemManagerPresenter {
 			SystemManager sysNam=new SystemManager();
 			sysNam=(SystemManager) GlobalVariables.userInfo.get("user");
 			sysNam.setPassword(newPassword);
-			GlobalVariables.userInfo.put("type","系统管理员");
-			GlobalVariables.userInfo.put("user",sysNam);
 			return true;
 		}
 		return false;
