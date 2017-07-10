@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
 
+import sys.model.clouddatabase.daoimpl.DoneeDaoImpl;
 import sys.model.objects.Donee;
 /**
  * 
@@ -27,6 +28,19 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static int validate(String identity, String phone, String card) {
+		Object[] objects1 = new Object[1];
+		Object[] objects2 = new Object[1];
+		Object[] objects3 = new Object[1];
+		objects1[0] = identity;
+		objects2[0] = phone;
+		objects3[0] = card;
+		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
+		if(doneeDaoImpl.identityExisted(objects1))
+			return IDENTITY_EXISTED;
+		else if(doneeDaoImpl.phoneExisted(objects2))
+			return PHONE_EXISTED;
+		else if(doneeDaoImpl.cardExisted(objects3))
+			return CARD_EXISTED;
 		return -1;
 	}
 
@@ -37,7 +51,13 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static ArrayList<Donee> getAll() {
-		return null;
+		ArrayList<Donee> list = new ArrayList<Donee>();
+		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
+		list = doneeDaoImpl.getAll();
+		if(list.size() != 0)
+			return list;
+		else
+			return null;
 	}
 
 	/**
@@ -49,6 +69,7 @@ public class DoneePresenter {
 	 */
 	public static Donee getDonee(String identity) {
 		//暂时不写
+		
 		return null;
 	}
 	/**
@@ -58,7 +79,12 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static boolean updateDonateAmount(String identity, float increase) {
-		return false;
+		Object[] objects = new Object[]{identity,increase};
+		boolean isSuccess = new DoneeDaoImpl().updateDonateAmount(objects);
+		if(isSuccess)
+			return true;
+		else
+			return false;
 	}
 	/**
 	 * 2
@@ -67,7 +93,12 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static boolean updateReceivedAmount(String identity, float increase) {
-		return false;
+		Object[] objects = new Object[]{identity,increase};
+		boolean isSuccess = new DoneeDaoImpl().updateReceivedAmount(objects);
+		if(isSuccess)
+			return true;
+		else
+			return false;
 	}
 	/**
 	 * 2
@@ -75,7 +106,13 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static boolean updateContinue(String identity) {
-		return false;
+		Object[] objects = new Object[1];
+		objects[0] = identity;
+		boolean isSuccess = new DoneeDaoImpl().updateContinue(objects);
+		if(isSuccess)
+			return true;
+		else
+			return false;
 	}
 	/**
 	 * 2
@@ -83,7 +120,13 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static boolean updateFinish(String identity) {
-		return false;
+		Object[] objects = new Object[1];
+		objects[0] = identity;
+		boolean isSuccess = new DoneeDaoImpl().updateFinish(objects);
+		if(isSuccess)
+			return true;
+		else
+			return false;
 	}
 	/**
 	 * 2
@@ -91,7 +134,14 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static ArrayList<Donee> getDoneeByTaskId(int id){
-		
-		return null;
+		Object[] objects = new Object[1];
+		objects[0] = id;
+		ArrayList<Donee> list = new ArrayList<Donee>();
+		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
+		list = doneeDaoImpl.getDoneeByTaskId(objects);
+		if(list.size() != 0)
+			return list;
+		else
+			return null;
 	}
 }

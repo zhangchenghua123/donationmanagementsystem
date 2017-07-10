@@ -28,6 +28,9 @@ public class DoneePulishJPanel extends JPanel {
 	private TextInput addressInput;
 	private JLabel bankLabel;
 	private TextInput bankInput;
+<<<<<<< HEAD
+	//private 
+=======
 	private JLabel expectedAmountLabel;
 	private TextInput expectedAmountInput;
 	private JLabel experieceLabel;
@@ -151,6 +154,7 @@ public class DoneePulishJPanel extends JPanel {
 	
 	
 	
+>>>>>>> 5fa58e3063dd20d8acc997f69528f6e2218b8b97
 	
 }
 
