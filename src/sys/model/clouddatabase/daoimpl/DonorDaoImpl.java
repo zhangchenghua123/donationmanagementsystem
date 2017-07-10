@@ -67,14 +67,12 @@ public class DonorDaoImpl implements DonorDao {
 		try {
 		//给？赋值
 		pstmt = conn.prepareStatement(sql);
-		
 		pstmt.setString(1, (String) objects[0]);
 		pstmt.setString(2, (String) objects[1]);
 		pstmt.setInt(3, (int) objects[2]);
 		pstmt.setString(4, (String) objects[3]);
 		pstmt.setString(5, (String) objects[4]);
 		pstmt.setFloat(6, 0);
-		
 				int i=pstmt.executeUpdate();
 					rs.close();
 					pstmt.close();

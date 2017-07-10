@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import java.sql.Date;
 
+import sys.model.clouddatabase.daoimpl.DonationDaoImpl;
+import sys.model.clouddatabase.daoimpl.DonorDaoImpl;
 import sys.model.objects.Donation;
 
 /**
@@ -18,22 +20,23 @@ public class DonationPresenter {
 	 * 按时间正序获取所有捐助记录
 	 */
 	public static ArrayList<Donation> getAll(){
-		
-		return null;
+		return new DonationDaoImpl().getAll();
 	}
 	/**
 	 * 1
 	 * 获取总的捐助次数
 	 */
 	public static int getCount(){
-		return -1;
+		return new DonationDaoImpl().getCount();
 	}
 	/**
 	 * 1
 	 * 插入一条捐助记录
 	 */
 	public static boolean insert(Donation donation){
+		Object [] object=new Object[1];
 		
+		return new DonationDaoImpl().insert(donation);
 		return false;
 	}
 	/**
