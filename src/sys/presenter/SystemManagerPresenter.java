@@ -1,5 +1,6 @@
 package sys.presenter;
 
+import sys.GlobalVariables;
 import sys.model.clouddatabase.daoimpl.SysMgtDaoImpl;
 import sys.model.objects.SystemManager;
 
@@ -23,9 +24,16 @@ public class SystemManagerPresenter {
 		object[1]=password;
 		//SystemManager sys=new SystemManager();
 		SysMgtDaoImpl sys=new SysMgtDaoImpl();
-		String s=sys.query(object);
-		if(s!=null){
+		String name=sys.query(object);
+		if(name!=null){
+			SystemManager sysMan=new SystemManager();
+			sysMan.setAccount(account);
+			sysMan.setName(name);
+			sysMan.setPassword(password);
 			//将对象保存到GlobalVariables静态变量里边
+			//GlobalVariables glovar=new GlobalVariables();
+			GlobalVariables.userInfo.put("type","系统管理员");
+			GlobalVariables.userInfo.put("user",sysMan);
 			return true;
 		}
 		return false;
@@ -37,11 +45,15 @@ public class SystemManagerPresenter {
 	 * @return
 	 */
 	public static boolean updatePassword(String newPassword){
-		Object[] object=new Object[2];
+		Object[] object=new Object[1];
 		object[0]=newPassword;
 		SysMgtDaoImpl sys=new SysMgtDaoImpl();
 		boolean b=sys.updatePassword(object);
 		if(b){
+			//修改全局变量里保存的对象的密码
+			SystemManager sysNam=new SystemManager();
+			sysNam=(SystemManager) GlobalVariables.userInfo.get("user");
+			sysNam.setPassword(newPassword);
 			return true;
 		}
 		return false;
