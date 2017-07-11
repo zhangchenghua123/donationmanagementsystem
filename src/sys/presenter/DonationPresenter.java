@@ -59,5 +59,12 @@ public class DonationPresenter {
 	public static boolean updateState(Date data,String account,String identity){
 		return false;
 	}
-	
+	/**
+	 * 获取所有未打款的捐助记录
+	 * @return
+	 */
+	public ArrayList<Donation> getAllNotPaid() {
+		
+		return null;
+	}
 }
