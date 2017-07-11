@@ -1,4 +1,4 @@
-package sys.view;
+package sys.view.manager;
 
 import javax.swing.JPanel;
 /**

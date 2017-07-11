@@ -68,7 +68,7 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static Donee getDonee(String identity) {
-		//暂时不写
+		
 		
 		return null;
 	}
@@ -143,5 +143,23 @@ public class DoneePresenter {
 			return list;
 		else
 			return null;
+	}
+	/**
+	 * 获取属于某一taskid的受助者人数
+	 */
+	public static int getCountByTaskId(int taskid){
+		return -1;
+	}
+	/**
+	 * 获取属于某一taskid的总期望金额
+	 */
+	public static float getTolExpectedAmountByTaskId(int taskid){
+		return 0;
+	}
+	/**
+	 * 获取属于某一taskid的总募捐金额
+	 */
+	public float getTolDonatedAmountByTaskId(int taskid){
+		return 0;
 	}
 }
