@@ -171,6 +171,9 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 				donation.setHasPaid(rs.getInt(7) == 0 ? "否" : "是");
 				list.add(donation);
 			}
+			rs.close();
+			pstmt.close();
+			databaseConnection.closeConnection();
 			// return ;
 			return list;
 		} catch (SQLException e) {
@@ -204,6 +207,33 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 	@Override
 	public ArrayList<Donation> getAllNotPaid() {
 		// TODO Auto-generated method stub
+		try {
+			pstmt = conn.prepareStatement("select time,account,donor.name,identity,donee.name,amount,paid "
+							+ "from donation ,donor,donee" 
+							+ " where account = donoraccount "
+							+ "and identity = doneeidentity "
+							+ "and paid = 0 ");
+			rs = pstmt.executeQuery();
+			ArrayList<Donation> list=new ArrayList<>();
+			while (rs.next()) {
+				Donation donation = new Donation();
+				donation.setTime(rs.getDate(1));
+				donation.setDonorAccount(rs.getString(2));
+				donation.setDonorName(rs.getString(3));
+				donation.setDoneeIdentity(rs.getString(4));
+				donation.setDoneeName(rs.getString(5));
+				donation.setAmount(rs.getFloat(6));
+				donation.setHasPaid(rs.getInt(7) == 0 ? "否" : "是");
+				list.add(donation);
+			}
+			rs.close();
+			pstmt.close();
+			databaseConnection.closeConnection();
+			// return ;
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

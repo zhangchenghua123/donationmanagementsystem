@@ -1,5 +1,8 @@
 package sys.presenter;
 
+import java.util.HashMap;
+
+import sys.GlobalVariables;
 import sys.model.clouddatabase.daoimpl.DonorDaoImpl;
 import sys.model.objects.Donor;
 /**
@@ -9,7 +12,7 @@ import sys.model.objects.Donor;
  */
 public class DonorPresenter {
 
-	/**
+	/**    
 	 * 1
 	 * 判断是否登录成功，成功后将类型"捐助者"，系统管理员对象保存到GlobalVariables静态变量里边
 	 * @param account
@@ -17,8 +20,20 @@ public class DonorPresenter {
 	 * @return
 	 */
 	public static boolean login(String account,String password){
-		
-		return false;
+		Object []object=new Object[2];
+		object[0]=account;
+		object[1]=password;
+		DonorDaoImpl don=new DonorDaoImpl();
+		Donor donor=don.query(object);
+		if(donor!=null){
+			//将affair存储至GlobalVariables静态变量中
+			GlobalVariables.userInfo = new HashMap<String, Object>();
+			GlobalVariables.userInfo.put("type", "捐助者");
+			GlobalVariables.userInfo.put("user", donor);
+			return true;
+		}
+		else
+			return false;
 	}
 	/**
 	 * 2
@@ -26,10 +41,22 @@ public class DonorPresenter {
 	 * 同时修改全局变量里保存的对象的密码
 	 * @param newPassword
 	 * @return
-	 */
+	 */ 
 	public static boolean updatePassword(String newPassword){
-		
-		return false;
+		Object []object=new Object[2];
+		object[1]=newPassword;
+		Donor don=(Donor) GlobalVariables.userInfo.get("user");
+		object[0]=don.getAccount();
+		DonorDaoImpl donor=new DonorDaoImpl();
+		boolean i=donor.updatePassword(object);
+		if(i){
+			//修改全局变量里保存的对象的密码
+			don.setPassword(newPassword);
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	/**
 	 * 1
@@ -46,8 +73,8 @@ public class DonorPresenter {
 	 * @return
 	 */
 	public static boolean emailRepeated(String email){
-		
-		return false;
+		Object[] objects=new Object[]{email};
+		return new DonorDaoImpl().mailboxExisted(objects);
 	}
 	/**
 	 * 1
@@ -55,7 +82,18 @@ public class DonorPresenter {
 	 * @return
 	 */
 	public static boolean register(Donor donor){
-		
+		DonorDaoImpl don=new DonorDaoImpl();
+		Object []object=new Object[6];
+		object[0]=donor.getAccount();
+		object[1]=donor.getPassword();
+		object[2]=donor.getNationID();
+		object[3]=donor.getName();
+		object[4]=donor.getMailbox();
+		object[3]=donor.getTolMoney();
+		boolean b=don.insert(object);
+		if(b){
+			return true;
+		}
 		return false;
 	}
 	
