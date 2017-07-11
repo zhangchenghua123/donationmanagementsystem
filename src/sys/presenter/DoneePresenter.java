@@ -54,10 +54,7 @@ public class DoneePresenter {
 		ArrayList<Donee> list = new ArrayList<Donee>();
 		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
 		list = doneeDaoImpl.getAll();
-		if(list.size() != 0)
 			return list;
-		else
-			return null;
 	}
 
 	/**
@@ -139,27 +136,34 @@ public class DoneePresenter {
 		ArrayList<Donee> list = new ArrayList<Donee>();
 		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
 		list = doneeDaoImpl.getDoneeByTaskId(objects);
-		if(list.size() != 0)
 			return list;
-		else
-			return null;
+
 	}
 	/**
 	 * 获取属于某一taskid的受助者人数
 	 */
 	public static int getCountByTaskId(int taskid){
-		return -1;
+		Object[] objects = new Object[1];
+		objects[0] = taskid;
+		int count = new DoneeDaoImpl().getCountByTaskId(objects);
+		return count;
 	}
 	/**
 	 * 获取属于某一taskid的总期望金额
 	 */
 	public static float getTolExpectedAmountByTaskId(int taskid){
-		return 0;
+		Object[] objects = new Object[1];
+		objects[0] = taskid;
+		float total = new DoneeDaoImpl().getTolExpectedAmountByTaskId(objects);
+		return total;
 	}
 	/**
 	 * 获取属于某一taskid的总募捐金额
 	 */
 	public float getTolDonatedAmountByTaskId(int taskid){
-		return 0;
+		Object[] objects = new Object[1];
+		objects[0] = taskid;
+		float total = new DoneeDaoImpl().getTolDonatedAmountByTaskId(objects);
+		return total;
 	}
 }
