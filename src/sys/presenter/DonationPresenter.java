@@ -72,7 +72,6 @@ public class DonationPresenter {
 	 * @return
 	 */
 	public ArrayList<Donation> getAllNotPaid() {
-		
-		return null;
+		return new DonationDaoImpl().getAllNotPaid();
 	}
 }
