@@ -44,7 +44,7 @@ public class DoneePresenter {
 		return -1;
 	}
 
-	/**
+/**
 	 * 1
 	 * 获取所有受助者信息
 	 * 
