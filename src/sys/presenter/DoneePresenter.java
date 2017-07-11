@@ -65,9 +65,11 @@ public class DoneePresenter {
 	 * @return
 	 */
 	public static Donee getDonee(String identity) {
-		
-		
-		return null;
+		Donee donee = new Donee();
+		Object[] objects = new Object[1];
+		objects[0] = identity;
+		donee = new DoneeDaoImpl().query(objects);
+		return donee;
 	}
 	/**
 	 * 2
