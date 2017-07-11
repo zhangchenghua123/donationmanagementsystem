@@ -45,8 +45,7 @@ public class DonorPresenter {
 	public static boolean updatePassword(String newPassword){
 		Object []object=new Object[2];
 		object[1]=newPassword;
-		Donor don=new Donor();
-		don=(Donor) GlobalVariables.userInfo.get("user");
+		Donor don=(Donor) GlobalVariables.userInfo.get("user");
 		object[0]=don.getAccount();
 		DonorDaoImpl donor=new DonorDaoImpl();
 		boolean i=donor.updatePassword(object);
