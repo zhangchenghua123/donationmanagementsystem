@@ -1,4 +1,4 @@
-package sys.view;
+package sys.view.nomanager;
 
 import java.awt.Color;
 import java.awt.Font;

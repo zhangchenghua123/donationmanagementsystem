@@ -201,4 +201,11 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 		return 0;
 	}
 
+	@Override
+	public ArrayList<Donation> getAllNotPaid() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
