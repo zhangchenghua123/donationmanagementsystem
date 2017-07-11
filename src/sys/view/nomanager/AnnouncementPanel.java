@@ -1,4 +1,4 @@
-package sys.view;
+package sys.view.nomanager;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -13,6 +13,7 @@ import javax.swing.text.html.ImageView;
 
 
 import sys.model.AnnValues;
+import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 import sys.view.tableitem.AnnounceItemLabel;
 /**
@@ -29,7 +30,7 @@ public class AnnouncementPanel extends ImagePanel {
 	public AnnouncementPanel(){
 		super(new ImageIcon(GetResourceClass.class.getResource("image/announcement_background.png")));
 		setName("AnnouncementPanel");
-		setBounds(0, GetResourceClass.getRealSize(155), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(645));
+		setBounds(0, GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(645));
 		setLayout(null);
 		setOpaque(false);
 		System.out.println("gouzaokaishi");

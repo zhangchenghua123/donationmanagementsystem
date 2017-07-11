@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import sys.GlobalVariables;
 import sys.view.customView.ImagePanel;
+import sys.view.nomanager.DonorRegisterDialog;
 
 public class HeadPanel extends ImagePanel{
 
@@ -24,20 +25,20 @@ public class HeadPanel extends ImagePanel{
 	public HeadPanel(URL imageUrl) {
 		
 		super(new ImageIcon(imageUrl));
-		setBounds(0,0, GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(150));
+		setBounds(0,0, GetResourceClass.getRealSize(1200), GetResourceClass.getRealSize(100));
 		setLayout(null);
 		
 		
 		loginLabel=new JLabel("登录");
 		loginLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		loginLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		loginLabel.setBounds( GetResourceClass.getRealSize(1000), 120,  GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
+		loginLabel.setBounds( GetResourceClass.getRealSize(1000), 70,  GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
 		add(loginLabel);
 		
 		registerLabel=new JLabel("注册");
 		registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		registerLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		registerLabel.setBounds( GetResourceClass.getRealSize(1060),120, GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
+		registerLabel.setBounds( GetResourceClass.getRealSize(1060),70, GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
 		add(registerLabel);
 		
 		loginLabel.addMouseListener(new MouseListener() {

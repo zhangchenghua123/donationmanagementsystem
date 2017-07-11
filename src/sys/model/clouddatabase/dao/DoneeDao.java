@@ -88,4 +88,16 @@ public interface DoneeDao {
 	 * 根据taskid获取受助者
 	 */
 	public ArrayList<Donee> getDoneeByTaskId(Object[] objects);
+	/**
+	 * 获取属于某一taskid的受助者人数
+	 */
+	public int getCountByTaskId(Object[] objects);
+	/**
+	 * 获取属于某一taskid的总期望金额
+	 */
+	public float getTolExpectedAmountByTaskId(Object[] objects);
+	/**
+	 * 获取属于某一taskid的总募捐金额
+	 */
+	public float getTolDonatedAmountByTaskId(Object[] objects);
 }

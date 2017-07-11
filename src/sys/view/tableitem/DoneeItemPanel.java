@@ -1,8 +1,12 @@
 package sys.view.tableitem;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -11,9 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 
+import sys.GlobalVariables;
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
+import sys.view.nomanager.DoneeDetailJPanel;
 
 public class DoneeItemPanel extends JPanel{
 
@@ -39,6 +45,7 @@ public class DoneeItemPanel extends JPanel{
 //		setBackground(Color.gray);
 		setPreferredSize(new Dimension(GetResourceClass.getRealSize(650), GetResourceClass.getRealSize(140)));
 		setBorder(new BevelBorder(BevelBorder.RAISED, new Color(238,238,238), new Color(238,238,238)));
+		
 		picturePanel=new ImagePanel((ImageIcon) donee.getPic());
 		picturePanel.setBounds(GetResourceClass.getRealSize(10), GetResourceClass.getRealSize(10), GetResourceClass.getRealSize(90),GetResourceClass.getRealSize(120));
 		add(picturePanel);
@@ -51,7 +58,8 @@ public class DoneeItemPanel extends JPanel{
 		lookDetailLabel=new JLabel("查看详情 >>");
 		lookDetailLabel.setBounds(GetResourceClass.getRealSize(400), GetResourceClass.getRealSize(15), GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(18));
 		lookDetailLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
-		lookDetailLabel.setForeground(Color.green);
+		lookDetailLabel.setForeground(Color.black);
+		lookDetailLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		add(lookDetailLabel);
 		
 		String experience=donee.getExperience();
@@ -59,6 +67,7 @@ public class DoneeItemPanel extends JPanel{
 		experienceArea.setBounds(GetResourceClass.getRealSize(120), GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(500), GetResourceClass.getRealSize(30));
 		experienceArea.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		experienceArea.setRows(2);
+		experienceArea.setEditable(false);
 		experienceArea.setOpaque(false);
 		experienceArea.setLineWrap(true);
 		add(experienceArea);
@@ -107,5 +116,40 @@ public class DoneeItemPanel extends JPanel{
 		add(haixujuanzhuLabel);
 		
 		setVisible(true);
+		
+		lookDetailLabel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(DoneeItemPanel.this.donee));
+			}
+		});
 	}
 }

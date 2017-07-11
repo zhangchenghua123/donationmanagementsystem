@@ -1,4 +1,4 @@
-package sys.view;
+package sys.view.nomanager;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import sys.model.clouddatabase.daoimpl.DoneeDaoImpl;
 import sys.model.objects.Donee;
+import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 import sys.view.tableitem.DoneeItemPanel;
 
@@ -17,7 +18,7 @@ public class DoneeInfoJpanel extends JPanel {
 
 	private ImagePanel headPanel;
 	public DoneeInfoJpanel(){
-		setBounds(GetResourceClass.getRealSize(300),GetResourceClass.getRealSize(155),GetResourceClass.getRealSize(650),GetResourceClass.getRealSize(640));//不可修改
+		setBounds(GetResourceClass.getRealSize(300),GetResourceClass.getRealSize(5),GetResourceClass.getRealSize(650),GetResourceClass.getRealSize(640));//不可修改
 		//setBackground(Color.blue);
 		setLayout(new FlowLayout(1,0,1));
 		

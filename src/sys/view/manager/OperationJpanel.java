@@ -1,4 +1,4 @@
-package sys.view;
+package sys.view.manager;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.text.html.ImageView;
 
 import sys.GlobalVariables;
+import sys.view.GetResourceClass;
+import sys.view.ModuleJPanel;
 import sys.view.customView.ImagePanel;
 
 public class OperationJpanel extends ModuleJPanel {

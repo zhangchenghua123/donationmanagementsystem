@@ -445,6 +445,24 @@ public class DoneeDaoImpl implements DoneeDao {
 				return null;
 	}
 
+	@Override
+	public int getCountByTaskId(Object[] objects) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float getTolExpectedAmountByTaskId(Object[] objects) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float getTolDonatedAmountByTaskId(Object[] objects) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 }

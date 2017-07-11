@@ -43,4 +43,8 @@ public interface DonationDao {
 	 * 获取捐助总人次
 	 */
 	public int getCount();
+	/**
+	 * 获取所有未打款的捐助款项
+	 */
+	public ArrayList<Donation> getAllNotPaid();
 }

@@ -7,22 +7,20 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
+import sys.view.nomanager.ContainerJPanel;
+
 
 public class MainFrame extends JFrame{
 
 	public MainFrame() {
 		setTitle("欢迎使用慈善捐助管理系统");
-		setSize( GetResourceClass.getRealSize(1218), GetResourceClass.getRealSize(847));
+		setSize( GetResourceClass.getRealSize(1218), GetResourceClass.getRealSize(797));
 		setLayout(null);
 		getContentPane().setBackground(Color.white);
 		getContentPane().setForeground(Color.white);
 		HeadPanel headPanel=new HeadPanel(GetResourceClass.class.getResource("image/head_bg.png"));
 		getContentPane().add(headPanel);
-		getContentPane().add(new AnnouncementPanel());
-//		getContentPane().add(new LogoJpanel());
-		getContentPane().add(new DoneeInfoJpanel());
-		getContentPane().add(new DonationJpanel());
-//		getContentPane().add(new DoneePulishJPanel());
+		getContentPane().add(new ContainerJPanel());
 		addWindowListener(new WindowListener() {
 			
 			@Override
