@@ -162,10 +162,19 @@ public class DoneePresenter {
 	/**
 	 * 获取属于某一taskid的总募捐金额
 	 */
-	public float getTolDonatedAmountByTaskId(int taskid){
+	public static float getTolDonatedAmountByTaskId(int taskid){
 		Object[] objects = new Object[1];
 		objects[0] = taskid;
 		float total = new DoneeDaoImpl().getTolDonatedAmountByTaskId(objects);
 		return total;
+	}
+	/**
+	 * 插入一条受捐者记录
+	 */
+	public static boolean insert(Donee donee){
+		Object[] objects=new Object[]{donee.getIdentity(),donee.getName(),donee.getGender(),donee.getFilePath(),donee.getPhone(),
+				donee.getAddress(),donee.getBank(),donee.getTaskID(),donee.getReleaseTime(),donee.getExpectedamount(),
+				donee.getExperience()};
+		return new DoneeDaoImpl().insert(objects);
 	}
 }

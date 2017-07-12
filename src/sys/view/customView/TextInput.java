@@ -17,7 +17,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import sys.view.GetResourceClass;
-
+/**
+ * 美化原生的输入框，添加内边距，文字不顶着紧左边
+ * @author Berry
+ *
+ */
 public class TextInput extends JTextField {
 
 	private URL imgurl=GetResourceClass.class.getResource("image/inputbg_unactive.png");

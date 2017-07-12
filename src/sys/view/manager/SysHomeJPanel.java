@@ -10,7 +10,7 @@ public class SysHomeJPanel extends JLabel {
 
 	public SysHomeJPanel(){
 
-		setBounds(270, GetResourceClass.getRealSize(0),
+		setBounds(GetResourceClass.getRealSize(270), GetResourceClass.getRealSize(0),
 				GetResourceClass.getRealSize(930),
 				GetResourceClass.getRealSize(650));// 不可修改
 		setLayout(null);

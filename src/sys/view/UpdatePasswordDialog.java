@@ -37,7 +37,7 @@ public class UpdatePasswordDialog extends JDialog {
 	boolean result=false;
 	public UpdatePasswordDialog() {
 		setModal(true);
-		setBounds(300, GetResourceClass.getRealSize(200),
+		setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(200),
 				GetResourceClass.getRealSize(360),
 				GetResourceClass.getRealSize(240));// 不可修改
 
@@ -103,18 +103,21 @@ public class UpdatePasswordDialog extends JDialog {
 				 */
 				if (newpsd.equals("")) {
 					info.setText("请输入新密码");
-					info.setBounds(200, 30, 150, 20);
+					info.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(30),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					info.repaint();
 					return;
 				} else if (confirmpsd.equals("")) {
 					info.setText("请输入密码");
-					info.setBounds(200, 60, 150, 20);
+					info.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(60), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					info.repaint();
 					return;
 				}
 				else if(!newpsd.equals(confirmpsd)){
 					info.setText("两次密码不一致");
-					info.setBounds(5, 5, 150, 20);
+					info.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(5), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					info.repaint();
 					return;
 				}
@@ -134,13 +137,15 @@ public class UpdatePasswordDialog extends JDialog {
 				queding.setText("确定");
 				if(result){
 					info.setText("密码修改成功！");
-					info.setBounds(5, 5, 150, 20);
+					info.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(5), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					info.repaint();
 					return;
 				}
 				else {
 					info.setText("密码修改失败！");
-					info.setBounds(5, 5, 150, 20);
+					info.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(5), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					info.repaint();
 					return;
 				}

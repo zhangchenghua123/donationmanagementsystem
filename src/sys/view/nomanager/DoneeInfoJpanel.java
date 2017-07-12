@@ -18,23 +18,21 @@ public class DoneeInfoJpanel extends JPanel {
 
 	private ImagePanel headPanel;
 	public DoneeInfoJpanel(){
-		setBounds(GetResourceClass.getRealSize(300),GetResourceClass.getRealSize(5),GetResourceClass.getRealSize(650),GetResourceClass.getRealSize(640));//不可修改
-		//setBackground(Color.blue);
+		setBounds(GetResourceClass.getRealSize(300),GetResourceClass.getRealSize(5),
+				GetResourceClass.getRealSize(650),GetResourceClass.getRealSize(640));//不可修改
+//		setBackground(Color.blue);
 		setLayout(new FlowLayout(1,0,1));
 		
 		headPanel=new ImagePanel(new ImageIcon(GetResourceClass.class.getResource("image/donation_head.png")));
-		headPanel.setPreferredSize(new Dimension(650, 50));
+		headPanel.setPreferredSize(new Dimension(GetResourceClass.getRealSize(650), GetResourceClass.getRealSize(50)));
 		add(headPanel);
 		ArrayList<Donee> list=new DoneeDaoImpl().getAll();
-		setOpaque(true);
+		setOpaque(false);
 		DoneeItemPanel doneeItemPanel=new DoneeItemPanel(list.get(0));
-		DoneeItemPanel doneeItemPanel1=new DoneeItemPanel(list.get(0));
-		DoneeItemPanel doneeItemPanel2=new DoneeItemPanel(list.get(0));
-		DoneeItemPanel doneeItemPanel3=new DoneeItemPanel(list.get(0));
+		DoneeItemPanel doneeItemPanel1=new DoneeItemPanel(list.get(1));
+		
 		add(doneeItemPanel);
 		add(doneeItemPanel1);
-		add(doneeItemPanel2);
-		add(doneeItemPanel3);
 		
 		
 	}

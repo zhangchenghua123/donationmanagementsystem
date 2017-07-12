@@ -39,7 +39,7 @@ public class TaskDelegateJPanel extends JLabel {
 	private JTable table;
 	
 	public TaskDelegateJPanel(){
-		setBounds(270, GetResourceClass.getRealSize(0),
+		setBounds(GetResourceClass.getRealSize(270), GetResourceClass.getRealSize(0),
 				GetResourceClass.getRealSize(930),
 				GetResourceClass.getRealSize(650));// 不可修改
 		setLayout(null);
@@ -50,49 +50,58 @@ public class TaskDelegateJPanel extends JLabel {
 		
 		
 		taskLabel=new JLabel("新建任务名称：");
-		taskLabel.setBounds(150, 160, 200, 20);
-		taskLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		taskLabel.setBounds(GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(160),
+				GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(20));
+		taskLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(taskLabel);
 		
 		taskField=new JTextField();
-		taskField.setBounds(350, 160, 250, 25);
-		taskField.setFont(new Font("黑体",Font.PLAIN,20));
+		taskField.setBounds(GetResourceClass.getRealSize(350), GetResourceClass.getRealSize(160), 
+				GetResourceClass.getRealSize(250), GetResourceClass.getRealSize(25));
+		taskField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(taskField);
 		
 		affAccountLabel=new JLabel("事例管理员账号：");
-		affAccountLabel.setBounds(150, 200, 200, 20);
-		affAccountLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		affAccountLabel.setBounds(GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(200), 
+				GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(20));
+		affAccountLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(affAccountLabel);
 		
 		affAccountField=new JTextField();
-		affAccountField.setBounds(350, 200, 250, 25);
-		affAccountField.setFont(new Font("黑体",Font.PLAIN,20));
+		affAccountField.setBounds(GetResourceClass.getRealSize(350), GetResourceClass.getRealSize(200), 
+				GetResourceClass.getRealSize(250), GetResourceClass.getRealSize(25));
+		affAccountField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(affAccountField);
 		
 		affNameLabel=new JLabel("事例管理员姓名：");
-		affNameLabel.setBounds(150, 240, 200, 20);
-		affNameLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		affNameLabel.setBounds(GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(240), 
+				GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(20));
+		affNameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(affNameLabel);
 		
 		affNameField=new JTextField();
-		affNameField.setBounds(350, 240, 250, 25);
-		affNameField.setFont(new Font("黑体",Font.PLAIN,20));
+		affNameField.setBounds(GetResourceClass.getRealSize(350), GetResourceClass.getRealSize(240), 
+				GetResourceClass.getRealSize(250), GetResourceClass.getRealSize(25));
+		affNameField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(affNameField);
 		
 		affPasswordLabel=new JLabel("事例管理员密码：");
-		affPasswordLabel.setBounds(150, 280, 200, 20);
-		affPasswordLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		affPasswordLabel.setBounds(GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(280), 
+				GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(20));
+		affPasswordLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(affPasswordLabel);
 		
 		affPasswordField=new JTextField();
-		affPasswordField.setBounds(350, 280, 250, 25);
-		affPasswordField.setFont(new Font("黑体",Font.PLAIN,20));
+		affPasswordField.setBounds(GetResourceClass.getRealSize(350), GetResourceClass.getRealSize(280), 
+				GetResourceClass.getRealSize(250), GetResourceClass.getRealSize(25));
+		affPasswordField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(affPasswordField);
 		
 		confirmLabel=new JLabel("确认委派",JLabel.CENTER);
-		confirmLabel.setBounds(350,320 , 160, 40);
+		confirmLabel.setBounds(GetResourceClass.getRealSize(350),GetResourceClass.getRealSize(320) ,
+				GetResourceClass.getRealSize(160), GetResourceClass.getRealSize(40));
 		confirmLabel.setOpaque(true);
-		confirmLabel.setFont(new Font("黑体",Font.PLAIN,20));
+		confirmLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		confirmLabel.setBackground(new Color(102,205,0));
 		confirmLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		add(confirmLabel);
@@ -102,16 +111,19 @@ public class TaskDelegateJPanel extends JLabel {
 		add(infoJLabel);
 		
 		yiyouLabel=new JLabel("已委派任务:");
-		yiyouLabel.setBounds(100, 370, 150, 20);
-		yiyouLabel.setFont(new Font("黑体",Font.PLAIN,14));
+		yiyouLabel.setBounds(GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(370), 
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
+		yiyouLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		add(yiyouLabel);
 		
 		table=new JTable();
-		table.setBounds(100, 400, 600, 200);
-		table.setRowHeight(40);
-		table.setFont(new Font("黑体",Font.PLAIN,20));
+		table.setBounds(GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(400),
+				GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(200));
+		table.setRowHeight(GetResourceClass.getRealSize(40));
+		table.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		table.setEnabled(false);
-		table.getTableHeader().setPreferredSize(new Dimension(100, 30));
+		table.getTableHeader().setPreferredSize(new Dimension(GetResourceClass.getRealSize(100), 
+				GetResourceClass.getRealSize(30)));
 		String[] tableHeads=new String[]{"任务","事例管理员账号","事例管理员姓名"};
 		DefaultTableModel dtm = (DefaultTableModel)table.getModel();
 		dtm.setColumnIdentifiers(tableHeads);
@@ -124,7 +136,8 @@ public class TaskDelegateJPanel extends JLabel {
 			dtm.addRow(vector);
 		}
 		JScrollPane scrollPane=new JScrollPane(table);
-		scrollPane.setBounds(100, 400, 600, 200);
+		scrollPane.setBounds(GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(400),
+				GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(200));
 		add(scrollPane);
 	}
 }

@@ -14,6 +14,7 @@ import javax.swing.border.LineBorder;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import sys.GlobalVariables;
+import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 import sys.view.tableitem.MenuItemJlabel;
 
@@ -38,7 +39,7 @@ public class MenuJPanel extends JPanel {
 	private Object user;
 	public MenuJPanel(){
 		setLayout(new FlowLayout(1,0,0));
-		setBounds(15, 30, 240, 200);
+		setBounds(GetResourceClass.getRealSize(15), GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(240), GetResourceClass.getRealSize(200));
 		
 		
 		setBorder(new LineBorder(new Color(228,228,228),2));
@@ -196,7 +197,7 @@ public class MenuJPanel extends JPanel {
 		
 		quitlabel=new MenuItemJlabel("退出");
 		add(quitlabel);
-		setSize(240, 200);
+		setSize(GetResourceClass.getRealSize(240), GetResourceClass.getRealSize(200));
 		repaint();
 	}
 }

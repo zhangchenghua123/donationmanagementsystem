@@ -30,7 +30,7 @@ public class AnmtDetailJPanel extends JPanel {
 	private JLabel quitLabel;
 	//隐藏构造函数
 	private AnmtDetailJPanel(){
-		setBounds(300, GetResourceClass.getRealSize(5),
+		setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(5),
 				GetResourceClass.getRealSize(895),
 				GetResourceClass.getRealSize(640));// 不可修改
 		setLayout(null);
@@ -39,17 +39,20 @@ public class AnmtDetailJPanel extends JPanel {
 		setBackground(Color.white);
 		
 		titleLabel=new JLabel("",JLabel.CENTER);
-		titleLabel.setBounds(0, 40, 895, 30);
-		titleLabel.setFont(new Font("黑体",Font.PLAIN,25));
+		titleLabel.setBounds(0, GetResourceClass.getRealSize(40), GetResourceClass.getRealSize(895),
+				GetResourceClass.getRealSize(30));
+		titleLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(25)));
 		add(titleLabel);
 		
 		timeLabel=new JLabel("");
-		timeLabel.setBounds(500, 80, 200, 20);
-		timeLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		timeLabel.setBounds(GetResourceClass.getRealSize(500), GetResourceClass.getRealSize(80), 
+				GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(20));
+		timeLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(timeLabel);
 		
 		contentArea=new JTextArea();
-		contentArea.setBounds(GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(140), GetResourceClass.getRealSize(700), GetResourceClass.getRealSize(500));
+		contentArea.setBounds(GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(140), 
+				GetResourceClass.getRealSize(700), GetResourceClass.getRealSize(500));
 		contentArea.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		contentArea.setEditable(false);
 		contentArea.setOpaque(false);
@@ -57,9 +60,10 @@ public class AnmtDetailJPanel extends JPanel {
 		add(contentArea);
 		
 		quitLabel=new JLabel("关闭",JLabel.CENTER);
-		quitLabel.setBounds(10,10 , 50, 30);
+		quitLabel.setBounds(GetResourceClass.getRealSize(10),GetResourceClass.getRealSize(10) ,
+				GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(30));
 		quitLabel.setOpaque(false);
-		quitLabel.setFont(new Font("黑体",Font.PLAIN,20));
+		quitLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		quitLabel.setForeground(Color.blue);
 		quitLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		quitLabel.addMouseListener(new MouseListener() {

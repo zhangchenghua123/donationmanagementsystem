@@ -35,25 +35,29 @@ public class HeadPanel extends ImagePanel{
 		
 		loginLabel=new JLabel("登录");
 		loginLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		loginLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		loginLabel.setBounds( GetResourceClass.getRealSize(1000), 70,  GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
+		loginLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		loginLabel.setBounds( GetResourceClass.getRealSize(1000), GetResourceClass.getRealSize(70), 
+				GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
 		add(loginLabel);
 		
 		registerLabel=new JLabel("注册");
 		registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		registerLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		registerLabel.setBounds( GetResourceClass.getRealSize(1060),70, GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
+		registerLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		registerLabel.setBounds( GetResourceClass.getRealSize(1060),GetResourceClass.getRealSize(70),
+				GetResourceClass.getRealSize(40),  GetResourceClass.getRealSize(20));
 		add(registerLabel);
 		
 		usernameLabel=new JLabel("");
-		usernameLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		usernameLabel.setBounds( GetResourceClass.getRealSize(1000), 70,  GetResourceClass.getRealSize(60),  GetResourceClass.getRealSize(20));
+		usernameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		usernameLabel.setBounds( GetResourceClass.getRealSize(1000), GetResourceClass.getRealSize(70),  
+				GetResourceClass.getRealSize(60),  GetResourceClass.getRealSize(20));
 		add(usernameLabel);
 		usernameLabel.setVisible(false);
 		
 		logoffLabel=new JLabel("注销");
-		logoffLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		logoffLabel.setBounds( GetResourceClass.getRealSize(1080), 70,  GetResourceClass.getRealSize(60),  GetResourceClass.getRealSize(20));
+		logoffLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		logoffLabel.setBounds( GetResourceClass.getRealSize(1080), GetResourceClass.getRealSize(70), 
+				GetResourceClass.getRealSize(60),  GetResourceClass.getRealSize(20));
 		logoffLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		logoffLabel.addMouseListener(new MouseListener() {
 			

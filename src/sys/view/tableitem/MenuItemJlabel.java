@@ -13,12 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
+import sys.view.GetResourceClass;
+
 public class MenuItemJlabel extends JLabel {
 
 	public MenuItemJlabel(String text){
 		super(text,JLabel.CENTER);
-		setFont(new Font("黑体",Font.PLAIN,20));
-		setPreferredSize(new Dimension(198, 40));
+		setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
+		setPreferredSize(new Dimension(GetResourceClass.getRealSize(198), GetResourceClass.getRealSize(40)));
 		setBorder(new MatteBorder(new Insets(0, 0, 1, 0), new Color(241,241,241)));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		System.out.println("fdsafdsa");
@@ -45,7 +47,7 @@ public class MenuItemJlabel extends JLabel {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				setFont(new Font("黑体",Font.PLAIN,25));
+				setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(25)));
 			}
 			
 			@Override

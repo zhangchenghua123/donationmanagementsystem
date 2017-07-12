@@ -24,6 +24,7 @@ import sys.model.objects.Donor;
 import sys.model.objects.Nationality;
 import sys.presenter.DonorPresenter;
 import sys.presenter.NationPresenter;
+import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 import sys.view.customView.MyComboBoxUI;
 import sys.view.customView.TextInput;
@@ -71,53 +72,63 @@ public class DonorRegisterDialog extends JDialog {
 		super(owner);
 		setModal(true);
 		setTitle("捐助者注册页面");
-		setBounds(300, 300, 600, 400);
+		setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(300), 
+				GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(400));
 		setLayout(null);
 		
 		accountLabel=new JLabel("账户(任何长度不为零的字符串):");
-		accountLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		accountLabel.setBounds(30, 30, 300, 20);
+		accountLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		accountLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(30), 
+				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(20));
 		add(accountLabel);
 		
 		accountField=new TextInput();
-		accountField.setFont(new Font("黑体",Font.PLAIN,20));
-		accountField.setBounds(300, 30, 150, 25);
+		accountField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
+		accountField.setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(30), 
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(25));
 		add(accountField);
 		
 		passwordLabel=new JLabel("密码(任何长度不为零的字符串):");
-		passwordLabel.setBounds(30, 60, 300, 20);
-		passwordLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		passwordLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(60), 
+				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(20));
+		passwordLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(passwordLabel);
 		
 		passwordField=new TextInput();
-		passwordField.setBounds(300, 60, 150, 25);
-		passwordField.setFont(new Font("黑体",Font.PLAIN,20));
+		passwordField.setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(60),
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(25));
+		passwordField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(passwordField);
 		
 		passwordConfirmLabel=new JLabel("确认密码:");
-		passwordConfirmLabel.setBounds(30, 90, 100, 20);
-		passwordConfirmLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		passwordConfirmLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(90),
+				GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
+		passwordConfirmLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(passwordConfirmLabel);
 		
 		passwordConfirmField=new TextInput();
-		passwordConfirmField.setBounds(300, 90, 150, 25);
+		passwordConfirmField.setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(90), 
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(25));
 		passwordConfirmField.setToolTipText("");
-		passwordConfirmField.setFont(new Font("黑体",Font.PLAIN,20));
+		passwordConfirmField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(passwordConfirmField);
 		
 		nameLabel=new JLabel("姓名(任何长度不为零的字符串):");
-		nameLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		nameLabel.setBounds(30, 120, 300, 20);
+		nameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		nameLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(120), 
+				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(20));
 		add(nameLabel);
 		
 		nameField=new TextInput();
-		nameField.setBounds(300, 120, 150, 25);
-		nameField.setFont(new Font("黑体",Font.PLAIN,20));
+		nameField.setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(120), 
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(25));
+		nameField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(nameField);
 		
 		nationLabel=new JLabel("所属国籍:");
-		nationLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		nationLabel.setBounds(30, 150, 300, 20);
+		nationLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		nationLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(150), 
+				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(20));
 		add(nationLabel);
 		
 		final ArrayList<Nationality> nationsList=NationPresenter.getAll();
@@ -127,31 +138,35 @@ public class DonorRegisterDialog extends JDialog {
 			nations[i]=nationsList.get(i).getNation();
 		}
 		nationBox = new JComboBox<>(nations);
-		nationBox.setBounds(300,150,150,20);
+		nationBox.setBounds(GetResourceClass.getRealSize(300),GetResourceClass.getRealSize(150),
+				GetResourceClass.getRealSize(150),GetResourceClass.getRealSize(20));
 		nationBox.setUI((ComboBoxUI) MyComboBoxUI.createUI(nationBox));
-		nationBox.setFont(new Font("黑体",Font.PLAIN,20));
+		nationBox.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(nationBox);
 		
 		mailboxlLabel=new JLabel("邮箱:");
-		mailboxlLabel.setFont(new Font("黑体",Font.PLAIN,16));
-		mailboxlLabel.setBounds(30, 180, 300, 20);
+		mailboxlLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		mailboxlLabel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(180),
+				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(20));
 		add(mailboxlLabel);
 		
 		mailboxField=new TextInput();
-		mailboxField.setBounds(300, 180, 150, 25);
-		mailboxField.setFont(new Font("黑体",Font.PLAIN,20));
+		mailboxField.setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(180), 
+				GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(25));
+		mailboxField.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(mailboxField);
 		
 		infoLabel=new JLabel("");
 //		infoLabel.setBounds(460, 30, 150, 20);
-		infoLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		infoLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		infoLabel.setForeground(Color.red);
 		add(infoLabel);
 		
 		confirmButton=new JButton("提交注册信息");
-		confirmButton.setBounds(200, 240, 180, 30);
+		confirmButton.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(240), 
+				GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
 		confirmButton.setForeground(Color.green);
-		confirmButton.setFont(new Font("黑体",Font.PLAIN,20));
+		confirmButton.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(confirmButton);
 		
 		confirmButton.addActionListener(new ActionListener() {
@@ -161,55 +176,64 @@ public class DonorRegisterDialog extends JDialog {
 				// TODO Auto-generated method stub
 				if(accountField.getText().equals("")){
 					infoLabel.setText("请输入账号");
-					infoLabel.setBounds(460, 30, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(30), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(passwordField.getText().equals("")){
 					infoLabel.setText("请输入密码");
-					infoLabel.setBounds(460, 60, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(60), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(passwordConfirmField.getText().equals("")){
 					infoLabel.setText("请确认密码");
-					infoLabel.setBounds(460, 90, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(90),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(nameField.getText().equals("")){
 					infoLabel.setText("请输入姓名");
-					infoLabel.setBounds(460, 120, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(120),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(mailboxField.getText().equals("")){
 					infoLabel.setText("请确认邮箱");
-					infoLabel.setBounds(460, 180, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(180), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(!passwordField.getText().equals(passwordConfirmField.getText())){
 					infoLabel.setText("两次密码不一致");
-					infoLabel.setBounds(460, 90, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(90), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(!p.matcher(mailboxField.getText()).matches()){
 					infoLabel.setText("邮箱格式不正确");
-					infoLabel.setBounds(460, 180, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(180), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(DonorPresenter.accountExisted(accountField.getText())){
 					infoLabel.setText("该账号已存在");
-					infoLabel.setBounds(460, 30, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(30), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
 				else if(DonorPresenter.emailRepeated(mailboxField.getText())){
 					infoLabel.setText("该邮箱已注册过");
-					infoLabel.setBounds(460, 180, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(180), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}

@@ -14,7 +14,8 @@ public class TaskInfoLabel extends ImagePanel {
 
 	public TaskInfoLabel(){
 		super(new ImageIcon(GetResourceClass.class.getResource("image/taskinfo.png")));
-		setBounds(20, 260, 800, 300);
+		setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(260), 
+				GetResourceClass.getRealSize(800), GetResourceClass.getRealSize(300));
 		setOpaque(false);
 	}
 }

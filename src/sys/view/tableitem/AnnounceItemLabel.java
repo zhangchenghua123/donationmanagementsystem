@@ -58,10 +58,8 @@ public class AnnounceItemLabel extends JLabel{
 				// TODO Auto-generated method stub
 				System.out.println(GlobalVariables.frame.getContentPane().getComponent(1));
 				Container container=(Container)GlobalVariables.frame.getContentPane().getComponent(1);
-				if(container.getComponentCount()==3){
-					container.getComponent(1).setVisible(false);
-					container.getComponent(2).setVisible(false);
-				}
+				for(int i=container.getComponentCount()-1;i>=1;i--)
+					container.remove(i);
 				((Container)GlobalVariables.frame.getContentPane().getComponent(1)).add(AnmtDetailJPanel.getInstance());
 				AnmtDetailJPanel.getInstance().setData(announcement);
 				((Container)GlobalVariables.frame.getContentPane()).repaint();

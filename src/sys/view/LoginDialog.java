@@ -44,7 +44,7 @@ public class LoginDialog extends JDialog {
 
 	public LoginDialog() {
 		setModal(true);
-		setBounds(300, GetResourceClass.getRealSize(200),
+		setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(200),
 				GetResourceClass.getRealSize(360),
 				GetResourceClass.getRealSize(240));// 不可修改
 
@@ -144,12 +144,14 @@ public class LoginDialog extends JDialog {
 				 */
 				if (userAccount.equals("")) {
 					infoLabel.setText("请输入用户名");
-					infoLabel.setBounds(255, 30, 100, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(255), GetResourceClass.getRealSize(30),
+							GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				} else if (password.equals("")) {
 					infoLabel.setText("请输入密码");
-					infoLabel.setBounds(255, 60, 100, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(255), GetResourceClass.getRealSize(60), 
+							GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
@@ -162,7 +164,8 @@ public class LoginDialog extends JDialog {
 
 				else {
 					infoLabel.setText("账号或密码错误");
-					infoLabel.setBounds(20, 5, 100, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(5),
+							GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					loginButton.setText("登录");
 				}

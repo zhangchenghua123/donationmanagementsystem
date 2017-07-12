@@ -26,13 +26,13 @@ import sys.view.customView.TextInput;
 public class AnmtPublishJPanel extends JPanel {
 
 	private JLabel titleLabel;
-	private JTextField titleInput;
+	private JTextField titleInput;//标题
 	private JLabel contentLabel;
-	private JTextArea contentArea;
-	private JLabel submitLabel;
-	private JLabel infoLabel;
+	private JTextArea contentArea;//内容
+	private JLabel submitLabel; //发布按钮
+	private JLabel infoLabel;  //提示信息
 	public AnmtPublishJPanel(){
-		setBounds(270, GetResourceClass.getRealSize(0),
+		setBounds(GetResourceClass.getRealSize(270), GetResourceClass.getRealSize(0),
 				GetResourceClass.getRealSize(930),
 				GetResourceClass.getRealSize(650));// 不可修改
 		setLayout(null);
@@ -41,34 +41,39 @@ public class AnmtPublishJPanel extends JPanel {
 //		setForeground(Color.white);
 		
 		titleLabel=new JLabel("公告标题:");
-		titleLabel.setBounds(60,60 , 100, 20);
-		titleLabel.setFont(new Font("黑体",Font.PLAIN,20));
+		titleLabel.setBounds(GetResourceClass.getRealSize(60),GetResourceClass.getRealSize(60) ,
+				GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
+		titleLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(titleLabel);
 		
 		titleInput=new JTextField();
-		titleInput.setBounds(180, 60, 600, 25);
-		titleInput.setFont(new Font("黑体",Font.PLAIN,16));
+		titleInput.setBounds(GetResourceClass.getRealSize(180),GetResourceClass.getRealSize( 60),
+				GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(25));
+		titleInput.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(titleInput);
 		
 		contentLabel=new JLabel("公告正文:");
-		contentLabel.setBounds(60,100 , 100, 20);
-		contentLabel.setFont(new Font("黑体",Font.PLAIN,20));
+		contentLabel.setBounds(GetResourceClass.getRealSize(60),GetResourceClass.getRealSize(100) ,
+				GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
+		contentLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		add(contentLabel);
 		
 		contentArea=new JTextArea();
-		contentArea.setBounds(180, 100, 600, 400);
+		contentArea.setBounds(GetResourceClass.getRealSize(180),GetResourceClass.getRealSize( 100),
+				GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(400));
 		contentArea.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
-		contentArea.setFont(new Font("黑体",Font.PLAIN,16));
+		contentArea.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(contentArea);
 		
 		infoLabel=new JLabel("");
-		infoLabel.setFont(new Font("黑体",Font.PLAIN,16));
+		infoLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(infoLabel);
 		
 		submitLabel=new JLabel("发布该公告",JLabel.CENTER);
-		submitLabel.setBounds(620,510 , 160, 40);
+		submitLabel.setBounds(GetResourceClass.getRealSize(620),GetResourceClass.getRealSize(510) ,
+				GetResourceClass.getRealSize(160), GetResourceClass.getRealSize(40));
 		submitLabel.setOpaque(true);
-		submitLabel.setFont(new Font("黑体",Font.PLAIN,20));
+		submitLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		submitLabel.setBackground(new Color(102,205,0));
 		submitLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		submitLabel.addMouseListener(new MouseListener() {
@@ -102,25 +107,29 @@ public class AnmtPublishJPanel extends JPanel {
 				// TODO Auto-generated method stub
 				if(titleInput.getText().equals("")){
 					infoLabel.setText("标题不能为空");
-					infoLabel.setBounds(785, 60, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(785), GetResourceClass.getRealSize(60),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.setForeground(Color.red);
 					infoLabel.repaint();
 				}
 				else if(contentArea.getText().equals("")){
 					infoLabel.setText("内容不能为空");
-					infoLabel.setBounds(785, 100, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(785),GetResourceClass.getRealSize( 100), 
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.setForeground(Color.red);
 					infoLabel.repaint();
 				}
 				else if(AnmtPresenter.insert(new Date(new java.util.Date().getTime()), titleInput.getText(), contentArea.getText())){
 					infoLabel.setText("发布公告成功");
-					infoLabel.setBounds(640, 560, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(640), GetResourceClass.getRealSize(560),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.setForeground(Color.green);
 					infoLabel.repaint();
 				}
 				else {
 					infoLabel.setText("发布公告失败");
-					infoLabel.setBounds(640, 560, 150, 20);
+					infoLabel.setBounds(GetResourceClass.getRealSize(640), GetResourceClass.getRealSize(560),
+							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.setForeground(Color.red);
 					infoLabel.repaint();
 				}
