@@ -34,7 +34,7 @@ public class SysMgtDaoImpl implements SysMgtDao {
 			pstmt.setString(2, (String) objects[1]);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
-				name=rs.getString(3);
+				name=rs.getString(2);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

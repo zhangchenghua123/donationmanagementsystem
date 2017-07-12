@@ -5,7 +5,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 
 import sys.model.clouddatabase.DatabaseConnection;
@@ -32,12 +35,11 @@ public class AnmtDaoImpl implements AnmtDao {
 		// 插入一个公告
 		try{
 			pstmt=conn.prepareStatement("insert into announcement values(?,?,?)");
-			pstmt.setDate(1,(Date)objects[0]);
+			pstmt.setTimestamp(1, new Timestamp(((Date)objects[0]).getTime()));
 			pstmt.setString(2, (String) objects[1]);
 			pstmt.setString(3,(String) objects[2]);
 			int i=pstmt.executeUpdate();
 			if(i>0){
-				rs.close();
 				pstmt.close();
 				databaseConnection.closeConnection();
 				return true;
@@ -58,9 +60,10 @@ public class AnmtDaoImpl implements AnmtDao {
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				Announcement ann=new Announcement();
-				ann.setTime(rs.getDate(1));
+				ann.setTime(rs.getTimestamp(1));
 				ann.setTitle(rs.getString(2));
 				ann.setContent(rs.getString(3));
+				
 	            list.add(ann);
 	        }
 			rs.close();

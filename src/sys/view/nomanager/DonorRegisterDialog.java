@@ -14,12 +14,15 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.plaf.ComboBoxUI;
 import javax.swing.text.html.ImageView;
 
 import sys.GlobalVariables;
+import sys.model.objects.Donor;
 import sys.model.objects.Nationality;
+import sys.presenter.DonorPresenter;
 import sys.presenter.NationPresenter;
 import sys.view.customView.ImagePanel;
 import sys.view.customView.MyComboBoxUI;
@@ -34,7 +37,7 @@ import sys.view.customView.TextInput;
  */
 public class DonorRegisterDialog extends JDialog {
 
-	private int state=0;
+	public static int state=0;
 	public static int Quit=0;
 	public static int LOGIN=1;
 	public int getState() {
@@ -117,17 +120,17 @@ public class DonorRegisterDialog extends JDialog {
 		nationLabel.setBounds(30, 150, 300, 20);
 		add(nationLabel);
 		
-		ArrayList<Nationality> nationsList=new NationPresenter().getAll();
-//		String[] nations=new String[nationsList.size()];
+		final ArrayList<Nationality> nationsList=NationPresenter.getAll();
+		String[] nations=new String[nationsList.size()];
 		
-//		for(int i=0;i<nations.length;i++){
-//			nations[i]=nationsList.get(i).getNation();
-//		}
-//		nationBox = new JComboBox<>(nations);
-//		nationBox.setBounds(300,150,150,20);
-//		nationBox.setUI((ComboBoxUI) MyComboBoxUI.createUI(nationBox));
-//		nationBox.setFont(new Font("黑体",Font.PLAIN,20));
-//		add(nationBox);
+		for(int i=0;i<nations.length;i++){
+			nations[i]=nationsList.get(i).getNation();
+		}
+		nationBox = new JComboBox<>(nations);
+		nationBox.setBounds(300,150,150,20);
+		nationBox.setUI((ComboBoxUI) MyComboBoxUI.createUI(nationBox));
+		nationBox.setFont(new Font("黑体",Font.PLAIN,20));
+		add(nationBox);
 		
 		mailboxlLabel=new JLabel("邮箱:");
 		mailboxlLabel.setFont(new Font("黑体",Font.PLAIN,16));
@@ -175,7 +178,7 @@ public class DonorRegisterDialog extends JDialog {
 					return;
 				}
 				else if(nameField.getText().equals("")){
-					infoLabel.setText("请确认姓名");
+					infoLabel.setText("请输入姓名");
 					infoLabel.setBounds(460, 120, 150, 20);
 					infoLabel.repaint();
 					return;
@@ -198,9 +201,41 @@ public class DonorRegisterDialog extends JDialog {
 					infoLabel.repaint();
 					return;
 				}
+				else if(DonorPresenter.accountExisted(accountField.getText())){
+					infoLabel.setText("该账号已存在");
+					infoLabel.setBounds(460, 30, 150, 20);
+					infoLabel.repaint();
+					return;
+				}
+				else if(DonorPresenter.emailRepeated(mailboxField.getText())){
+					infoLabel.setText("该邮箱已注册过");
+					infoLabel.setBounds(460, 180, 150, 20);
+					infoLabel.repaint();
+					return;
+				}
+				
 				infoLabel.setText("");
 				infoLabel.repaint();
-				
+				Donor donor=new Donor();
+				donor.setAccount(accountField.getText());
+				donor.setName(nameField.getText());
+				donor.setMailbox(mailboxField.getText());
+				donor.setNationID(nationsList.get(nationBox.getSelectedIndex()).getNationID());
+				donor.setPassword(passwordField.getText());
+				donor.setTolMoney(0);
+				if(DonorPresenter.register(donor)){
+					DonorRegisterDialog.this.setVisible(false);
+					JLabel label=new JLabel("恭喜注册成功！\n现在以此注册的账号登录吗？");
+					label.setFont(new Font("黑体",Font.PLAIN,16));
+					int n = JOptionPane.showConfirmDialog(null, label, "注册成功", JOptionPane.YES_NO_OPTION);  
+			        if (n == JOptionPane.YES_OPTION) {  
+			             DonorPresenter.login(donor.getAccount(), donor.getPassword());
+			             state=LOGIN;
+			        } else if (n == JOptionPane.NO_OPTION) {  
+			             System.out.println("点击了取消按钮");
+			             state=Quit;
+			        }  
+				}
 				
 				
 			}

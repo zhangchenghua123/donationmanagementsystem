@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import sys.view.GetResourceClass;
-import sys.view.ModuleJPanel;
 
 
 /**
@@ -18,7 +17,7 @@ import sys.view.ModuleJPanel;
  * 鼠标指向时，显示img_active_url路径下的图片，否则显示img_unactive_url下的图片
  * 点击时，根据设置的固有ID，在ChangeIconBGlistener的点击监听器中根据ID执行任务
  */
-public class ImagePanel extends ModuleJPanel {
+public class ImagePanel extends JPanel {
 	
 
 	private ImageIcon icon;

@@ -162,7 +162,8 @@ public class DoneeDaoImpl implements DoneeDao {
 			pstmt.setInt(14, 1);
 			pstmt.setInt(15, 0);
 			
-			System.out.println(pstmt.executeUpdate());
+			if(pstmt.executeUpdate()==1)
+				return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

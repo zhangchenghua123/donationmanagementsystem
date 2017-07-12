@@ -21,6 +21,7 @@ public class MenuItemJlabel extends JLabel {
 		setPreferredSize(new Dimension(198, 40));
 		setBorder(new MatteBorder(new Insets(0, 0, 1, 0), new Color(241,241,241)));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		System.out.println("fdsafdsa");
 		addMouseListener(new MouseListener() {
 			
 			@Override

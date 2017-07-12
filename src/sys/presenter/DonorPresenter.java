@@ -89,7 +89,7 @@ public class DonorPresenter {
 		object[2]=donor.getNationID();
 		object[3]=donor.getName();
 		object[4]=donor.getMailbox();
-		object[3]=donor.getTolMoney();
+		object[5]=donor.getTolMoney();
 		boolean b=don.insert(object);
 		if(b){
 			return true;

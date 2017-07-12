@@ -13,9 +13,9 @@ import sys.model.objects.Donee;
  */
 public class DoneePresenter {
 
-	public static int IDENTITY_EXISTED = 0;
-	public static int PHONE_EXISTED = 1;
-	public static int CARD_EXISTED = 2;
+	public static  final int IDENTITY_EXISTED = 0;
+	public static final int PHONE_EXISTED = 1;
+	public static final int CARD_EXISTED = 2;
 
 	/**
 	 * 1

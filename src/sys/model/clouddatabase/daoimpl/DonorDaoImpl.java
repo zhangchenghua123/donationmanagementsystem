@@ -74,7 +74,6 @@ public class DonorDaoImpl implements DonorDao {
 		pstmt.setString(5, (String) objects[4]);
 		pstmt.setFloat(6, 0);
 				int i=pstmt.executeUpdate();
-					rs.close();
 					pstmt.close();
 					databaseConnection.closeConnection();
 					if(i==1)
@@ -144,15 +143,15 @@ public class DonorDaoImpl implements DonorDao {
 		 
 			pstmt=conn.prepareStatement("select * "
 										+ "from donor natural join nationality"
-										+ "where account =? and password=?");
+										+ " where account =? and password=?");
 			pstmt.setString(1, (String) objects[0]);
 			pstmt.setString(2, (String) objects[1]);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 					Donor don=new Donor();
-					don.setAccount(rs.getString(1));
-					don.setPassword(rs.getString(2));
-					don.setNationID(rs.getInt(3));
+					don.setAccount(rs.getString(2));
+					don.setPassword(rs.getString(3));
+					don.setNationID(rs.getInt(1));
 					don.setName(rs.getString(4));
 					don.setMailbox(rs.getString(5));
 					don.setTolMoney(rs.getFloat(6));

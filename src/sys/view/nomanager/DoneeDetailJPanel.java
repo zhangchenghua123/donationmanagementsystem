@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.MatteBorder;
 
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
@@ -102,16 +103,22 @@ public class DoneeDetailJPanel extends JPanel{
 		addressJLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		add(addressJLabel);
 		
+		mainexperienceLabel=new JLabel("主要经历：");
+		mainexperienceLabel.setBounds(GetResourceClass.getRealSize(25), GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(50));
+		mainexperienceLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
+		mainexperienceLabel.setBorder(new MatteBorder(1, 1, 0, 0, new Color(150,241,241)));
+		add(mainexperienceLabel);
 		
 		String experience=donee.getExperience();
-		experienceArea=new JTextArea("aa\n\nbb\n"+experience);
-		experienceArea.setBounds(GetResourceClass.getRealSize(120), GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(500), GetResourceClass.getRealSize(100));
-		experienceArea.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(20)));
+		experienceArea=new JTextArea("  "+experience);
+		experienceArea.setBounds(GetResourceClass.getRealSize(175), GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(500), GetResourceClass.getRealSize(50));
+		experienceArea.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		experienceArea.setEditable(false);
 		experienceArea.setOpaque(false);
 		experienceArea.setLineWrap(true);
 		System.out.println(experience.length()+"aaaaasss");
 		add(experienceArea);
+		
 		
 		
 	}

@@ -41,8 +41,8 @@ public class DoneeItemPanel extends JPanel{
 	public DoneeItemPanel(Donee donee){
 		this.donee=donee;
 		setLayout(null);
-		setOpaque(false);
-//		setBackground(Color.gray);
+		setOpaque(true);
+		setBackground(Color.white);
 		setPreferredSize(new Dimension(GetResourceClass.getRealSize(650), GetResourceClass.getRealSize(140)));
 		setBorder(new BevelBorder(BevelBorder.RAISED, new Color(238,238,238), new Color(238,238,238)));
 		

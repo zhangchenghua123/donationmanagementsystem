@@ -31,7 +31,12 @@ public class LoginDialog extends JDialog {
 	private JComboBox type;
 	private JButton loginButton;
 	private JLabel infoLabel;
-
+	public static boolean loginState=false;
+	
+	public static int MANAGER_LOGIN=1;
+	public static int DONOR_LOGIN=2;
+	public static int WHO=0;
+	
 	Font font1 = new Font("黑体", Font.PLAIN, GetResourceClass.getRealSize(16));
 	Font font2 = new Font("黑体", Font.PLAIN, GetResourceClass.getRealSize(20));
 
@@ -151,6 +156,7 @@ public class LoginDialog extends JDialog {
 
 				loginButton.setText("正在登录");
 				if (LoginPresenter.login(userType, userAccount, password)) {
+					WHO=userType.equals("捐助者")?DONOR_LOGIN:MANAGER_LOGIN;
 					loginSuccess();
 				}
 
@@ -172,6 +178,7 @@ public class LoginDialog extends JDialog {
 
 	}
 	private void loginSuccess(){
+		loginState=true;
 		this.setVisible(false);
 	}
 }

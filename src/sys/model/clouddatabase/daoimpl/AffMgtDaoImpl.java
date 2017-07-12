@@ -69,7 +69,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			//执行SQL语句
 			int i=pstmt.executeUpdate();
 			if(i>0){
-				rs.close();
 				pstmt.close();
 				databaseConnection.closeConnection();
 				return true;
@@ -90,17 +89,17 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		try{
 			pstmt=conn.prepareStatement("select * "
 										+ "from affairManager natural join task"
-										+ "where account =?");
+										+ " where account =?");
 			pstmt.setString(1, (String) objects[0]);
 			rs=pstmt.executeQuery();
-	        int col = rs.getMetaData().getColumnCount();
+//	        int col = rs.getMetaData().getColumnCount();
 			if(rs.next()){
-				if(rs.getString(3).equals(objects[1])){
+				if(rs.getString(4).equals(objects[1].toString())){
 					AffairManager affMg=new AffairManager();
-					affMg.setAccount(rs.getString(1));
-					affMg.setName(rs.getString(2));
-					affMg.setPassword(rs.getString(3));
-					affMg.setTaskId(rs.getInt(4));
+					affMg.setAccount(rs.getString(2));
+					affMg.setName(rs.getString(3));
+					affMg.setPassword(rs.getString(4));
+					affMg.setTaskId(rs.getInt(1));
 					affMg.setTask(rs.getString(5));
 					rs.close();
 					pstmt.close();
@@ -126,7 +125,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			int i=pstmt.executeUpdate();
 			if(i>0)
 			{
-				rs.close();
 				pstmt.close();
 				databaseConnection.closeConnection();
 				return true;
@@ -148,10 +146,10 @@ public class AffMgtDaoImpl implements AffMgtDao {
 	        //int col = rs.getMetaData().getColumnCount();
 			while(rs.next()){
 				AffairManager affMg=new AffairManager();
-				affMg.setAccount(rs.getString(1));
-				affMg.setName(rs.getString(2));
-				affMg.setPassword(rs.getString(3));
-				affMg.setTaskId(rs.getInt(4));
+				affMg.setAccount(rs.getString(2));
+				affMg.setName(rs.getString(3));
+				affMg.setPassword(rs.getString(4));
+				affMg.setTaskId(rs.getInt(1));
 				affMg.setTask(rs.getString(5));
 	           list.add(affMg);
 	        }

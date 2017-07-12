@@ -26,7 +26,7 @@ public class DoneeInfoJpanel extends JPanel {
 		headPanel.setPreferredSize(new Dimension(650, 50));
 		add(headPanel);
 		ArrayList<Donee> list=new DoneeDaoImpl().getAll();
-		setOpaque(false);
+		setOpaque(true);
 		DoneeItemPanel doneeItemPanel=new DoneeItemPanel(list.get(0));
 		DoneeItemPanel doneeItemPanel1=new DoneeItemPanel(list.get(0));
 		DoneeItemPanel doneeItemPanel2=new DoneeItemPanel(list.get(0));

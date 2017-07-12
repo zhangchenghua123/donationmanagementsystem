@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import sys.model.clouddatabase.DatabaseConnection;
@@ -36,14 +37,13 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			// 给？赋值
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setDate(1, (Date) objects[0]);
+			pstmt.setTimestamp(1, new Timestamp(((Date) objects[0]).getTime()));
 			pstmt.setString(2, (String) objects[1]);
 			pstmt.setString(3, (String) objects[2]);
 			pstmt.setFloat(4, (float) objects[3]);
 			pstmt.setInt(5, (int) objects[4]);
 
 			int i = pstmt.executeUpdate();
-			rs.close();
 			pstmt.close();
 			databaseConnection.closeConnection();
 			if (i == 1)
@@ -67,12 +67,11 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, 1);
-			pstmt.setDate(2, (Date) objects[0]);
+			pstmt.setTimestamp(2, new Timestamp(((Date) objects[0]).getTime()));
 			pstmt.setString(3, (String) objects[1]);
 			pstmt.setString(4, (String) objects[2]);
 
 			int i = pstmt.executeUpdate();
-			rs.close();
 			pstmt.close();
 			databaseConnection.closeConnection();
 			if (i == 1)
@@ -99,7 +98,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getDate(1));
+				donation.setTime(rs.getTimestamp(1));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -132,7 +131,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getDate(1));
+				donation.setTime(rs.getTimestamp(1));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -162,7 +161,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getDate(1));
+				donation.setTime(rs.getTimestamp(1));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -217,7 +216,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getDate(1));
+				donation.setTime(rs.getTimestamp(1));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
