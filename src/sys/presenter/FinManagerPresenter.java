@@ -52,7 +52,6 @@ public class FinManagerPresenter {
 		if(isSuccess)
 		{
 			FinancialManager financialManager = new FinancialManager();
-			GlobalVariables.userInfo = new HashMap<>();
 			financialManager = (FinancialManager) GlobalVariables.userInfo.get("user");
 			financialManager.setPassword(newPassword);
 			return true;

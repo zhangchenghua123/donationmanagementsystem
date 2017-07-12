@@ -19,9 +19,6 @@ public class NationPresenter {
 		ArrayList<Nationality> list = new ArrayList<Nationality>();
 		NationDaoImpl nationDaoImpl = new NationDaoImpl();
 		list = nationDaoImpl.getAll();
-		if(list.size() != 0)
 			return list;
-		else
-			return null;
 	}
 }

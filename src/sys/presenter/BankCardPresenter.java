@@ -16,10 +16,8 @@ public class BankCardPresenter {
 	 */
 	public static PlatformBankCard getCard(){
 		PlatformBankCard platformBankCard = new PlatformBankCard();
-		platformBankCard.getCardNo();
-		platformBankCard.getBalance();
-		platformBankCard.getTolDonation();
-			return platformBankCard;
+		platformBankCard = new BankCardDaoImpl().query();
+		return platformBankCard;
 	}
 	/**
 	 * 2

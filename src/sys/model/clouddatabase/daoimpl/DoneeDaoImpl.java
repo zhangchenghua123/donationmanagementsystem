@@ -366,7 +366,7 @@ public class DoneeDaoImpl implements DoneeDao {
 			e.printStackTrace();
 	}
 		if( i == 0 )
-		return false;
+			return false;
 		else
 			return true;
 	}
@@ -385,7 +385,7 @@ public class DoneeDaoImpl implements DoneeDao {
 			e.printStackTrace();
 	}
 		if(i == 0)
-		return false;
+			return false;
 		else
 			return true;
 	}
@@ -395,7 +395,6 @@ public class DoneeDaoImpl implements DoneeDao {
 		// TODO Auto-generated method stub
 				String sql = "select * from donee where taskid=?";
 				try{
-					
 					pstmt = conn.prepareStatement( sql );
 					pstmt.setInt(1, (int) objects[0]);
 					rs = pstmt.executeQuery();
@@ -449,19 +448,57 @@ public class DoneeDaoImpl implements DoneeDao {
 	@Override
 	public int getCountByTaskId(Object[] objects) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "select count(*) from donee where taskId = ?";
+		int Count = 0;
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) objects[0]);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				Count = rs.getInt(1);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+	}
+		return Count;
 	}
 
 	@Override
 	public float getTolExpectedAmountByTaskId(Object[] objects) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "select sum(expectedamount) from donee where taskId = ?";
+		float total = 0;
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setFloat(1, (float) objects[0]);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				total = rs.getFloat(1);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+	}
+		return total;
 	}
 
 	@Override
 	public float getTolDonatedAmountByTaskId(Object[] objects) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = "select sum(donatedamount) from donee where taskId = ?";
+		float total = 0;
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setFloat(1, (float) objects[0]);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				total = rs.getFloat(1);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+	}
+		return total;
 	}
 
 	
