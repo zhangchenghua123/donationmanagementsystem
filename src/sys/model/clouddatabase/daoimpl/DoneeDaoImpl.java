@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 
 import sys.model.clouddatabase.DatabaseConnection;
 import sys.model.clouddatabase.dao.DoneeDao;
+import sys.model.objects.Donation;
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
 
@@ -176,16 +177,24 @@ public class DoneeDaoImpl implements DoneeDao {
 	@Override
 	public Donee query(Object[] objects) {
 		Donee donee=null;
+		System.out.println(333);
 		try {
 			//预编译SQL语句
-			pstmt=conn.prepareStatement("select * from donee where account=?");
+			System.out.println(44);
+			pstmt=conn.prepareStatement("select * from donee where identity=?");
 			//给问号赋值
+			System.out.println(55);
 			pstmt.setString(1, (String) objects[0]);
 			//执行SQL语句，返回查询结果给rs
+			System.out.println(66);
+			
+			System.out.println((String) objects[0]);
 			rs=pstmt.executeQuery();
 			//判断rs是否有数据
 			
+			System.out.println(555555555);
 			if(rs.next()){
+				System.out.println(666666666);
 				donee=new Donee();
 				donee.setIdentity(rs.getString(1));
 				donee.setName(rs.getString(2));
@@ -373,8 +382,9 @@ public class DoneeDaoImpl implements DoneeDao {
 
 	
 	@Override
-	public boolean updateFinish(Object[] objects) {
+	public boolean updateFinish(ArrayList<String> identities) {
 		// TODO Auto-generated method stub
+		Object[] objects=new Object[2];
 		String sql = "update donee set finish = 1 where identity = ?";
 		int i = 0;
 		try{

@@ -159,7 +159,7 @@ public class DoneeItemPanel extends JPanel{
 				// TODO Auto-generated method stub
 				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
 				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
-				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(DoneeItemPanel.this.donee),1);
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(DoneeItemPanel.this.donee.getIdentity()),1);
 			}
 		});
 	}

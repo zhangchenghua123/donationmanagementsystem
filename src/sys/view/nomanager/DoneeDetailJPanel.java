@@ -67,12 +67,13 @@ public class DoneeDetailJPanel extends JPanel{
 	private ArrayList<Donation> donationList;
 	private Donee donee;
 	
-	public DoneeDetailJPanel(final Donee donee){
+	public DoneeDetailJPanel(String identity){
 		setBounds(GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(5), 
 				GetResourceClass.getRealSize(650), GetResourceClass.getRealSize(640));
 		setLayout(null);
 		setOpaque(false);
-		this.donee=donee;
+		System.out.println(identity);
+		donee=DoneePresenter.getDonee(identity);
 		
 		quitLabel=new JLabel("关闭");
 		quitLabel.setBounds(GetResourceClass.getRealSize(590), GetResourceClass.getRealSize(5),
@@ -81,7 +82,7 @@ public class DoneeDetailJPanel extends JPanel{
 		quitLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		add(quitLabel);
 		
-		picturePanel=new ImagePanel((ImageIcon) donee.getPic());
+		picturePanel=new ImagePanel(donee.getPic());
 		picturePanel.setBounds(GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(30), 
 				GetResourceClass.getRealSize(90),GetResourceClass.getRealSize(120));
 		add(picturePanel);
@@ -320,12 +321,12 @@ public class DoneeDetailJPanel extends JPanel{
 					donation.setDonorAccount(donor.getAccount());
 					donation.setDoneeIdentity(donee.getIdentity());
 					donation.setAmount(Float.parseFloat(amountField.getText()));
-					if(DonationPresenter.insert(donation)&&//插入捐助表
-							DoneePresenter.updateDonateAmount(donee.getIdentity(), donation.getAmount())&&//受捐者总受捐金额
-							DonorPresenter.updateTolMoney(donor.getAccount(), donation.getAmount())&&//捐助者总捐助金额
-							BankCardPresenter.addTolDanotion(donation.getAmount())&&//平台银行卡总接受的金额
-							BankCardPresenter.updateBalance(donation.getAmount()+BankCardPresenter.getCard().getBalance())){//平台银行卡余额
+					if(DonationPresenter.insert(donation)//插入捐助表
+							){//平台银行卡余额
 						System.out.println("捐助成功");
+						((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
+						((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
+						((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(donee.getIdentity()),1);
 					}
 				}
 			}

@@ -60,8 +60,9 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 	}
 
 	@Override
-	public boolean updateState(Object[] objects) {
+	public boolean updateState(ArrayList<Donation> list) {
 		// TODO Auto-generated method stub
+		Object[] objects=new Object[3];
 		String sql = "update donation set paid=? where time=?" + " and donoraccount=? " + " and doneeidentity=?";
 		try {
 			pstmt = conn.prepareStatement(sql);

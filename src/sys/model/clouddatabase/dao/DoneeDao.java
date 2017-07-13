@@ -49,6 +49,7 @@ public interface DoneeDao {
 	
 	/**
 	 * 根据身份证修改已募捐金额
+	 * 此步在触发器中进行
 	 * @param objects:身份证，新添加的金额
 	 * @return boolean true:修改成功 false 修改失败
 	 */
@@ -58,7 +59,8 @@ public interface DoneeDao {
 	
 	/**
 	 * 根据身份证修改已收到金额
-	 * @param objects:身份证，新添加的金额
+	 * 此步在触发器中进行
+	 * @param objects: 身份证，新添加的金额
 	 * @return boolean true:修改成功 false 修改失败
 	 */
 	public boolean updateReceivedAmount(Object[] objects);
@@ -75,10 +77,10 @@ public interface DoneeDao {
 	
 	/**
 	 * 根据身份证修改是否结束援助状态为已经援助
-	 * @param objects:身份证
+	 * @param ArrayList<String>:size大于等于1的身份证集合,
 	 * @return boolean true:修改成功 false 修改失败
 	 */
-	public boolean updateFinish(Object[] objects);
+	public boolean updateFinish(ArrayList<String> identitys);
 	
 	/**
 	 * 获取总受捐者人数

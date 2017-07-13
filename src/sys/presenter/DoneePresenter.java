@@ -68,7 +68,9 @@ public class DoneePresenter {
 		Donee donee = new Donee();
 		Object[] objects = new Object[1];
 		objects[0] = identity;
+		System.out.println(1111);
 		donee = new DoneeDaoImpl().query(objects);
+		System.out.println(222);
 		return donee;
 	}
 	/**
@@ -118,10 +120,9 @@ public class DoneePresenter {
 	 * @param identity
 	 * @return
 	 */
-	public static boolean updateFinish(String identity) {
-		Object[] objects = new Object[1];
-		objects[0] = identity;
-		boolean isSuccess = new DoneeDaoImpl().updateFinish(objects);
+	public static boolean updateFinish(ArrayList<String> identities) {
+		
+		boolean isSuccess = new DoneeDaoImpl().updateFinish(identities);
 		if(isSuccess)
 			return true;
 		else
