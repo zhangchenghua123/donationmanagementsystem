@@ -37,7 +37,7 @@ public class DonationPresenter {
 	 */
 	public static boolean insert(Donation donation){
 		Object[] object=new Object[]{donation.getTime(),donation.getDonorAccount(),donation.getDoneeIdentity(),
-				donation.getAmount(),donation.getHasPaid()};
+				donation.getAmount(),0};
 		return new DonationDaoImpl().insert(object);
 	}
 	/**

@@ -28,11 +28,12 @@ public class DoneeInfoJpanel extends JPanel {
 		add(headPanel);
 		ArrayList<Donee> list=new DoneeDaoImpl().getAll();
 		setOpaque(false);
-		DoneeItemPanel doneeItemPanel=new DoneeItemPanel(list.get(0));
-		DoneeItemPanel doneeItemPanel1=new DoneeItemPanel(list.get(1));
+		for(int i=0;i<list.size();i++){
+			DoneeItemPanel doneeItemPanel=new DoneeItemPanel(list.get(i));
+			
+			add(doneeItemPanel);
+		}
 		
-		add(doneeItemPanel);
-		add(doneeItemPanel1);
 		
 		
 	}

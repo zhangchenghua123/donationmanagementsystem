@@ -98,7 +98,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -131,7 +131,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -161,7 +161,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -216,7 +216,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));

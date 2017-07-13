@@ -12,6 +12,7 @@ import sys.view.GetResourceClass;
  */
 public class AffairHomeJpanel extends JLabel {
 
+	
 	public AffairHomeJpanel(){
 		setBounds(GetResourceClass.getRealSize(270), GetResourceClass.getRealSize(0),
 				GetResourceClass.getRealSize(930),

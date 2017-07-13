@@ -36,6 +36,7 @@ public class LoginDialog extends JDialog {
 	public static int MANAGER_LOGIN=1;
 	public static int DONOR_LOGIN=2;
 	public static int WHO=0;
+
 	
 	Font font1 = new Font("黑体", Font.PLAIN, GetResourceClass.getRealSize(16));
 	Font font2 = new Font("黑体", Font.PLAIN, GetResourceClass.getRealSize(20));

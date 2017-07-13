@@ -33,130 +33,77 @@ public class ManagerInfo extends ImagePanel {
 				GetResourceClass.getRealSize(300), GetResourceClass.getRealSize(200));
 		setOpaque(false);
 		setLayout(null);
+		
+		accountLabel=new JLabel();
+		accountLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(50),
+				GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
+		accountLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		add(accountLabel);
+		
+		nameLabel=new JLabel();
+		nameLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
+		nameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		add(nameLabel);
+		
+		positionLabel=new JLabel();
+		positionLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(110), 
+				GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
+		positionLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
+		add(positionLabel);
+		
+		updatePasswordLabel=new JLabel("修改密码");
+		updatePasswordLabel.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(150), 
+				GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(20));
+		updatePasswordLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
+		updatePasswordLabel.setForeground(Color.green);
+		updatePasswordLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		updatePasswordLabel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				updatePasswordLabel.setForeground(Color.green);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				updatePasswordLabel.setForeground(Color.blue);
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				new UpdatePasswordDialog().setVisible(true);					
+			}
+		});
+		add(updatePasswordLabel);
+		
 		if(GlobalVariables.userInfo.get("type").equals("系统管理员")){
 			
-			accountLabel=new JLabel("账  号: "+((SystemManager)GlobalVariables.userInfo.get("user")).getAccount());
-			accountLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(50),
-					GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
-			accountLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(accountLabel);
-			
-			nameLabel=new JLabel("姓  名: "+((SystemManager)GlobalVariables.userInfo.get("user")).getName());
-			nameLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
-			nameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(nameLabel);
-			
-			positionLabel=new JLabel("管理员: 系统管理员");
-			positionLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(110), 
-					GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
-			positionLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(positionLabel);
-			
-			updatePasswordLabel=new JLabel("修改密码");
-			updatePasswordLabel.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(150), 
-					GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(20));
-			updatePasswordLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
-			updatePasswordLabel.setForeground(Color.green);
-			updatePasswordLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			updatePasswordLabel.addMouseListener(new MouseListener() {
-				
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mousePressed(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
-					updatePasswordLabel.setForeground(Color.green);
-				}
-				
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
-					updatePasswordLabel.setForeground(Color.blue);
-				}
-				
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-					new UpdatePasswordDialog().setVisible(true);					
-				}
-			});
-			add(updatePasswordLabel);
-			
+			accountLabel.setText("账  号: "+((SystemManager)GlobalVariables.userInfo.get("user")).getAccount());
+			nameLabel.setText("姓  名: "+((SystemManager)GlobalVariables.userInfo.get("user")).getName());
+			positionLabel.setText("管理员: 系统管理员");
 		}
 		else if(GlobalVariables.userInfo.get("type").equals("事例管理员")){
 			
-			accountLabel=new JLabel("账  号: "+((AffairManager)GlobalVariables.userInfo.get("user")).getAccount());
-			accountLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(50),
-					GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
-			accountLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(accountLabel);
-			
-			nameLabel=new JLabel("姓  名: "+((AffairManager)GlobalVariables.userInfo.get("user")).getName());
-			nameLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(80), 
-					GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
-			nameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(nameLabel);
-			
-			positionLabel=new JLabel("管理员/任务: 事例管理员/"+((AffairManager)GlobalVariables.userInfo.get("user")).getTask());
-			positionLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(110), 
-					GetResourceClass.getRealSize(270), GetResourceClass.getRealSize(30));
-			positionLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
-			add(positionLabel);
-			
-			updatePasswordLabel=new JLabel("修改密码");
-			updatePasswordLabel.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(150), 
-					GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(20));
-			updatePasswordLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
-			updatePasswordLabel.setForeground(Color.green);
-			updatePasswordLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			updatePasswordLabel.addMouseListener(new MouseListener() {
-				
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mousePressed(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
-					updatePasswordLabel.setForeground(Color.green);
-				}
-				
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
-					updatePasswordLabel.setForeground(Color.blue);
-				}
-				
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-					new UpdatePasswordDialog().setVisible(true);					
-				}
-			});
-			add(updatePasswordLabel);
-			
+			accountLabel.setText("账  号: "+((AffairManager)GlobalVariables.userInfo.get("user")).getAccount());
+			nameLabel.setText("姓  名: "+((AffairManager)GlobalVariables.userInfo.get("user")).getName());
+			positionLabel.setText("管理员/任务: 事例管理员/"+((AffairManager)GlobalVariables.userInfo.get("user")).getTask());
 		}
-		
 	}
 
 }

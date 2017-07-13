@@ -1,6 +1,6 @@
 package sys.model.objects;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * 捐助类
