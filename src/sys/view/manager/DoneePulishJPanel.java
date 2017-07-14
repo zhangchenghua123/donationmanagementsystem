@@ -8,6 +8,9 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -20,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
 
+import Utils.IDCardUtil;
 import sys.GlobalVariables;
 import sys.model.objects.AffairManager;
 import sys.model.objects.Donee;
@@ -482,27 +486,35 @@ public class DoneePulishJPanel extends JPanel {
 	 * @return
 	 */
 	public boolean verifyIdentity(String identity){
-		
-		return true;
+		boolean b = new IDCardUtil().verify(identity);
+				return b;
 	}
 	/**
 	 * 验证一个字符串是不是大于零的金额
 	 */
 	public boolean verifyMoney(String text){
-		
-		return true;
+		Pattern pattern = Pattern.compile("^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$");
+		Matcher matcher = pattern.matcher(text);
+		boolean b = matcher.matches();
+		return b;
 	}
 	/**
 	 * 检测一个字符串是不是纯数字，只要是纯数字就是正确的银行卡号
 	 */
 	public boolean verifyBank(String text){
-		return true;
+		Pattern pattern = Pattern.compile("^[0-9]*$");
+		Matcher matcher = pattern.matcher(text);
+		boolean b = matcher.matches();
+		return b;
 	}
 	/**
 	 * 检测一个字符串是不是手机号
 	 */
 	public boolean verifyPhone(String text){
-		return true;
+		Pattern pattern = Pattern.compile("^1[3|4|5|7|8][0-9]{9}$");
+		Matcher matcher = pattern.matcher(text);
+		boolean b = matcher.matches();
+		return b;
 	}
 }
 
