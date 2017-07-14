@@ -23,11 +23,11 @@ import javax.swing.JTextField;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
 
-import Utils.IDCardUtil;
 import sys.GlobalVariables;
 import sys.model.objects.AffairManager;
 import sys.model.objects.Donee;
 import sys.presenter.DoneePresenter;
+import sys.view.DataVerifyTool;
 import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 /**
@@ -342,30 +342,30 @@ public class DoneePulishJPanel extends JPanel {
 					infoLabel.repaint();
 					return;
 				}
-				else if(!verifyIdentity(identityInput.getText())){
-					infoLabel.setText("格式不正确");
+				else if(!new DataVerifyTool().verifyBirthdayCode(identityInput.getText())){
+					infoLabel.setText("身份证不存在");
 					infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(70), 
 							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
-				else if(!verifyPhone(identityInput.getText())){
-					infoLabel.setText("格式不正确");
-					infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(70),
+				else if(!new DataVerifyTool().verifyPhone(phoneField.getText())){
+					infoLabel.setText("手机号不存在");
+					infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(190),
 							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
-					
+					return;
 				}
 				
-				else if(!verifyBank(bankInput.getText())){
-					infoLabel.setText("格式不对");
+				else if(!new DataVerifyTool().verifyBank(bankInput.getText())){
+					infoLabel.setText("卡号不存在");
 					infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(270), 
 							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
 					return;
 				}
-				else if(!verifyMoney(expectedAmountInput.getText())){
-					infoLabel.setText("格式不对");
+				else if(!new DataVerifyTool().verifyMoney(expectedAmountInput.getText())){
+					infoLabel.setText("请输入数字");
 					infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(310), 
 							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 					infoLabel.repaint();
@@ -466,7 +466,7 @@ public class DoneePulishJPanel extends JPanel {
 				identityInput.setText("");
 				nameInput.setText("");
 				manButton.setSelected(true);
-				filePath="";
+				filePath="";;
 				phoneField.setText("");
 				addressInput.setText("");
 				bankInput.setText("");
@@ -479,42 +479,7 @@ public class DoneePulishJPanel extends JPanel {
 		add(resetLabel);
 		
 	}
-	/**
-	 * 验证一个字符串是不是身份证号
-	 * 只需18位数字，中间的出生日期是大于1970年1月1日，小于今天的某一天
-	 * @param identity
-	 * @return
-	 */
-	public boolean verifyIdentity(String identity){
-		boolean b = new IDCardUtil().verify(identity);
-				return b;
-	}
-	/**
-	 * 验证一个字符串是不是大于零的金额
-	 */
-	public boolean verifyMoney(String text){
-		Pattern pattern = Pattern.compile("^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$");
-		Matcher matcher = pattern.matcher(text);
-		boolean b = matcher.matches();
-		return b;
-	}
-	/**
-	 * 检测一个字符串是不是纯数字，只要是纯数字就是正确的银行卡号
-	 */
-	public boolean verifyBank(String text){
-		Pattern pattern = Pattern.compile("^[0-9]*$");
-		Matcher matcher = pattern.matcher(text);
-		boolean b = matcher.matches();
-		return b;
-	}
-	/**
-	 * 检测一个字符串是不是手机号
-	 */
-	public boolean verifyPhone(String text){
-		Pattern pattern = Pattern.compile("^1[3|4|5|7|8][0-9]{9}$");
-		Matcher matcher = pattern.matcher(text);
-		boolean b = matcher.matches();
-		return b;
-	}
+	
+	
 }
 

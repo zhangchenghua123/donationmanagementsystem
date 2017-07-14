@@ -224,6 +224,9 @@ public class DoneeDetailJPanel extends JPanel{
 		donateLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));  //移上手型
 		add(donateLabel);
 		
+		if(donee.getIsContinue()==0)
+			donateLabel.setVisible(false);
+		
 		amountLabel=new JLabel("请输入捐助金额:");
 		amountLabel.setBounds(GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(440), 
 				GetResourceClass.getRealSize(160), GetResourceClass.getRealSize(25));

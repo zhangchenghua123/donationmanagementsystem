@@ -75,7 +75,7 @@ public class AffairManMenuPanel extends JPanel {
 					return;
 				lastActiveItem.setForeground(Color.BLACK);
 				fabuDoneelabel.setForeground(Color.orange);
-				lastActiveItem=fabuDoneelabel;
+				lastActiveItem=homelabel;
 				((Container)GlobalVariables.frame.getContentPane().getComponent(1)).remove(1);
 				((Container)GlobalVariables.frame.getContentPane().getComponent(1)).add(new AffairHomeJpanel());
 				((Container)GlobalVariables.frame.getContentPane().getComponent(1)).repaint();

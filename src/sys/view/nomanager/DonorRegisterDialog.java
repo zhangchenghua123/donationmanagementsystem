@@ -24,6 +24,7 @@ import sys.model.objects.Donor;
 import sys.model.objects.Nationality;
 import sys.presenter.DonorPresenter;
 import sys.presenter.NationPresenter;
+import sys.view.DataVerifyTool;
 import sys.view.GetResourceClass;
 import sys.view.customView.ImagePanel;
 import sys.view.customView.MyComboBoxUI;
@@ -64,8 +65,7 @@ public class DonorRegisterDialog extends JDialog {
 	private JLabel infoLabel;
 	private JButton confirmButton;//确定按钮
 	private JButton cancelButton;
-	String str = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
-	Pattern p = Pattern.compile(str);
+	
 //	Matcher m = p.matcher(email);
 	
 	public DonorRegisterDialog(Frame owner){
@@ -216,7 +216,7 @@ public class DonorRegisterDialog extends JDialog {
 					infoLabel.repaint();
 					return;
 				}
-				else if(!p.matcher(mailboxField.getText()).matches()){
+				else if(!new DataVerifyTool().verifyMail((mailboxField.getText()))){
 					infoLabel.setText("邮箱格式不正确");
 					infoLabel.setBounds(GetResourceClass.getRealSize(460), GetResourceClass.getRealSize(180), 
 							GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
