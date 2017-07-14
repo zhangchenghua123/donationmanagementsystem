@@ -37,7 +37,7 @@ public class DonationPresenter {
 	 */
 	public static boolean insert(Donation donation){
 		Object[] object=new Object[]{donation.getTime(),donation.getDonorAccount(),donation.getDoneeIdentity(),
-				donation.getAmount(),donation.getHasPaid()};
+				donation.getAmount(),0};
 		return new DonationDaoImpl().insert(object);
 	}
 	/**
@@ -60,11 +60,9 @@ public class DonationPresenter {
 	 * 1
 	 * 修改捐助记录状态为已打款
 	 */
-	public static boolean updateState(Date data,String account,String identity){
-		//Object[] object=new Object[3];
-		Object[] object=new Object[]{data,account,identity};
+	public static boolean updateState(ArrayList<Donation> list){
 		DonationDaoImpl dntd=new DonationDaoImpl();
-		boolean dnt=dntd.updateState(object);
+		boolean dnt=dntd.updateState(list);
 		return dnt;
 	}
 	/**

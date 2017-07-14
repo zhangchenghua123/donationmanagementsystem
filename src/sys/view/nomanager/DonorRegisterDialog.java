@@ -260,8 +260,6 @@ public class DonorRegisterDialog extends JDialog {
 			             state=Quit;
 			        }  
 				}
-				
-				
 			}
 		});
 	}

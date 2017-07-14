@@ -60,8 +60,9 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 	}
 
 	@Override
-	public boolean updateState(Object[] objects) {
+	public boolean updateState(ArrayList<Donation> list) {
 		// TODO Auto-generated method stub
+		Object[] objects=new Object[3];
 		String sql = "update donation set paid=? where time=?" + " and donoraccount=? " + " and doneeidentity=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -98,7 +99,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -131,7 +132,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -161,7 +162,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));
@@ -216,7 +217,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			ArrayList<Donation> list=new ArrayList<>();
 			while (rs.next()) {
 				Donation donation = new Donation();
-				donation.setTime(rs.getTimestamp(1));
+				donation.setTime(new Date(rs.getTimestamp(1).getTime()));
 				donation.setDonorAccount(rs.getString(2));
 				donation.setDonorName(rs.getString(3));
 				donation.setDoneeIdentity(rs.getString(4));

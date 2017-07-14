@@ -108,7 +108,7 @@ public class DoneeItemPanel extends JPanel{
 		jindutiaoPanel.setOpaque(false);
 		jindutiaoPanel.setBounds(GetResourceClass.getRealSize(170), GetResourceClass.getRealSize(112), 
 				GetResourceClass.getRealSize(80), GetResourceClass.getRealSize(15));
-		int jindu=(int) (donee.getDonatedamount()/donee.getExpectedamount())*112;
+		int jindu=(int) (donee.getDonatedamount()/donee.getExpectedamount()*80);
 		jindutiaoPanel.setBorder(BorderFactory.createMatteBorder(1, GetResourceClass.getRealSize(jindu+1), 1, 1, Color.green));
 		add(jindutiaoPanel);
 		
@@ -159,7 +159,7 @@ public class DoneeItemPanel extends JPanel{
 				// TODO Auto-generated method stub
 				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
 				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
-				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(DoneeItemPanel.this.donee));
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DoneeDetailJPanel(DoneeItemPanel.this.donee.getIdentity()),1);
 			}
 		});
 	}

@@ -15,10 +15,11 @@ public interface DonationDao {
 	
 	/**
 	 * 修改打款状态为已打款
-	 * @param objects: 时间，捐助者账号，受捐者身份证号
+	 * 触发器会修改donee表的receivedamount和平台银行卡的余额
+	 * @param ArrayList<Donation>:捐助对象的集合，已知参数不为空，size大于等于1，每个donation对象有 时间，捐助者账号，受捐者身份证号
 	 * @return boolean true 成功 false 失败
 	 */
-	public boolean updateState(Object[] objects);
+	public boolean updateState(ArrayList<Donation> list);
 	
 	/**
 	 * 根据捐助者账户查找，多表查询 捐助表，受捐者表

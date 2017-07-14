@@ -96,6 +96,9 @@ public class DonorPresenter {
 		}
 		return false;
 	}
-	
+	public static boolean updateTolMoney(String account,float increase){
+		Object[] objects=new Object[]{account,increase};
+		return new DonorDaoImpl().updateTolMoney(objects);
+	}
 	
 }
