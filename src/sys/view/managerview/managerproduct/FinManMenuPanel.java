@@ -1,4 +1,4 @@
-package sys.view.manager.managerproduct;
+package sys.view.managerview.managerproduct;
 
 import java.awt.Color;
 import java.awt.FlowLayout;

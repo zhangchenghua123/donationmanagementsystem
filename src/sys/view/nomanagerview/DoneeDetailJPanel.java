@@ -1,4 +1,4 @@
-package sys.view.nomanager;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -31,7 +31,7 @@ import sys.presenter.DoneePresenter;
 import sys.presenter.DonorPresenter;
 import sys.view.GetResourceClass;
 import sys.view.LoginDialog;
-import sys.view.customView.ImagePanel;
+import sys.view.customview.ImagePanel;
 import sys.view.tableitem.DoneeItemPanel;
 
 public class DoneeDetailJPanel extends JPanel{

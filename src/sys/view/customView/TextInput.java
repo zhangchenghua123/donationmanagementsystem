@@ -1,4 +1,4 @@
-package sys.view.customView;
+package sys.view.customview;
 
 import java.awt.Color;
 import java.awt.Graphics;

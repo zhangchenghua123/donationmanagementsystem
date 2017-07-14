@@ -64,6 +64,7 @@ public class DoneeDaoImpl implements DoneeDao {
 			rs.close();
 			pstmt.close();
 			databaseConnection.closeConnection();
+			System.out.println(b);
 			return b;
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -91,7 +92,7 @@ public class DoneeDaoImpl implements DoneeDao {
 						b=true;
 					else
 						b=false;
-					
+					System.out.println("fdsa"+b);
 					//逆序关闭连接和释放空间
 					rs.close();
 					pstmt.close();
@@ -163,8 +164,11 @@ public class DoneeDaoImpl implements DoneeDao {
 			pstmt.setInt(14, 1);
 			pstmt.setInt(15, 0);
 			
-			if(pstmt.executeUpdate()==1)
+			if(pstmt.executeUpdate()==1){
+				pstmt.close();
+				databaseConnection.closeConnection();
 				return true;
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

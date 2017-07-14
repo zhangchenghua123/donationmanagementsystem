@@ -107,7 +107,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 					return affMg;
 				}
 	        }
-			//return ;
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

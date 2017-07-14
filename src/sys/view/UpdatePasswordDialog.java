@@ -5,24 +5,15 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.HashMap;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import sys.GlobalVariables;
 import sys.presenter.AffairManagerPresenter;
 import sys.presenter.DonorPresenter;
 import sys.presenter.FinManagerPresenter;
-import sys.presenter.LoginPresenter;
 import sys.presenter.SystemManagerPresenter;
-import sys.view.customView.TextInput;
-
+import sys.view.customview.TextInput;
 public class UpdatePasswordDialog extends JDialog {
 
 	private JLabel label1;

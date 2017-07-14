@@ -1,10 +1,10 @@
-package sys.view.manager;
+package sys.view.managerview;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import sys.view.GetResourceClass;
-import sys.view.customView.ImagePanel;
+import sys.view.customview.ImagePanel;
 /**
  * 系统管理员主页上的任务委托情况
  * @author Berry

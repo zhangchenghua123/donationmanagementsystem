@@ -1,4 +1,4 @@
-package sys.view.nomanager;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -17,7 +17,7 @@ import sun.security.jca.GetInstance;
 import sys.GlobalVariables;
 import sys.model.objects.Announcement;
 import sys.view.GetResourceClass;
-import sys.view.customView.ImagePanel;
+import sys.view.customview.ImagePanel;
 
 public class AnmtDetailJPanel extends JPanel {
 

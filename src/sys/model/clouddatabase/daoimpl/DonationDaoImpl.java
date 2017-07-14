@@ -67,11 +67,14 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, 1);
-			pstmt.setTimestamp(2, new Timestamp(((Date) objects[0]).getTime()));
-			pstmt.setString(3, (String) objects[1]);
-			pstmt.setString(4, (String) objects[2]);
-
+			for(Donation object : list){ 
+				pstmt.setInt(1, 1); 
+				pstmt.setTimestamp(2,new Timestamp(((Date) objects[0]).getTime())); 
+				pstmt.setString(3, object.getDonorAccount()); 
+				pstmt.setString(4, object.getDoneeIdentity()); 
+				pstmt.addBatch(); 
+			} 
+			
 			int i = pstmt.executeUpdate();
 			pstmt.close();
 			databaseConnection.closeConnection();
@@ -141,7 +144,9 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 				donation.setHasPaid(rs.getInt(7) == 0 ? "否" : "是");
 				list.add(donation);
 			}
-			// return ;
+			rs.close();
+			pstmt.close();
+			databaseConnection.closeConnection();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();

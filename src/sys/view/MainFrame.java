@@ -7,7 +7,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
-import sys.view.nomanager.ContainerJPanel;
+import sys.view.nomanagerview.ContainerJPanel;
 
 
 public class MainFrame extends JFrame{

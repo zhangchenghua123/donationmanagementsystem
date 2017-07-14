@@ -12,6 +12,7 @@ public interface BankCardDao {
 	
 	/**
 	 * 修改余额
+	 * 此步在触发器中进行
 	 * @param float:新余额
 	 * @return Boolean true：修改成功 false：修改失败
 	 */
@@ -19,6 +20,7 @@ public interface BankCardDao {
 	
 	/**
 	 * 修改总捐助金额
+	 * 此步在触发器中进行
 	 * @param objects:新添加的捐助金额
 	 * @return boolean true 修改成功，false 修改失败
 	 */

@@ -17,9 +17,9 @@ import javax.swing.plaf.ComboBoxUI;
 
 import sys.GlobalVariables;
 import sys.presenter.LoginPresenter;
-import sys.view.customView.ImagePanel;
-import sys.view.customView.MyComboBoxUI;
-import sys.view.customView.TextInput;
+import sys.view.customview.ImagePanel;
+import sys.view.customview.MyComboBoxUI;
+import sys.view.customview.TextInput;
 
 public class LoginDialog extends JDialog {
 

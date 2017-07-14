@@ -1,4 +1,4 @@
-package sys.view.manager;
+package sys.view.managerview;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -17,7 +17,7 @@ import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 import sys.presenter.AnmtPresenter;
 import sys.view.GetResourceClass;
-import sys.view.customView.TextInput;
+import sys.view.customview.TextInput;
 /**
  * 公告发布界面
  * @author Berry

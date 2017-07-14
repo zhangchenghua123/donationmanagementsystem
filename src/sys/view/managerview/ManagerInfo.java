@@ -1,4 +1,4 @@
-package sys.view.manager;
+package sys.view.managerview;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -14,7 +14,7 @@ import sys.model.objects.AffairManager;
 import sys.model.objects.SystemManager;
 import sys.view.GetResourceClass;
 import sys.view.UpdatePasswordDialog;
-import sys.view.customView.ImagePanel;
+import sys.view.customview.ImagePanel;
 /**
  * 管理人员登陆后主页上的个人信息板块
  * @author Berry

@@ -1,4 +1,4 @@
-package sys.view.manager.managerfactory;
+package sys.view.managerview.managerfactory;
 
 import javax.swing.JPanel;
 

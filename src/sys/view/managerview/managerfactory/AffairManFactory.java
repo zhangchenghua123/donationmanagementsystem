@@ -1,8 +1,8 @@
-package sys.view.manager.managerfactory;
+package sys.view.managerview.managerfactory;
 
 import javax.swing.JPanel;
 
-import sys.view.manager.managerproduct.AffairManMenuPanel;
+import sys.view.managerview.managerproduct.AffairManMenuPanel;
 
 public class AffairManFactory extends Factory {
 

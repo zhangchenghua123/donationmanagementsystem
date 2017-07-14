@@ -1,4 +1,4 @@
-package sys.view.manager;
+package sys.view.managerview;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -29,7 +29,7 @@ import sys.model.objects.Donee;
 import sys.presenter.DoneePresenter;
 import sys.view.DataVerifyTool;
 import sys.view.GetResourceClass;
-import sys.view.customView.ImagePanel;
+import sys.view.customview.ImagePanel;
 /**
  * 受助者信息发布panel
  * @author Berry
@@ -372,6 +372,7 @@ public class DoneePulishJPanel extends JPanel {
 					return;
 				}
 				else {
+					System.out.println(phoneField.getText());
 					switch (DoneePresenter.validate(identityInput.getText(), phoneField.getText(), bankInput.getText())) {
 					case DoneePresenter.IDENTITY_EXISTED:
 						infoLabel.setText("已存在");
@@ -381,6 +382,7 @@ public class DoneePulishJPanel extends JPanel {
 						return;
 					case DoneePresenter.PHONE_EXISTED:
 						infoLabel.setText("已存在");
+						System.out.println("dianhuacunzai");
 						infoLabel.setBounds(GetResourceClass.getRealSize(455), GetResourceClass.getRealSize(190), 
 								GetResourceClass.getRealSize(150), GetResourceClass.getRealSize(20));
 						infoLabel.repaint();

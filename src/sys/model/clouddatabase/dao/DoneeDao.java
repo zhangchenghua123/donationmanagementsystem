@@ -69,6 +69,7 @@ public interface DoneeDao {
 	
 	/**
 	 * 更新是否继续接受援助状态为不接受
+	 * 捐助金额满后触发器自动执行，也可事例管理员手动执行
 	 * @param objects:身份证
 	 * @return true 更新成功；false 更新失败
 	 */
@@ -102,4 +103,7 @@ public interface DoneeDao {
 	 * 获取属于某一taskid的总募捐金额
 	 */
 	public float getTolDonatedAmountByTaskId(Object[] objects);
+	/**
+	 * 获取所有continue为0而finish为0的
+	 */
 }

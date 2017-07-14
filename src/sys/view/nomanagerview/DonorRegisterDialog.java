@@ -1,4 +1,4 @@
-package sys.view.nomanager;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,9 +26,9 @@ import sys.presenter.DonorPresenter;
 import sys.presenter.NationPresenter;
 import sys.view.DataVerifyTool;
 import sys.view.GetResourceClass;
-import sys.view.customView.ImagePanel;
-import sys.view.customView.MyComboBoxUI;
-import sys.view.customView.TextInput;
+import sys.view.customview.ImagePanel;
+import sys.view.customview.MyComboBoxUI;
+import sys.view.customview.TextInput;
 /**
  * 用户点击确认按钮时，先验证要填的信息有没有空的，再验证两次密码一致否，再验证账号是否重复，再验证邮箱是否重复，如有错误，用infoLabel高亮提示，
  * 如果用户通过验证后，再弹出模式对话框，提示用户是否立即登录，

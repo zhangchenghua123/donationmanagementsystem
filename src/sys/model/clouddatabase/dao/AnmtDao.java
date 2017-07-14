@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import sys.model.objects.Announcement;
 
 public interface AnmtDao {
-
 	/**
 	 * 插入一个公告
 	 * @author 邓
@@ -13,9 +12,8 @@ public interface AnmtDao {
 	 * @return boolean true:插入成功， false:插入失败
 	 */
 	public boolean insert(Object[] objects);
-	
 	/**
-	 * 获取所有公告
+	 * 获取所有公告，按时间排序
 	 * @author 张
 	 * @return list:公告集合
 	 */

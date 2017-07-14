@@ -34,12 +34,11 @@ public class DoneePresenter {
 		objects1[0] = identity;
 		objects2[0] = phone;
 		objects3[0] = card;
-		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
-		if(doneeDaoImpl.identityExisted(objects1))
+		if(new DoneeDaoImpl().identityExisted(objects1))
 			return IDENTITY_EXISTED;
-		else if(doneeDaoImpl.phoneExisted(objects2))
+		else if(new DoneeDaoImpl().phoneExisted(objects2))
 			return PHONE_EXISTED;
-		else if(doneeDaoImpl.cardExisted(objects3))
+		else if(new DoneeDaoImpl().cardExisted(objects3))
 			return CARD_EXISTED;
 		return -1;
 	}

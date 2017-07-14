@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 
 import sys.GlobalVariables;
 import sys.model.objects.Donor;
-import sys.view.customView.ImagePanel;
-import sys.view.manager.ContainerJPanel;
-import sys.view.nomanager.DonorRegisterDialog;
+import sys.view.customview.ImagePanel;
+import sys.view.managerview.ContainerJPanel;
+import sys.view.nomanagerview.DonorRegisterDialog;
 
 public class HeadPanel extends ImagePanel{
 
@@ -94,7 +94,7 @@ public class HeadPanel extends ImagePanel{
 				logoffLabel.setVisible(false);
 				usernameLabel.setVisible(false);
 				GlobalVariables.frame.getContentPane().remove(1);
-				GlobalVariables.frame.getContentPane().add(new sys.view.nomanager.ContainerJPanel());
+				GlobalVariables.frame.getContentPane().add(new sys.view.nomanagerview.ContainerJPanel());
 				GlobalVariables.frame.getContentPane().repaint();
 				GlobalVariables.frame.repaint();
 				
@@ -141,7 +141,7 @@ public class HeadPanel extends ImagePanel{
 						registerLabel.setVisible(false);
 						logoffLabel.setVisible(true);
 						GlobalVariables.frame.getContentPane().remove(1);
-						GlobalVariables.frame.getContentPane().add(new sys.view.manager.ContainerJPanel());
+						GlobalVariables.frame.getContentPane().add(new sys.view.managerview.ContainerJPanel());
 						GlobalVariables.frame.getContentPane().repaint();
 						GlobalVariables.frame.repaint();
 					}

@@ -8,6 +8,8 @@ public interface DonationDao {
 
 	/**
 	 * 添加一条捐助记录
+	 * 触发器会修改平台银行卡的余额和总捐助金额，捐助者的总捐助金额，受捐者的被捐助总金额
+	 * 
 	 * @param objects:时间，捐助者账号，受捐者身份证号，捐助额，是否已打款给受助者
 	 * @return boolean:true 成功 false 失败
 	 */

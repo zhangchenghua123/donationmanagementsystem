@@ -14,14 +14,14 @@ import javax.swing.border.EmptyBorder;
 import sys.GlobalVariables;
 import sys.model.objects.Announcement;
 import sys.view.GetResourceClass;
-import sys.view.nomanager.AnmtDetailJPanel;
+import sys.view.nomanagerview.AnmtDetailJPanel;
 
 public class AnnounceItemLabel extends JLabel{
 
 	
 	public AnnounceItemLabel(final Announcement announcement){
 		super(announcement.getTitle());
-		setPreferredSize(new Dimension(GetResourceClass.getRealSize(350),GetResourceClass.getRealSize(30)));
+		setPreferredSize(new Dimension(GetResourceClass.getRealSize(290),GetResourceClass.getRealSize(30)));
 		setFont(new Font("宋体",Font.PLAIN,GetResourceClass.getRealSize(20)));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		setBorder(new EmptyBorder(0, 5, 0, 5));

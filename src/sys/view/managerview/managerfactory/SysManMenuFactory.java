@@ -1,8 +1,8 @@
-package sys.view.manager.managerfactory;
+package sys.view.managerview.managerfactory;
 
 import javax.swing.JPanel;
 
-import sys.view.manager.managerproduct.SysManMenuPanel;
+import sys.view.managerview.managerproduct.SysManMenuPanel;
 
 public class SysManMenuFactory extends Factory {
 

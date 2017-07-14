@@ -1,4 +1,4 @@
-package sys.view.customView;
+package sys.view.customview;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;

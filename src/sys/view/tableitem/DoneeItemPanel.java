@@ -18,8 +18,8 @@ import javax.swing.border.BevelBorder;
 import sys.GlobalVariables;
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
-import sys.view.customView.ImagePanel;
-import sys.view.nomanager.DoneeDetailJPanel;
+import sys.view.customview.ImagePanel;
+import sys.view.nomanagerview.DoneeDetailJPanel;
 
 public class DoneeItemPanel extends JPanel{
 

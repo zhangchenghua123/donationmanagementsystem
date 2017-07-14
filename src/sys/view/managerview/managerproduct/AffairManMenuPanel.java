@@ -1,4 +1,4 @@
-package sys.view.manager.managerproduct;
+package sys.view.managerview.managerproduct;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -12,8 +12,8 @@ import javax.swing.border.LineBorder;
 
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
-import sys.view.manager.AffairHomeJpanel;
-import sys.view.manager.DoneePulishJPanel;
+import sys.view.managerview.AffairHomeJpanel;
+import sys.view.managerview.DoneePulishJPanel;
 import sys.view.tableitem.MenuItemJlabel;
 
 public class AffairManMenuPanel extends JPanel {

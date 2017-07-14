@@ -1,4 +1,4 @@
-package sys.view.manager.managerproduct;
+package sys.view.managerview.managerproduct;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -11,9 +11,9 @@ import javax.swing.border.LineBorder;
 
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
-import sys.view.manager.AnmtPublishJPanel;
-import sys.view.manager.SysHomeJPanel;
-import sys.view.manager.TaskDelegateJPanel;
+import sys.view.managerview.AnmtPublishJPanel;
+import sys.view.managerview.SysHomeJPanel;
+import sys.view.managerview.TaskDelegateJPanel;
 import sys.view.tableitem.MenuItemJlabel;
 
 public class SysManMenuPanel extends JPanel {

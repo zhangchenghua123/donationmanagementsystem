@@ -40,6 +40,9 @@ public class BankCardDaoImpl implements BankCardDao {
 				card.setBalance(rs.getFloat(2));
 				card.setTolDonation(rs.getFloat(3));
 			}
+			rs.close();
+			pstmt.close();
+			databaseConnection.closeConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -54,6 +57,8 @@ public class BankCardDaoImpl implements BankCardDao {
 			pstmt=conn.prepareStatement("update platformbankcard set balance=?");
 			pstmt.setFloat(1, (float) objects[0]);
 			row=pstmt.executeUpdate();
+			rs.close();
+			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -73,6 +78,8 @@ public class BankCardDaoImpl implements BankCardDao {
 			pstmt=conn.prepareStatement("update platformbankcard set toldonation= toldonation + ?");
 			pstmt.setFloat(1, (float) objects[0]);
 			row=pstmt.executeUpdate();
+			rs.close();
+			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

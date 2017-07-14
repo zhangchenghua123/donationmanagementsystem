@@ -1,4 +1,4 @@
-package sys.view.manager;
+package sys.view.managerview;
 
 import java.awt.Color;
 
@@ -6,9 +6,9 @@ import javax.swing.JPanel;
 
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
-import sys.view.manager.managerfactory.AffairManFactory;
-import sys.view.manager.managerfactory.FinManMenuFactory;
-import sys.view.manager.managerfactory.SysManMenuFactory;
+import sys.view.managerview.managerfactory.AffairManFactory;
+import sys.view.managerview.managerfactory.FinManMenuFactory;
+import sys.view.managerview.managerfactory.SysManMenuFactory;
 import sys.view.tableitem.MenuItemJlabel;
 /**
  * 管理人员登录后，根据存储的静态用户信息，显示页面
