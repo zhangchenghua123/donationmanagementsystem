@@ -4,8 +4,7 @@ import java.util.HashMap;
 
 public class IDCardUtil {
 
-	   // private String _codeError;
-
+	
 	    //wi =2(n-1)(mod 11)
 	    final int[] wi = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1};
 	    // verify digit
@@ -42,7 +41,6 @@ public class IDCardUtil {
 	          if(length==15 || length==18){
 	                return true;
 	          }else{
-	               // _codeError="错误：输入的身份证号不是15位和18位的";
 	                return false;
 	          }
 	    }
@@ -50,11 +48,9 @@ public class IDCardUtil {
 	    //判断地区码
 	    public boolean verifyAreaCode(String code){
 	          String areaCode=code.substring(0,2);
-//	          Element child=  _areaCodeElement.getChild("_"+areaCode);
 	          if(areaCodeMap.containsKey(areaCode)){
 	                return true;
 	          }else{
-	               // _codeError="错误：输入的身份证号的地区码(1-2位)["+areaCode+"]不符合中国行政区划分代码规定(GB/T2260-1999)";
 	                return false;
 	          }
 	    }
@@ -65,7 +61,6 @@ public class IDCardUtil {
 	          String month=code.substring(10,12);
 	          boolean isEighteenCode=(18==code.length());
 	          if(!dateMap.containsKey(month)){
-	             //   _codeError="错误：输入的身份证号"+(isEighteenCode?"(11-12位)":"(9-10位)")+"不存在["+month+"]月份,不符合要求(GB/T7408)";
 	                return false;
 	          }
 	          //验证日期
@@ -77,7 +72,6 @@ public class IDCardUtil {
 	          //非2月的情况
 	          if(day!=null){
 	                if(Integer.valueOf(dayCode)>day || Integer.valueOf(dayCode)<1){
-	                   //   _codeError="错误：输入的身份证号"+(isEighteenCode?"(13-14位)":"(11-13位)")+"["+dayCode+"]号不符合小月1-30天大月1-31天的规定(GB/T7408)";
 	                      return false;
 	                }
 	          }
@@ -86,14 +80,12 @@ public class IDCardUtil {
 	                //闰月的情况
 	                if((year%4==0&&year%100!=0)||(year%400==0)){
 	                      if(Integer.valueOf(dayCode)>29 || Integer.valueOf(dayCode)<1){
-	                           // _codeError="错误：输入的身份证号"+(isEighteenCode?"(13-14位)":"(11-13位)")+"["+dayCode+"]号在"+year+"闰年的情况下未符合1-29号的规定(GB/T7408)";
 	                            return false;
 	                      }
 	                }
 	                //非闰月的情况
 	                else{
 	                      if (Integer.valueOf(dayCode) > 28 || Integer.valueOf(dayCode) < 1) {
-	                        //    _codeError="错误：输入的身份证号"+(isEighteenCode?"(13-14位)":"(11-13位)")+"["+dayCode+"]号在"+year+"平年的情况下未符合1-28号的规定(GB/T7408)";
 	                            return false;
 	                      }
 	                }
@@ -112,20 +104,14 @@ public class IDCardUtil {
 	          char[] ch = str.toCharArray();
 	          for (int i = 0; i < ch.length; i++) {
 	                if (! (ch[i] >= '0' && ch[i] <= '9')) {
-	                     // _codeError="错误：输入的身份证号第"+(i+1)+"位包含字母";
 	                      return false;
 	                }
 	          }
 	          return true;
 	    }
-	/*
-	    public String getCodeError(){
-	          return _codeError;
-	    }
-	*/
+
 	    //验证身份证
 	    public boolean verify(String idcard) {
-	         // _codeError="";
 	          //验证身份证位数,15位和18位身份证
 	          if(!verifyLength(idcard)){
 	              return false;
@@ -168,11 +154,6 @@ public class IDCardUtil {
 	          if (verify.equals(verifyIndex)) {
 	                return true;
 	          }
-//	          int x=17;
-//	          if(code.length()==15){
-//	                x=14;
-//	          }
-	        //  _codeError="错误：输入的身份证号最末尾的数字验证码错误";
 	          return false;
 	    }
 
