@@ -209,7 +209,7 @@ public class DataVerifyTool {
 	 */
 	public boolean verifyMoney(String text) {
 		Pattern pattern = Pattern
-				.compile("^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$");
+				.compile("^[1-9]\\d*\\.\\d{1,2}|^0\\.([0-9]){1,2}$|^[1-9]*$");
 		Matcher matcher = pattern.matcher(text);
 		boolean b = matcher.matches();
 		return b;
