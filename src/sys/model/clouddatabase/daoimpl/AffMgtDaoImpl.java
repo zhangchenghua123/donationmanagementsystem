@@ -21,12 +21,10 @@ public class AffMgtDaoImpl implements AffMgtDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
-	
 	public AffMgtDaoImpl(){
 		databaseConnection=new DatabaseConnection();
 		conn=databaseConnection.getConnection();
 	}
-	
 	@Override
 	public boolean accountAlreadyExisted(Object[] objects) {
 		// 添加一个事例管理员前验证账号是否重复
@@ -51,11 +49,8 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
-
-	
 	@Override
 	public boolean insert(Object[] objects) {
 		// TODO 验证账号不重复后，添加至数据库
@@ -78,11 +73,8 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
-
-	
 	@Override
 	public AffairManager query(Object[] objects) {
 		// 登陆时验证事例管理员
@@ -92,7 +84,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 										+ " where account =?");
 			pstmt.setString(1, (String) objects[0]);
 			rs=pstmt.executeQuery();
-//	        int col = rs.getMetaData().getColumnCount();
 			if(rs.next()){
 				if(rs.getString(4).equals(objects[1].toString())){
 					AffairManager affMg=new AffairManager();
@@ -117,7 +108,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 	public boolean updatePassword(Object[] objects) {
 		//更新事例管理员密码
 		try{
-
 			pstmt=conn.prepareStatement("update affairManager set password=? where account=?");
 			pstmt.setString(1, (String)objects[1]);
 			pstmt.setString(2, (String)objects[0]);
@@ -142,7 +132,6 @@ public class AffMgtDaoImpl implements AffMgtDao {
 			pstmt=conn.prepareStatement("select * "
 										+ "from affairManager natural join task");
 			rs=pstmt.executeQuery();
-	        //int col = rs.getMetaData().getColumnCount();
 			while(rs.next()){
 				AffairManager affMg=new AffairManager();
 				affMg.setAccount(rs.getString(2));
@@ -161,5 +150,4 @@ public class AffMgtDaoImpl implements AffMgtDao {
 		}
 		return null;
 	}
-
 }

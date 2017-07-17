@@ -1,6 +1,7 @@
 package sys.view;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,7 +19,13 @@ import sys.model.objects.Donor;
 import sys.view.customview.ImagePanel;
 import sys.view.managerview.ContainerJPanel;
 import sys.view.nomanagerview.DonorRegisterDialog;
-
+import sys.view.nomanagerview.PersonalInfoPanel;
+import sys.view.nomanagerview.PopupPanel;
+/**
+ * 软件顶部panel
+ * @author Berry
+ *
+ */
 public class HeadPanel extends ImagePanel{
 
 	private JLabel loginLabel;
@@ -51,6 +58,7 @@ public class HeadPanel extends ImagePanel{
 		usernameLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		usernameLabel.setBounds( GetResourceClass.getRealSize(1000), GetResourceClass.getRealSize(70),  
 				GetResourceClass.getRealSize(60),  GetResourceClass.getRealSize(20));
+		usernameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		add(usernameLabel);
 		usernameLabel.setVisible(false);
 		
@@ -151,41 +159,6 @@ public class HeadPanel extends ImagePanel{
 						loginLabel.setVisible(false);
 						registerLabel.setVisible(false);
 						usernameLabel.setText(donor.getName());
-						usernameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						usernameLabel.addMouseListener(new MouseListener() {
-							
-							@Override
-							public void mouseReleased(MouseEvent e) {
-								// TODO Auto-generated method stub
-								
-							}
-							
-							@Override
-							public void mousePressed(MouseEvent e) {
-								// TODO Auto-generated method stub
-								
-							}
-							
-							@Override
-							public void mouseExited(MouseEvent e) {
-								// TODO Auto-generated method stub
-								usernameLabel.setForeground(Color.black);
-							}
-							
-							@Override
-							public void mouseEntered(MouseEvent e) {
-								// TODO Auto-generated method stub
-								usernameLabel.setForeground(Color.blue);
-							}
-							
-							
-							@Override
-							public void mouseClicked(MouseEvent e) {
-								// TODO Auto-generated method stub
-								
-							}
-						});
-						
 						usernameLabel.setVisible(true);
 						logoffLabel.setVisible(true);
 ;					}
@@ -233,6 +206,42 @@ public class HeadPanel extends ImagePanel{
 					logoffLabel.setVisible(true);
 					
 				}
+			}
+		});
+		usernameLabel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				usernameLabel.setForeground(Color.black);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				usernameLabel.setForeground(Color.blue);
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+//				new PopupPanel().show(usernameLabel,0, 30);
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new PersonalInfoPanel(),1);
+				((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).validate();
 			}
 		});
 	}

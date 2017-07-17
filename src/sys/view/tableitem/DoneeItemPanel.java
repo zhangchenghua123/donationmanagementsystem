@@ -23,7 +23,6 @@ import sys.view.nomanagerview.DoneeDetailJPanel;
 
 public class DoneeItemPanel extends JPanel{
 
-	private int id;
 	private ImagePanel picturePanel;//头像
 	private JLabel nameLabel;//姓名
 	private JLabel lookDetailLabel;//查看详情

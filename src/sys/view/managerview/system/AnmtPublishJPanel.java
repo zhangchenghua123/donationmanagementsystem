@@ -1,4 +1,4 @@
-package sys.view.managerview;
+package sys.view.managerview.system;
 
 import java.awt.Color;
 import java.awt.Cursor;

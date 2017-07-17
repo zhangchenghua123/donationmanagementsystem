@@ -7,12 +7,12 @@ import sys.model.objects.AffairManager;
 public interface AffMgtDao {
 	/**
 	 * 添加一个事例管理员前验证账号是否重复
-	 * @param objects: 保存了事例管理员的账号
+	 * @param objects: 新管理员账号
 	 * @return b true:已有该账号 false 没重复的。
 	 */
 	public boolean accountAlreadyExisted(Object[] objects);
 	/**
-	 * 验证账号不重复后，添加至数据库
+	 * 添加一个事例管理员
 	 * @param objects:保存了事例管理员的账号，姓名，密码，任务id
 	 * @return b true:添加成功 false:添加失败
 	 */
@@ -24,7 +24,7 @@ public interface AffMgtDao {
 	 */
 	public AffairManager query(Object[] objects);
 	/**
-	 * 修改密码。说明：修改密码时要输入旧密码，验证旧密码正误。此时全局变量里保存着旧密码，可提前验证。此步是直接更新密码
+	 * 修改密码
 	 * @param objects,保存着要修改的事例管理员的账号,新密码
 	 * @return b true:修改成功  ;false:修改失败
 	 */

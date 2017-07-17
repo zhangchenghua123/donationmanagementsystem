@@ -15,7 +15,7 @@ import sys.model.objects.AffairManager;
 public class AffairManagerPresenter {
 
 	/**
-	 * 1
+	 * 
 	 */
 	public static boolean accountAlreadyExisted(String account){
 		AffMgtDaoImpl aff=new AffMgtDaoImpl();
@@ -102,13 +102,6 @@ public class AffairManagerPresenter {
 		ArrayList<AffairManager> list=new ArrayList<AffairManager>();
 		list=aff.queryAll();
 		if(list!=null){
-			/*String[][] s=new String[list.size()][3];
-			int length=list.size();
-			for(int i=0;i<length;i++){
-				s[i][0]=list.get(i).getAccount();
-				s[i][1]=list.get(i).getName();
-				s[i][2]=list.get(i).getTask();
-			}*/
 			return list;
 		}
 		return null;

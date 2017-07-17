@@ -26,7 +26,6 @@ public class SysMgtDaoImpl implements SysMgtDao {
 	
 	@Override
 	public String query(Object[] objects) {
-		
 		String name=null;
 		try {
 			pstmt=conn.prepareStatement("select * from systemmanager where account=? and password=?");
@@ -41,8 +40,6 @@ public class SysMgtDaoImpl implements SysMgtDao {
 		}
 		return name;
 	}
-
-	
 	@Override
 	public boolean updatePassword(Object[] objects) {
 		int row=0;

@@ -12,7 +12,7 @@ import sys.view.GetResourceClass;
 
 
 /**
- * 可以添加图片背景的jpanel
+ * 自定义可以添加图片背景的jpanel
  * 
  * 
  */

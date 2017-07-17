@@ -1,4 +1,4 @@
-package sys.view.tableitem;
+package sys.view.managerview;
 
 import java.awt.Color;
 import java.awt.Cursor;

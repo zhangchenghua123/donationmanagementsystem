@@ -21,6 +21,7 @@ public class BankCardPresenter {
 	}
 	/**
 	 * 2
+	 * 不用写
 	 * 更新余额，newBalance是更新后的余额，不是添加的。
 	 */
 	public static boolean updateBalance(float newBalance){
@@ -34,6 +35,7 @@ public class BankCardPresenter {
 	}
 	/**
 	 * 2
+	 * 不用写
 	 * 添加捐助总额，这个是要增加的捐助额。
 	 */
 	public static boolean addTolDanotion(float donation){

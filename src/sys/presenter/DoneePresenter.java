@@ -49,10 +49,10 @@ public class DoneePresenter {
 	 * 
 	 * @return
 	 */
-	public static ArrayList<Donee> getAll() {
+	public static ArrayList<Donee> getOnePage(int firstInedx) {
 		ArrayList<Donee> list = new ArrayList<Donee>();
 		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
-		list = doneeDaoImpl.getAll();
+		list = doneeDaoImpl.getOnePage(firstInedx);
 			return list;
 	}
 
@@ -74,6 +74,7 @@ public class DoneePresenter {
 	}
 	/**
 	 * 2
+	 * 不用写
 	 * @param identity
 	 * @param increase
 	 * @return
@@ -88,6 +89,7 @@ public class DoneePresenter {
 	}
 	/**
 	 * 2
+	 * 不用写
 	 * @param identity
 	 * @param increase
 	 * @return
@@ -119,7 +121,7 @@ public class DoneePresenter {
 	 * @param identity
 	 * @return
 	 */
-	public static boolean updateFinish(ArrayList<String> identities) {
+	public static boolean updateFinish(ArrayList<Donee> identities) {
 		
 		boolean isSuccess = new DoneeDaoImpl().updateFinish(identities);
 		if(isSuccess)
@@ -132,12 +134,13 @@ public class DoneePresenter {
 	 * @param id
 	 * @return
 	 */
-	public static ArrayList<Donee> getDoneeByTaskId(int id){
-		Object[] objects = new Object[1];
+	public static ArrayList<Donee> getDoneeByCondition(int id,String type){
+		Object[] objects = new Object[2];
 		objects[0] = id;
+		objects[1] = type;
 		ArrayList<Donee> list = new ArrayList<Donee>();
 		DoneeDaoImpl doneeDaoImpl = new DoneeDaoImpl();
-		list = doneeDaoImpl.getDoneeByTaskId(objects);
+		list = doneeDaoImpl.getDoneeByCondition(objects);
 			return list;
 
 	}
@@ -176,5 +179,11 @@ public class DoneePresenter {
 				donee.getAddress(),donee.getBank(),donee.getTaskID(),donee.getReleaseTime(),donee.getExpectedamount(),
 				donee.getExperience()};
 		return new DoneeDaoImpl().insert(objects);
+	}
+	/**
+	 * 获取受助者总数
+	 */
+	public static int getAllCount(){
+		return new DoneeDaoImpl().getCount();
 	}
 }

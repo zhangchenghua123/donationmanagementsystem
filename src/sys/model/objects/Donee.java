@@ -13,23 +13,23 @@ import javax.swing.ImageIcon;
  */
 public class Donee {
 
-	private  String identity;
-	private  String name;
-	private String gender;
-	private int age;
-	private String filePath;
-	private ImageIcon pic;
-	private String phone;
-	private String address;
-	private String bank;
-	private int taskID;
-	private Date releaseTime;
-	private float expectedamount;
-	private String experience;
-	private float donatedamount;
-	private float receivedamount;
-	private  int isContinue;
-	private  int finish;
+	private  String identity;//身份证号
+	private  String name;//姓名
+	private String gender;//性别
+	private int age;//年龄
+	private String filePath;//图片路径
+	private ImageIcon pic;//头像
+	private String phone;//电话
+	private String address;//地址
+	private String bank;//银行卡
+	private int taskID;//所属任务ID
+	private Date releaseTime;//发布时间
+	private float expectedamount;//期望金额
+	private String experience;//经历
+	private float donatedamount;//已募捐金额
+	private float receivedamount;//已发放金额
+	private  int isContinue;//是否继续
+	private  int finish;//是否结束
 	
 	
 	

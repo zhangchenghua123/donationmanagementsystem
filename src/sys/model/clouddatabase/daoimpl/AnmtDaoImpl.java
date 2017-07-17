@@ -29,7 +29,6 @@ public class AnmtDaoImpl implements AnmtDao {
 		databaseConnection=new DatabaseConnection();
 		conn=databaseConnection.getConnection();
 	}
-	
 	@Override
 	public boolean insert(Object[] objects) {
 		// 插入一个公告
@@ -56,14 +55,13 @@ public class AnmtDaoImpl implements AnmtDao {
 		ArrayList<Announcement> list=new ArrayList<Announcement>();
 		try{
 			pstmt=conn.prepareStatement("select * "
-										+ "from announcement");
+										+ "from announcement order by time desc");
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				Announcement ann=new Announcement();
 				ann.setTime(rs.getTimestamp(1));
 				ann.setTitle(rs.getString(2));
 				ann.setContent(rs.getString(3));
-				
 	            list.add(ann);
 	        }
 			rs.close();

@@ -50,6 +50,7 @@ public class LoginDialog extends JDialog {
 				GetResourceClass.getRealSize(240));// 不可修改
 
 		setLayout(null);
+		setTitle("登录");
 		
 		loginJLabel = new JLabel("账号:");
 		loginJLabel.setBounds(GetResourceClass.getRealSize(30),

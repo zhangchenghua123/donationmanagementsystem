@@ -17,37 +17,31 @@ public class FinMgtDaoImpl implements FinMgtDao {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
-	
 	public FinMgtDaoImpl()
 	{
 		databaseConnection = new DatabaseConnection();
 		conn = databaseConnection.getConnection();
 	}
-	
 	@Override
 	public String query(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql = "select * from financialManager where account=? and password=?";
 		String name = null;
-				try{
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, (String) objects[0]);
-					pstmt.setString(2, (String) objects[1]);
-					rs = pstmt.executeQuery();
-					if(rs.next())
-					{
-						//String account = rs.getString("account");
-					     name = rs.getString("name");
-					}
-				}catch (SQLException e) {
-					e.printStackTrace();
-				}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, (String) objects[0]);
+			pstmt.setString(2, (String) objects[1]);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				name = rs.getString("name");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return name;
 	}
 
 	@Override
 	public boolean updatePassword(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql = "update financialManager set password = ?";
 		int i = 0;
 		try{

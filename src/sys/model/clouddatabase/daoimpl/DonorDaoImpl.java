@@ -25,7 +25,6 @@ public class DonorDaoImpl implements DonorDao {
 
 	@Override
 	public boolean accountExisted(Object[] objects) {
-		
 		String sql = "select * from donor where account=?";
 		try{
 			pstmt = conn.prepareStatement(sql);
@@ -40,10 +39,8 @@ public class DonorDaoImpl implements DonorDao {
 		}
 		return false;
 	}
-
 	@Override
 	public boolean mailboxExisted(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql = "select * from donor where mailbox=?";
 		try{
 			pstmt = conn.prepareStatement(sql);
@@ -61,39 +58,31 @@ public class DonorDaoImpl implements DonorDao {
 
 	@Override
 	public boolean insert(Object[] objects) {
-		
-		String sql = "Insert into donor Values(?,?,?,?,?,?)";//生成SQL语句
-			
+		String sql = "Insert into donor Values(?,?,?,?,?,?)";// 生成SQL语句
 		try {
-		//给？赋值
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, (String) objects[0]);
-		pstmt.setString(2, (String) objects[1]);
-		pstmt.setInt(3, (int) objects[2]);
-		pstmt.setString(4, (String) objects[3]);
-		pstmt.setString(5, (String) objects[4]);
-		pstmt.setFloat(6, 0);
-				int i=pstmt.executeUpdate();
-					pstmt.close();
-					databaseConnection.closeConnection();
-					if(i==1)
-					return true;
-					else
-						return false;
-		
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		//执行SQL语句
+			// 给？赋值
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, (String) objects[0]);
+			pstmt.setString(2, (String) objects[1]);
+			pstmt.setInt(3, (int) objects[2]);
+			pstmt.setString(4, (String) objects[3]);
+			pstmt.setString(5, (String) objects[4]);
+			pstmt.setFloat(6, 0);
+			int i = pstmt.executeUpdate();
+			pstmt.close();
+			databaseConnection.closeConnection();
+			if (i == 1)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
-	
 	}
-	
 
 	@Override
 	public boolean updatePassword(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql="update donor set password=? where account=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -106,16 +95,13 @@ public class DonorDaoImpl implements DonorDao {
 				return false;
 				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
 
 	@Override
 	public boolean updateTolMoney(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql="update donor set tolmoney=? where account=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -126,21 +112,14 @@ public class DonorDaoImpl implements DonorDao {
 				return true;
 			else
 				return false;
-				
 		} catch (SQLException e) {                                                                                                               
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
-
 	@Override
 	public Donor query(Object[] objects) {
-		// TODO Auto-generated method stub
-		
 		  try{
-		 
 			pstmt=conn.prepareStatement("select * "
 										+ "from donor natural join nationality"
 										+ " where account =? and password=?");
@@ -156,22 +135,18 @@ public class DonorDaoImpl implements DonorDao {
 					don.setMailbox(rs.getString(5));
 					don.setTolMoney(rs.getFloat(6));
 					don.setNation(rs.getString(7));
-					
 					rs.close();
 					pstmt.close();
 					databaseConnection.closeConnection();
 					return don;
 	        }
-			//return ;
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		try {
 			pstmt=conn.prepareStatement("select count(*) from donor");
 			rs=pstmt.executeQuery();
@@ -184,13 +159,8 @@ public class DonorDaoImpl implements DonorDao {
 				return count;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
 		return 0;
 	}
-
-
-
 }

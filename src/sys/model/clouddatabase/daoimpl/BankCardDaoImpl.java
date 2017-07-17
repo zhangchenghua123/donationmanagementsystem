@@ -29,7 +29,6 @@ public class BankCardDaoImpl implements BankCardDao {
 	}
 	@Override
 	public PlatformBankCard query() {
-		
 		PlatformBankCard card=null;
 		try {
 			pstmt=conn.prepareStatement("select * from platformbankcard");
@@ -48,10 +47,8 @@ public class BankCardDaoImpl implements BankCardDao {
 		}
 		return card;
 	}
-
 	@Override
 	public boolean updateBalance(Object[] objects) {
-
 		int row=0;
 		try {
 			pstmt=conn.prepareStatement("update platformbankcard set balance=?");

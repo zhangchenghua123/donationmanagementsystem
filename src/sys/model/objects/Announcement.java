@@ -9,9 +9,9 @@ import java.util.Date;
  *
  */
 public class Announcement {
-	private Date time;
-	private String title;
-	private String content;
+	private Date time;//时间
+	private String title;//标题
+	private String content;//内容
 	
 	public Date getTime() {
 		return time;

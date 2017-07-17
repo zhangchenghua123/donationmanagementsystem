@@ -2,7 +2,7 @@ package sys.view.managerview.managerfactory;
 
 import javax.swing.JPanel;
 
-import sys.view.managerview.managerproduct.FinManMenuPanel;
+import sys.view.managerview.finance.FinManMenuPanel;
 
 public class FinManMenuFactory extends Factory {
 

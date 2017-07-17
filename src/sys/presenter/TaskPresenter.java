@@ -39,6 +39,8 @@ public class TaskPresenter {
 		}
 		return -1;
 	}
-	
+	public static boolean taskExisted(String task){
+		return new TaskDaoImpl().nameExisted(new Object[]{task});
+	}
 	
 }

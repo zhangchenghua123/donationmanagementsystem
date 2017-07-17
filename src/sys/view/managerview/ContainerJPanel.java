@@ -6,10 +6,12 @@ import javax.swing.JPanel;
 
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
+import sys.view.managerview.affair.AffairHomeJpanel;
+import sys.view.managerview.finance.FinHomeJPanel;
 import sys.view.managerview.managerfactory.AffairManFactory;
 import sys.view.managerview.managerfactory.FinManMenuFactory;
 import sys.view.managerview.managerfactory.SysManMenuFactory;
-import sys.view.tableitem.MenuItemJlabel;
+import sys.view.managerview.system.SysHomeJPanel;
 /**
  * 管理人员登录后，根据存储的静态用户信息，显示页面
  * @author Berry

@@ -8,11 +8,11 @@ package sys.model.objects;
  */
 public class AffairManager {
 
-	private String account;
-	private String name;
-	private String password;
-	private String task;
-	private int taskId;
+	private String account;//账号
+	private String name;//姓名
+	private String password;//密码
+	private String task;//任务名称
+	private int taskId;//任务ID
 
 	public int getTaskId() {
 		return taskId;
@@ -28,10 +28,6 @@ public class AffairManager {
 
 	public void setTask(String task) {
 		this.task = task;
-	}
-
-	public AffairManager() {
-		// TODO 自动生成的构造函数存根
 	}
 	public String getAccount() {
 		return account;

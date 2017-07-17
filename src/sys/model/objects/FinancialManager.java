@@ -10,11 +10,6 @@ public class FinancialManager {
 	private String account;    //账户
 	private String name;        //名字
 	private String password;    //密码
-	
-	
-	
-	
-	
 	public String getAccount() {
 		return account;
 	}

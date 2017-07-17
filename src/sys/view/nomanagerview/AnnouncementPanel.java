@@ -31,18 +31,24 @@ public class AnnouncementPanel extends ImagePanel {
 		
 		
 		annspJPanel=new JPanel();
-		annspJPanel.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(280), GetResourceClass.getRealSize(540));
+		
 		annspJPanel.setOpaque(false);
 		annspJPanel.setLayout(new FlowLayout(FlowLayout.CENTER,0,GetResourceClass.getRealSize(5)));
-		annspJPanel.setPreferredSize(new Dimension(GetResourceClass.getRealSize(290), GetResourceClass.getRealSize(580)));
+		
 		anmtList=AnmtPresenter.getAll();
 		for(int i=0;i<anmtList.size();i++){
 			AnnounceItemLabel announceItemLabel=new AnnounceItemLabel(anmtList.get(i));
 			annspJPanel.add(announceItemLabel);
 		}
 		
+		annspJPanel.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(50),
+				GetResourceClass.getRealSize(280), GetResourceClass.getRealSize(35*anmtList.size()));
+		annspJPanel.setPreferredSize(new Dimension(GetResourceClass.getRealSize(290), GetResourceClass.getRealSize(35*anmtList.size())));
+		
+		
 		scrollPane=new JScrollPane(annspJPanel);
-		scrollPane.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(50), GetResourceClass.getRealSize(290), GetResourceClass.getRealSize(540));
+		scrollPane.setBounds(GetResourceClass.getRealSize(5), GetResourceClass.getRealSize(50),
+				GetResourceClass.getRealSize(290), GetResourceClass.getRealSize(540));
 		scrollPane.setOpaque(false);
 		scrollPane.getViewport().setOpaque(false);
 		scrollPane.setBorder(null);

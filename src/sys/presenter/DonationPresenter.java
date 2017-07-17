@@ -69,7 +69,7 @@ public class DonationPresenter {
 	 * 获取所有未打款的捐助记录
 	 * @return
 	 */
-	public ArrayList<Donation> getAllNotPaid() {
+	public static  ArrayList<Donation> getAllNotPaid() {
 		return new DonationDaoImpl().getAllNotPaid();
 	}
 }

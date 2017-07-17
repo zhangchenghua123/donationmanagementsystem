@@ -15,12 +15,13 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
+	
 	public TaskDaoImpl(){
 		databaseConnection=new DatabaseConnection();
 		conn=databaseConnection.getConnection();
 	}
+	
 	@Override
-
 	public boolean nameExisted(Object[] objects) {
 		// 检查任务名是否重复
 		try {
@@ -31,16 +32,16 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 			//执行SQL语句
 			rs=pstmt.executeQuery();
 			//判断返回结果是否有数据
-			if(rs.next())
+			if(rs.next()){
 				//释放资源
 				rs.close();
 				pstmt.close();
 				databaseConnection.closeConnection();
 				return true;
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
 
@@ -54,17 +55,13 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 			//执行SQL语句
 			int i=pstmt.executeUpdate();
 			if(i>0){
-				rs.close();
 				pstmt.close();
 				databaseConnection.closeConnection();
 				return true;
 			}
-			
 		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
 
@@ -84,13 +81,10 @@ public class TaskDaoImpl implements sys.model.clouddatabase.dao.TaskDao {
 				databaseConnection.closeConnection();
 				return ID;
 			}
-					
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}		
 		return 0;
-		
 	}
-
 }

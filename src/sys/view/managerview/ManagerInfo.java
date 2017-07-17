@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 
 import sys.GlobalVariables;
 import sys.model.objects.AffairManager;
+import sys.model.objects.FinancialManager;
 import sys.model.objects.SystemManager;
 import sys.view.GetResourceClass;
 import sys.view.UpdatePasswordDialog;
@@ -47,7 +48,7 @@ public class ManagerInfo extends ImagePanel {
 		
 		positionLabel=new JLabel();
 		positionLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(110), 
-				GetResourceClass.getRealSize(180), GetResourceClass.getRealSize(30));
+				GetResourceClass.getRealSize(280), GetResourceClass.getRealSize(30));
 		positionLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(16)));
 		add(positionLabel);
 		
@@ -103,6 +104,12 @@ public class ManagerInfo extends ImagePanel {
 			accountLabel.setText("账  号: "+((AffairManager)GlobalVariables.userInfo.get("user")).getAccount());
 			nameLabel.setText("姓  名: "+((AffairManager)GlobalVariables.userInfo.get("user")).getName());
 			positionLabel.setText("管理员/任务: 事例管理员/"+((AffairManager)GlobalVariables.userInfo.get("user")).getTask());
+		}
+		else if(GlobalVariables.userInfo.get("type").equals("财务人员")){
+			
+			accountLabel.setText("账  号: "+((FinancialManager)GlobalVariables.userInfo.get("user")).getAccount());
+			nameLabel.setText("姓  名: "+((FinancialManager)GlobalVariables.userInfo.get("user")).getName());
+			positionLabel.setText("管理员: 财务人员");
 		}
 	}
 

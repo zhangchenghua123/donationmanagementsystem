@@ -28,7 +28,6 @@ public class NationDaoImpl implements NationDao {
 	
 	@Override
 	public ArrayList<Nationality> getAll() {
-		// TODO Auto-generated method stub
 		String sql = "select * from nationality";
 		try{
 			pstmt = conn.prepareStatement(sql);
@@ -50,7 +49,6 @@ public class NationDaoImpl implements NationDao {
 
 	@Override
 	public int getId(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql = "select nationID from nationality where nation=?";
 		int ID = 0;
 		try{

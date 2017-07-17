@@ -30,19 +30,15 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 
 	@Override
 	public boolean insert(Object[] objects) {
-		// TODO Auto-generated method stub
 		String sql = "Insert into donation Values(?,?,?,?,?)";// 生成SQL语句
-
 		try {
-			// 给？赋值
 			pstmt = conn.prepareStatement(sql);
-
+			// 给？赋值
 			pstmt.setTimestamp(1, new Timestamp(((Date) objects[0]).getTime()));
 			pstmt.setString(2, (String) objects[1]);
 			pstmt.setString(3, (String) objects[2]);
 			pstmt.setFloat(4, (float) objects[3]);
 			pstmt.setInt(5, (int) objects[4]);
-
 			int i = pstmt.executeUpdate();
 			pstmt.close();
 			databaseConnection.closeConnection();
@@ -50,9 +46,7 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 				return true;
 			else
 				return false;
-
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -61,38 +55,28 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 
 	@Override
 	public boolean updateState(ArrayList<Donation> list) {
-		// TODO Auto-generated method stub
-		Object[] objects=new Object[3];
 		String sql = "update donation set paid=? where time=?" + " and donoraccount=? " + " and doneeidentity=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 
 			for(Donation object : list){ 
 				pstmt.setInt(1, 1); 
-				pstmt.setTimestamp(2,new Timestamp(((Date) objects[0]).getTime())); 
+				pstmt.setTimestamp(2,new Timestamp(object.getTime().getTime())); 
 				pstmt.setString(3, object.getDonorAccount()); 
 				pstmt.setString(4, object.getDoneeIdentity()); 
 				pstmt.addBatch(); 
 			} 
-			
-			int i = pstmt.executeUpdate();
+			pstmt.executeBatch();
 			pstmt.close();
 			databaseConnection.closeConnection();
-			if (i == 1)
-				return true;
-			else
-				return false;
-
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 	}
-
 	@Override
 	public ArrayList<Donation> getDonationsByDonor(Object[] objects) {
-		// TODO Auto-generated method stub
 		ArrayList<Donation> list = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement("select time,account,donor.name,identity,donee.name,amount,paid "
@@ -115,15 +99,12 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			pstmt.close();
 			databaseConnection.closeConnection();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
 	}
-
 	@Override
 	public ArrayList<Donation> getDonationByDonee(Object[] objects) {
-		// TODO Auto-generated method stub
 		try {
 			pstmt = conn.prepareStatement("select time,account,donor.name,identity,donee.name,amount,paid "
 							+ "from donation ,donor,donee" 
@@ -153,10 +134,8 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 		}
 		return null;
 	}
-
 	@Override
 	public ArrayList<Donation> getAll() {
-		// TODO Auto-generated method stub
 		try {
 			pstmt = conn.prepareStatement("select time,account,donor.name,identity,donee.name,amount,paid "
 							+ "from donation ,donor,donee" 
@@ -179,7 +158,6 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			rs.close();
 			pstmt.close();
 			databaseConnection.closeConnection();
-			// return ;
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -189,7 +167,6 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		try {
 			pstmt=conn.prepareStatement("select count(*) from donation");
 			rs=pstmt.executeQuery();
@@ -202,7 +179,6 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 				return count;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			
@@ -211,7 +187,6 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 
 	@Override
 	public ArrayList<Donation> getAllNotPaid() {
-		// TODO Auto-generated method stub
 		try {
 			pstmt = conn.prepareStatement("select time,account,donor.name,identity,donee.name,amount,paid "
 							+ "from donation ,donor,donee" 
@@ -234,7 +209,6 @@ public class DonationDaoImpl implements sys.model.clouddatabase.dao.DonationDao 
 			rs.close();
 			pstmt.close();
 			databaseConnection.closeConnection();
-			// return ;
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
