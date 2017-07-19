@@ -19,7 +19,6 @@ import sys.model.objects.Donee;
 import sys.presenter.DoneePresenter;
 import sys.view.GetResourceClass;
 import sys.view.customview.ImagePanel;
-import sys.view.tableitem.DoneeItemPanel;
 
 public class DoneeInfoJpanel extends JPanel {
 

@@ -13,12 +13,13 @@ import javax.swing.border.LineBorder;
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
 import sys.view.managerview.MenuItemJlabel;
+import sys.view.managerview.managerfactory.MenuProduct;
 /**
  * 事例管理员左侧菜单栏
  * @author Berry
  *
  */
-public class AffairManMenuPanel extends JPanel {
+public class AffairManMenuPanel extends MenuProduct {
 
 	
 	private MenuItemJlabel homelabel;
@@ -27,13 +28,7 @@ public class AffairManMenuPanel extends JPanel {
 	private MenuItemJlabel lastActiveItem;
 	
 	public AffairManMenuPanel(){
-		setLayout(new FlowLayout(1,0,0));
-		setBounds(GetResourceClass.getRealSize(15), GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(240), GetResourceClass.getRealSize(200));
-		
-		
-		setBorder(new LineBorder(new Color(228,228,228),2));
-		setBackground(new Color(250,250,250));
-		
+		super();
 		homelabel=new MenuItemJlabel("主页"); 
 		homelabel.setForeground(Color.orange);
 		lastActiveItem=homelabel;

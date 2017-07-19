@@ -32,7 +32,6 @@ import sys.presenter.DonorPresenter;
 import sys.view.GetResourceClass;
 import sys.view.LoginDialog;
 import sys.view.customview.ImagePanel;
-import sys.view.tableitem.DoneeItemPanel;
 
 public class DoneeDetailJPanel extends JPanel{
 

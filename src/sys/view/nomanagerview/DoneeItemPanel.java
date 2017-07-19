@@ -1,4 +1,4 @@
-package sys.view.tableitem;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -19,7 +19,6 @@ import sys.GlobalVariables;
 import sys.model.objects.Donee;
 import sys.view.GetResourceClass;
 import sys.view.customview.ImagePanel;
-import sys.view.nomanagerview.DoneeDetailJPanel;
 
 public class DoneeItemPanel extends JPanel{
 

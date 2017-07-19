@@ -12,8 +12,9 @@ import javax.swing.border.LineBorder;
 import sys.GlobalVariables;
 import sys.view.GetResourceClass;
 import sys.view.managerview.MenuItemJlabel;
+import sys.view.managerview.managerfactory.MenuProduct;
 
-public class SysManMenuPanel extends JPanel {
+public class SysManMenuPanel extends MenuProduct {
 
 	private MenuItemJlabel homelabel;
 	private MenuItemJlabel taskAssignlabel;
@@ -21,10 +22,7 @@ public class SysManMenuPanel extends JPanel {
 	private MenuItemJlabel lastActiveItem;
 	
 	public SysManMenuPanel(){
-		setLayout(new FlowLayout(1,0,0));
-		setBounds(GetResourceClass.getRealSize(15), GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(240), GetResourceClass.getRealSize(200));
-		setBorder(new LineBorder(new Color(228,228,228),2));
-		setBackground(new Color(250,250,250));
+		super();
 		
 		homelabel=new MenuItemJlabel("主页"); 
 		homelabel.setForeground(Color.orange);

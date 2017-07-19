@@ -13,8 +13,9 @@ import sys.GlobalVariables;
 import sys.view.GetResourceClass;
 import sys.view.managerview.MenuItemJlabel;
 import sys.view.managerview.affair.AffairHomeJpanel;
+import sys.view.managerview.managerfactory.MenuProduct;
 
-public class FinManMenuPanel extends JPanel{
+public class FinManMenuPanel extends MenuProduct{
 
 	// 财务人员
 		private MenuItemJlabel homelabel;
@@ -23,12 +24,7 @@ public class FinManMenuPanel extends JPanel{
 		private MenuItemJlabel lastActiveItem;
 		
 		public FinManMenuPanel(){
-			setLayout(new FlowLayout(1,0,0));
-			setBounds(GetResourceClass.getRealSize(15), GetResourceClass.getRealSize(30), GetResourceClass.getRealSize(240), GetResourceClass.getRealSize(200));
-			
-			
-			setBorder(new LineBorder(new Color(228,228,228),2));
-			setBackground(new Color(250,250,250));
+			super();
 			
 			homelabel=new MenuItemJlabel("主页"); 
 			homelabel.setForeground(Color.orange);

@@ -1,4 +1,4 @@
-package sys.view.tableitem;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -16,7 +16,6 @@ import javax.swing.border.MatteBorder;
 import sys.GlobalVariables;
 import sys.model.objects.Donation;
 import sys.view.GetResourceClass;
-import sys.view.nomanagerview.DoneeDetailJPanel;
 
 public class DonationHistoryItemPanel extends JPanel {
 

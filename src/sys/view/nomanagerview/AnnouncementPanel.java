@@ -10,7 +10,6 @@ import sys.model.objects.Announcement;
 import sys.presenter.AnmtPresenter;
 import sys.view.GetResourceClass;
 import sys.view.customview.ImagePanel;
-import sys.view.tableitem.AnnounceItemLabel;
 
 /**
  * 主页公告面板

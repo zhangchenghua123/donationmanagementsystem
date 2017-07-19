@@ -65,22 +65,16 @@ public class DataVerifyTool {
 
 	// 判断月份和日期
 	public boolean verifyBirthdayCode(String code) {
-
 		//验证年份
 		int year=Integer.parseInt((String) code.subSequence(6, 10));
+		String month = code.substring(10, 12);
+		String dayCode = code.substring(12, 14);
+		Integer day = dateMap.get(month);
 		if(year<1970||year>2017)
 			return false;
-		// 验证月份
-		String month = code.substring(10, 12);
-		boolean isEighteenCode = (18 == code.length());
 		if (!dateMap.containsKey(month)) {
 			return false;
 		}
-		// 验证日期
-		String dayCode = code.substring(12, 14);
-		Integer day = dateMap.get(month);
-		String yearCode = code.substring(6, 10);
-	
 		// 非2月的情况
 		if (day != null) {
 			if (Integer.valueOf(dayCode) > day || Integer.valueOf(dayCode) < 1) {
@@ -239,7 +233,8 @@ public class DataVerifyTool {
 	 * 验证邮箱格式
 	 */
 	public boolean verifyMail(String text) {
-		String str = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+		String str = "^([a-zA-Z0-9_\\-\\.]+)@" +
+				"((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
 		Pattern p = Pattern.compile(str);
 		return p.matcher(text).matches();
 	}

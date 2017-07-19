@@ -202,14 +202,14 @@ public class TaskDelegateJPanel extends JLabel {
 					return;
 				}
 				else {
-					TaskPresenter.insertNewTask(taskField.getText());
-					int taskid=TaskPresenter.getTaskIdByName(taskField.getText());
-					AffairManager affairManager=new AffairManager();
+					TaskPresenter.insertNewTask(taskField.getText());//在task表中插入任务
+					int taskid=TaskPresenter.getTaskIdByName(taskField.getText());//获取任务ID
+					AffairManager affairManager=new AffairManager();//新建一个事例管理员
 					affairManager.setAccount(affAccountField.getText());
 					affairManager.setName(affNameField.getText());
 					affairManager.setTaskId(taskid);
 					affairManager.setPassword(affPasswordField.getText());
-					if(AffairManagerPresenter.register(affairManager)){
+					if(AffairManagerPresenter.register(affairManager)){//在事例管理员表中插入数据
 						
 						((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
 						((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();

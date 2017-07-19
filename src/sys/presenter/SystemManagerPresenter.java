@@ -24,7 +24,6 @@ public class SystemManagerPresenter {
 		Object[] object=new Object[2];
 		object[0]=account;
 		object[1]=password;
-		//SystemManager sys=new SystemManager();
 		SysMgtDaoImpl sys=new SysMgtDaoImpl();
 		String name=sys.query(object);
 		if(name!=null){

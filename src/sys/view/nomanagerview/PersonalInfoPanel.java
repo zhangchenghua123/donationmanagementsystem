@@ -19,7 +19,6 @@ import sys.model.objects.Donor;
 import sys.presenter.DonationPresenter;
 import sys.view.GetResourceClass;
 import sys.view.UpdatePasswordDialog;
-import sys.view.tableitem.DonationHistoryItemPanel;
 
 public class PersonalInfoPanel extends JPanel {
 

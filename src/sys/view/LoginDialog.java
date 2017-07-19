@@ -136,14 +136,6 @@ public class LoginDialog extends JDialog {
 				String userType = type.getSelectedItem().toString();
 				String userAccount = accountField.getText();
 				String password = passwordField.getText();
-				System.out.println("输入的账户和密码分别是：" + userAccount + ","
-						+ password + ",类型是" + userType);
-				GlobalVariables.userInfo = new HashMap<String, Object>();
-				GlobalVariables.userInfo.put("type", userType);
-				/**
-				 * 判断用户名和密码是否为空，为空以对话框形式提示用户，都不为空将执行权交给LoginPresenter,
-				 * LoginPresenter验证失败后提示用户，成功调用LoginPresenter的切换页面。
-				 */
 				if (userAccount.equals("")) {
 					infoLabel.setText("请输入用户名");
 					infoLabel.setBounds(GetResourceClass.getRealSize(255), GetResourceClass.getRealSize(30),
@@ -157,13 +149,11 @@ public class LoginDialog extends JDialog {
 					infoLabel.repaint();
 					return;
 				}
-
 				loginButton.setText("正在登录");
-				if (LoginPresenter.login(userType, userAccount, password)) {
+				if(LoginPresenter.login(userType, userAccount, password)) {
 					WHO=userType.equals("捐助者")?DONOR_LOGIN:MANAGER_LOGIN;
 					loginSuccess();
 				}
-
 				else {
 					infoLabel.setText("账号或密码错误");
 					infoLabel.setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(5),

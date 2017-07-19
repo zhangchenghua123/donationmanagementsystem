@@ -9,7 +9,7 @@ public class DatabaseConnection {
 	//添加一行
 	//添加第二行
 	private static String driver = "com.mysql.jdbc.Driver";// 数据库驱动
-	private static String url = "jdbc:mysql://127.0.0.1:3306/danotionmgtsys";// 数据库地址
+	private static String url = "jdbc:mysql://111.231.10.78:3306/danotionmgtsys";// 数据库地址
 	private static String user = "root";// 账号
 	private static String password = "276951438#zch";// 密码
 	

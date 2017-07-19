@@ -23,7 +23,6 @@ public class Main {
 
 		// 单元测试
 		System.out.println("单元测试开始");
-		UnitTest.test();
 
 		// 显示主界面
 		Map map = new HashMap<>();

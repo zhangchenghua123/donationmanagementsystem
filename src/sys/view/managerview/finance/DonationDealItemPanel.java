@@ -140,8 +140,9 @@ public class DonationDealItemPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				selectedList.add(donation);
-				if(DonationPresenter.updateState(selectedList)){
+				ArrayList<Donation> list=new ArrayList<>();
+				list.add(donation);
+				if(DonationPresenter.updateState(list)){
 					((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).remove(1);
 					((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).repaint();
 					((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).add(new DealDonationPanel(),1);

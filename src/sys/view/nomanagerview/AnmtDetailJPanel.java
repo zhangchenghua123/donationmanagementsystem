@@ -96,9 +96,8 @@ public class AnmtDetailJPanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				Container container=(Container)GlobalVariables.frame.getContentPane().getComponent(1);
-				container.remove(3);
+				container.remove(2);
 				container.getComponent(1).setVisible(true);
-				container.getComponent(2).setVisible(true);
 				
 				((Container)GlobalVariables.frame.getContentPane()).repaint();
 			}

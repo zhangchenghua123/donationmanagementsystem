@@ -15,6 +15,5 @@ public class ContainerJPanel extends JPanel {
 		setBackground(Color.white);
 		add(new AnnouncementPanel());
 		add(new DoneeInfoJpanel());
-		add(new DonationJpanel());
 	}
 }

@@ -21,11 +21,11 @@ import sys.view.customview.ImagePanel;
  * @author Berry
  *
  */
-public class TaskInfoLabel extends ImagePanel {
+public class TaskInfoPanel extends ImagePanel {
 
 	private JTable table;
 	
-	public TaskInfoLabel(){
+	public TaskInfoPanel(){
 		super(new ImageIcon(GetResourceClass.class.getResource("image/taskinfo.png")));
 		setBounds(GetResourceClass.getRealSize(20), GetResourceClass.getRealSize(260), 
 				GetResourceClass.getRealSize(800), GetResourceClass.getRealSize(300));

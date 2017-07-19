@@ -1,4 +1,4 @@
-package sys.view.tableitem;
+package sys.view.nomanagerview;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -14,7 +14,6 @@ import javax.swing.border.EmptyBorder;
 import sys.GlobalVariables;
 import sys.model.objects.Announcement;
 import sys.view.GetResourceClass;
-import sys.view.nomanagerview.AnmtDetailJPanel;
 
 public class AnnounceItemLabel extends JLabel{
 
@@ -58,9 +57,8 @@ public class AnnounceItemLabel extends JLabel{
 				// TODO Auto-generated method stub
 				System.out.println(GlobalVariables.frame.getContentPane().getComponent(1));
 				Container container=(Container)GlobalVariables.frame.getContentPane().getComponent(1);
-				if(container.getComponentCount()==3){
+				if(container.getComponentCount()==2){
 					container.getComponent(1).setVisible(false);
-					container.getComponent(2).setVisible(false);
 				}
 				((Container)GlobalVariables.frame.getContentPane().getComponent(1)).add(AnmtDetailJPanel.getInstance());
 				AnmtDetailJPanel.getInstance().setData(announcement);

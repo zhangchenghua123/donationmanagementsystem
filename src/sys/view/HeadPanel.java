@@ -20,7 +20,6 @@ import sys.view.customview.ImagePanel;
 import sys.view.managerview.ContainerJPanel;
 import sys.view.nomanagerview.DonorRegisterDialog;
 import sys.view.nomanagerview.PersonalInfoPanel;
-import sys.view.nomanagerview.PopupPanel;
 /**
  * 软件顶部panel
  * @author Berry
@@ -245,5 +244,4 @@ public class HeadPanel extends ImagePanel{
 			}
 		});
 	}
-
 }

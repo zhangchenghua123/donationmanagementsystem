@@ -19,7 +19,7 @@ public class SysHomeJPanel extends JLabel {
 		setBackground(Color.white);
 		setForeground(Color.white);
 		add(new ManagerInfo());
-		add(new TaskInfoLabel());
+		add(new TaskInfoPanel());
 	}
 	
 }
