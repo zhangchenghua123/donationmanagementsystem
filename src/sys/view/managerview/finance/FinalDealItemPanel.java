@@ -106,7 +106,10 @@ public class FinalDealItemPanel extends JPanel {
 			jindutiaoPanel.setBorder(BorderFactory.createMatteBorder(1, GetResourceClass.getRealSize(jindu+1), 1, 1, Color.green));
 		add(jindutiaoPanel);
 //		
-		baifenbiLabel=new JLabel((int)(donee.getDonatedamount()*100/donee.getExpectedamount())+"%");
+		int baifenbi=(int) (donee.getDonatedamount()*100/donee.getExpectedamount());
+		if(baifenbi>100)
+			baifenbi=100;
+		baifenbiLabel=new JLabel(baifenbi+"%");
 		baifenbiLabel.setBounds(GetResourceClass.getRealSize(515), GetResourceClass.getRealSize(50),
 				GetResourceClass.getRealSize(40), GetResourceClass.getRealSize(16));
 		baifenbiLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));

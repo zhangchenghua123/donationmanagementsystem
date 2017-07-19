@@ -110,13 +110,18 @@ public class DoneeItemPanel extends JPanel{
 		jindutiaoPanel.setBorder(BorderFactory.createMatteBorder(1, GetResourceClass.getRealSize(jindu+1), 1, 1, Color.green));
 		add(jindutiaoPanel);
 		
-		baifenbiLabel=new JLabel((int)(donee.getDonatedamount()*100/donee.getExpectedamount())+"%");
+		int baifenbi=(int) (donee.getDonatedamount()*100/donee.getExpectedamount());
+		if(baifenbi>100)
+			baifenbi=100;
+		baifenbiLabel=new JLabel(baifenbi+"%");
 		baifenbiLabel.setBounds(GetResourceClass.getRealSize(255), GetResourceClass.getRealSize(112),
 				GetResourceClass.getRealSize(40), GetResourceClass.getRealSize(14));
 		baifenbiLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		add(baifenbiLabel);
 		
 		float haixu=donee.getExpectedamount()-donee.getDonatedamount();
+		if(haixu<0)
+			haixu=0;
 		String  s1="<html>还需资助:&nbsp&nbsp&nbsp<font color='red'><b>"+haixu+"元</b></font>";
 		haixujuanzhuLabel=new JLabel(s1);
 		haixujuanzhuLabel.setBounds(GetResourceClass.getRealSize(320), GetResourceClass.getRealSize(112), 
