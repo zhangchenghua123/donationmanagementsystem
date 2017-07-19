@@ -136,23 +136,20 @@ public class ContinueInstanceItemPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				if(DoneePresenter.updateContinue(donee.getIdentity())){
-					System.out.println((((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).getComponentCount()));
-					
-					new Thread(new Runnable() {
-						
-						@Override
-						public void run() {
-							// TODO Auto-generated method stub
-							((Container)(((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).getComponent(1))).remove(1);
-							((Container)(((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).getComponent(1))).repaint();
-							((Container)(((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).getComponent(1))).add(new ContinueInstancePanel(),1);
-							((Container)(((Container)(GlobalVariables.frame.getContentPane().getComponent(1))).getComponent(1))).validate();
-						}
-					}).start();
-					
-					
-				
+				if (DoneePresenter.updateContinue(donee.getIdentity())) {
+					((Container) (((Container) (GlobalVariables.frame
+							.getContentPane().getComponent(1))).getComponent(1)))
+							.remove(1);
+					((Container) (((Container) (GlobalVariables.frame
+							.getContentPane().getComponent(1))).getComponent(1)))
+							.repaint();
+					((Container) (((Container) (GlobalVariables.frame
+							.getContentPane().getComponent(1))).getComponent(1)))
+							.add(new ContinueInstancePanel(), 1);
+					((Container) (((Container) (GlobalVariables.frame
+							.getContentPane().getComponent(1))).getComponent(1)))
+							.validate();
+
 				}
 			}
 		});

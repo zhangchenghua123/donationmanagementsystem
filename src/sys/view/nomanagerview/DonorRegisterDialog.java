@@ -248,11 +248,14 @@ public class DonorRegisterDialog extends JDialog {
 				donor.setPassword(passwordField.getText());
 				donor.setTolMoney(0);
 				if(DonorPresenter.register(donor)){
+					//注册成功，隐藏注册对话框
 					DonorRegisterDialog.this.setVisible(false);
 					JLabel label=new JLabel("恭喜注册成功！\n现在以此注册的账号登录吗？");
 					label.setFont(new Font("黑体",Font.PLAIN,16));
+					//询问是否立即登录
 					int n = JOptionPane.showConfirmDialog(null, label, "注册成功", JOptionPane.YES_NO_OPTION);  
-			        if (n == JOptionPane.YES_OPTION) {  
+			        if (n == JOptionPane.YES_OPTION) {
+			        	//保存用户信息到全局静态变量
 			             DonorPresenter.login(donor.getAccount(), donor.getPassword());
 			             state=LOGIN;
 			        } else if (n == JOptionPane.NO_OPTION) {  

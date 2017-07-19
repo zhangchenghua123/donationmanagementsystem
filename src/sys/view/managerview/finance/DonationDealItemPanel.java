@@ -89,23 +89,13 @@ public class DonationDealItemPanel extends JPanel {
 			public void itemStateChanged(ItemEvent e) {
 				// TODO Auto-generated method stub
 				if(e.getItem().equals(checkBox)){
-					if(checkBox.isSelected()){
-						selectedList.add(donation);
-					}
-					else {
-						selectedList.remove(donation);
-					}
-					
-					
-					System.out.println("复选框变化了");
-					for(int i=0;i<selectedList.size();i++){
-						
-						System.out.println("选中项"+i+"  "+ selectedList.get(i).getAmount());
-					}
-				
-					if(selectedList.size()==0)
+					if(checkBox.isSelected())
+						selectedList.add(donation);    //勾选上，添加进集合
+					else 
+						selectedList.remove(donation); //从集合中移出
+					if(selectedList.size()==0)         //都没选
 						((DealDonationPanel)(DonationDealItemPanel.this.getParent().getParent())).closeSwitch();
-					else
+					else                               //至少有一个选上了
 						((DealDonationPanel)(DonationDealItemPanel.this.getParent().getParent())).openSitch();
 				}
 			}

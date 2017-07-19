@@ -82,7 +82,7 @@ public class FinalDealItemPanel extends JPanel {
 		expectedLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		add(expectedLabel);
 		
-		String s1="<html>已发放资金:&nbsp&nbsp&nbsp<font color='red'><b>"+donee.getDonatedamount()+"元</b></font>";
+		String s1="<html>已发放资金:&nbsp&nbsp&nbsp<font color='red'><b>"+donee.getReceivedamount()+"元</b></font>";
 		receivedLabel=new JLabel(s1);
 		receivedLabel.setBounds(GetResourceClass.getRealSize(200), GetResourceClass.getRealSize(50), 
 				GetResourceClass.getRealSize(170), GetResourceClass.getRealSize(16));
@@ -112,7 +112,7 @@ public class FinalDealItemPanel extends JPanel {
 		baifenbiLabel.setFont(new Font("黑体",Font.PLAIN,GetResourceClass.getRealSize(14)));
 		add(baifenbiLabel);
 		
-		finishLabel=new JLabel("发放捐助款");
+		finishLabel=new JLabel("结束募捐事例");
 		finishLabel.setBounds(GetResourceClass.getRealSize(600), GetResourceClass.getRealSize(30),
 				GetResourceClass.getRealSize(100), GetResourceClass.getRealSize(20));
 		finishLabel.setFont(new Font("黑体",Font.PLAIN,16));

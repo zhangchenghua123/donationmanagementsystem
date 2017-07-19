@@ -365,7 +365,7 @@ public class DoneeDaoImpl implements DoneeDao {
 			}
 			else if (((String) objects[1]).equals("canfinish")){
 				sql = sql
-						+ " where finish = 0 and (receivedamount>=expectedamount or donatedamount<expectedamount and continued = 0)";
+						+ " where finish = 0 and (receivedamount>=expectedamount or donatedamount=receivedamount and continued = 0)";
 				pstmt = conn.prepareStatement(sql);
 			}
 			rs = pstmt.executeQuery();
