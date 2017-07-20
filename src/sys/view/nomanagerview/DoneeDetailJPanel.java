@@ -29,6 +29,7 @@ import sys.presenter.BankCardPresenter;
 import sys.presenter.DonationPresenter;
 import sys.presenter.DoneePresenter;
 import sys.presenter.DonorPresenter;
+import sys.view.DataVerifyTool;
 import sys.view.GetResourceClass;
 import sys.view.LoginDialog;
 import sys.view.customview.ImagePanel;
@@ -322,7 +323,10 @@ public class DoneeDetailJPanel extends JPanel{
 				GetResourceClass.getRealSize(160), GetResourceClass.getRealSize(40));
 				}
 				else{//此处应有数据验证
-					
+					if(!new DataVerifyTool().verifyMoney(amountField.getText())){
+						JOptionPane.showMessageDialog(null,"非法金额");  
+						return;
+					}
 					Donation donation=new Donation();
 					donation.setTime(new Date(new java.util.Date().getTime()));
 					Donor donor=(Donor) GlobalVariables.userInfo.get("user");

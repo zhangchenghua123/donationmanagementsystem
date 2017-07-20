@@ -365,7 +365,8 @@ public class DoneeDaoImpl implements DoneeDao {
 			}
 			else if (((String) objects[1]).equals("canfinish")){
 				sql = sql
-						+ " where finish = 0 and (receivedamount>=expectedamount or donatedamount=receivedamount and continued = 0)";
+						+ " where finish = 0 and (receivedamount>=expectedamount or " +
+						"			donatedamount=receivedamount and continued = 0)";
 				pstmt = conn.prepareStatement(sql);
 			}
 			rs = pstmt.executeQuery();
@@ -417,7 +418,7 @@ public class DoneeDaoImpl implements DoneeDao {
 		float total = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setFloat(1, (float) objects[0]);
+			pstmt.setInt(1, (int) objects[0]);
 			rs = pstmt.executeQuery();
 			if(rs.next())
 			{
@@ -434,7 +435,7 @@ public class DoneeDaoImpl implements DoneeDao {
 		float total = 0;
 		try{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setFloat(1, (float) objects[0]);
+			pstmt.setInt(1, (int) objects[0]);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				total = rs.getFloat(1);
